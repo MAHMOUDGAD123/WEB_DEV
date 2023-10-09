@@ -26,11 +26,15 @@ body {
   color: white;
 }
 
+.remove {
+  display: none;
+}
+
 .container {
   margin: 70px;
   padding: 30px 50px;
   font-size: 20px;
-  background-color: rgb(221 221 221 / 0.7);
+  background-color: rgb(255 255 255 / 0.1);
 }
 
 .title {
@@ -53,3 +57,86 @@ body {
   border: 3px solid;
   padding: 5px;
 }
+
+/* COUNT_DOWN & CLOCK START */
+
+.CDC {
+  font-size: 45px;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  margin: 100px auto;
+  padding: 30px;
+  text-align: center;
+  width: 600px;
+  background-color: #5561f5;
+  border-radius: 50px;
+}
+
+.CDC.TM {
+  flex-flow: row nowrap;
+}
+.CDC.TM > span {
+  width: 70px;
+  white-space: nowrap;
+}
+
+.CDC.TM:hover > span {
+  color: orange;
+  transform: scale(1.2);
+  cursor: default;
+}
+
+.CDC.TM > p,
+.CDC.CD > .till {
+  position: absolute;
+  top: -35px;
+  font-size: 20px;
+  background-color: red;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+/* COUNT_DOWN & CLOCK END */
+
+/* CHANGE SIZE AND COLOR START */
+
+.size-color {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.size-color #sz-but,
+.size-color #col-but {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.size-color #sz-but > *,
+.size-color #col-but > * {
+  background-color: red;
+  color: #fff;
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 70px;
+  align-self: center;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.size-color #sz-but > *:hover,
+.size-color #col-but > *:hover {
+  background-color: #eee;
+  color: red;
+  transform: scale(1.1);
+}
+
+/* CHANGE SIZE AND COLOR END */
