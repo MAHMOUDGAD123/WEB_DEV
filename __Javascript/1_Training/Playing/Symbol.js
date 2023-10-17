@@ -1,9 +1,8 @@
 const log = console.log; // alias
+"use strict";
 
 log("\n\n");
 //=====================================================
-// Playground Start
-("use strict");
 
 const numbers = {
   length: 9,
@@ -23,24 +22,33 @@ const numbers = {
   // to make it support ( for..of ) loop ( like ranged-for in c++ )
   [Symbol.iterator]() {
     let i = -1;
-    done = false;
     return {
       next() {
-        if (++i === numbers.length) done = true;
-        return { value: numbers.vals[i], done: done };
+        if (++i === numbers.length) {
+          log("done");
+          return { value: undefined, done: true, };
+        }
+        log("next");
+        return { value: numbers.vals[i], done: false, };
+      },
+      return() {
+        log("returned");
+        return { value: undefined, done: true, }
       }
     };  
   },
 };
 
 
-// for (const val of numbers) log(val);
+for (const v of numbers) {
+  log(v);
+  // break;
+}
 
 log(numbers.sum);
 log(+numbers);
 log(numbers.sum);
 log(+numbers);
 
-// Playground End
 //=====================================================
 log("\n\n");

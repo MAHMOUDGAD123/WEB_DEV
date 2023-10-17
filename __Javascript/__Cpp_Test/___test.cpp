@@ -1,19 +1,19 @@
 #include <iostream>
+#include <functional>
 
-struct obj final {
-  int x = 0, y = 0;
-
-  friend std::ostream &operator<<(std::ostream &out, const obj &O) {
-    out << O.x << " - " << O.y;
-    return out;
-  }
-};
+auto returnFun() {
+  // return []() -> std::string { return "Mahmoud Gad"; };
+  // return []() { return "Mahmoud Gad"; };
+  return []() -> const char* { return "Mahmoud Gad"; };
+}
 
 int main(void)
 {
   std::cout << "\n\n";
 
-  std::cout << obj();
+  auto fun = returnFun();
+
+  std::cout << fun();
 
   std::cout << "\n\n\n";
 }

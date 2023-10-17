@@ -2,31 +2,43 @@ const log = console.log; // alias
 "use strict";
 
 log("\n\n");
+// console.time("T");
 //=====================================================
-// Playground Start
 
-let O, D;
-O = {};
+const a1 = [1,2,3];
+const a2 = [4,5,6];
 
-Object.defineProperty(O, "a", {
-  value: 10,
-  writable: false,
-  enumerable: false,
-  configurable: true,
-})
-D = Object.getOwnPropertyDescriptor(O, "a");
-log(D);
+const arr_like = {
+  "0": "Mahmoud",
+  "1": "26",
+  "2": "Male",
+  "3": "Mansoura",
+};
 
-O = {
-  a: 1,
-  b: 2,
-  c: 3,
-}
-D = Object.getOwnPropertyDescriptors(O);
+Object.defineProperties(arr_like, {
+  [Symbol.isConcatSpreadable]: {
+    value: true,
+  },
+  length: {
+    value: Object.keys(arr_like).length,
+  },
+  [Symbol.iterator]: {
+    value: function () {
+      let i = -1;
+      return {
+        next() {
+          return ++i < arr_like.length 
+            ? { value: arr_like[i], done: false, }
+            : { value: undefined, done: true };
+        },
+      };
+    },
+  }
+});
 
-O = Object.create(O.__proto__, D);
-log(O);
+log(...arr_like);
+log(a1.concat(arr_like));
 
-// Playground End
 //=====================================================
+// console.timeEnd("T");
 log("\n\n");
