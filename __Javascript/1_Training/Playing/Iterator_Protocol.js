@@ -22,6 +22,7 @@ const O1 = {
 // log();
 // log(...O1);
 
+//---------------------------------------
 
 const O2 = {
   // [Symbol.iterator]: function* () {
@@ -32,5 +33,43 @@ const O2 = {
   },
 };
 
-log(...O2);
-for (const v of O2) log(v);
+// log(...O2);
+// for (const v of O2) log(v);
+
+//---------------------------------------
+const arr = [1, 2, 3];
+
+const arr_like = {
+  "0": "Mahmoud",
+  "1": "26",
+  "2": "Male",
+  "3": "Mansoura",
+};
+
+Object.defineProperties(arr_like, {
+  [Symbol.isConcatSpreadable]: {
+    value: true,
+  },
+  length: {
+    value: Object.keys(arr_like).length,
+  },
+  [Symbol.iterator]: {
+    // value: function () {
+    //   let i = -1;
+    //   return {
+    //     next() {
+    //       return ++i < arr_like.length 
+    //         ? { value: arr_like[i], done: false, }
+    //         : { value: undefined, done: true, };
+    //     },
+    //   };
+    // },
+    value: function* () {
+      let i = -1;
+      while (++i < arr_like.length) yield arr_like[i];
+    }
+  },
+});
+
+log(...arr_like);
+log(arr.concat(arr_like));
