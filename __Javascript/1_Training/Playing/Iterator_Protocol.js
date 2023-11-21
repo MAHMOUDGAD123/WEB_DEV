@@ -1,4 +1,4 @@
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator
 
 const log = console.log;
@@ -71,5 +71,5 @@ Object.defineProperties(arr_like, {
   },
 });
 
-log(...arr_like);
+// log(...arr_like);
 log(arr.concat(arr_like));
