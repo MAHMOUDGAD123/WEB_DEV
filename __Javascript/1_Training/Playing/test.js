@@ -1,23 +1,43 @@
 "use strict";
-const log = console.log;
 const proto = Object.getPrototypeOf;
-log("\n");
+console.log("\n");
 console.time("T");
 
 //=====================================================
 
-function outer(callBack, n, p) {
-  return callBack(n, p);
+class cls {
+  constructor(fname, lname, age) {
+    this._fname = fname;
+    this._lname = lname;
+    this._age = age;
+  }
+
+  get fullname() {
+    return this._fullname;
+  }
+  set fullname(fn) {
+    this._fullname = fn;
+  }
+
+  set age(age) {
+    this._age = age;
+  }
+  get age() {
+    return this._age;
+  }
+
 }
 
-function inner(n, p) {
-  return n ** p;
-}
+const p1 = new cls('Mahmoud', 'Gad', 26);
 
-log(outer(inner, 2, 10));
-
+console.log(p1.fullname);
+console.log(p1._age);
+p1.fullname = 'Ali Gad';
+p1.age = 30;
+console.log(p1.fullname);
+console.log(p1._age);
 
 //=====================================================
 
+console.log("\n");
 console.timeEnd("T");
-log("\n");

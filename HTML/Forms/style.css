@@ -1,0 +1,208 @@
+form {
+  color: #000;
+  border: 10px solid blueviolet;
+  border-radius: 30px;
+  padding: 50px;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  width: fit-content;
+  /* box-shadow: inset 0 0 300px #aaa; */
+}
+input:not(input[type="color"]) {
+  color: black;
+  padding: 15px;
+  border: 3px solid gold;
+  border-radius: 35px;
+}
+input.button {
+  margin: auto;
+  /* box-shadow: inset 0px 0px 30px red; */
+  background-color: gold;
+}
+input.button:hover {
+  background-color: red;
+}
+
+div.password {
+  position: relative;
+}
+form i {
+  margin-right: 12px;
+  margin-left: -70px;
+  cursor: pointer;
+  color: #000;
+  font-weight: bolder;
+  font-size: larger;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 3px solid red;
+}
+legend {
+  background-color: red;
+  border-radius: 10px;
+  padding: 7px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  /* appearance: none; */
+  width: 25px;
+  height: 25px;
+}
+
+input[type="checkbox"]:checked + label,
+input[type="radio"]:checked + label {
+  color: greenyellow;
+}
+
+pre.log {
+  visibility: hidden;
+  background-color: red;
+  border: 3px solid red;
+  border-radius: 30px;
+  padding: 10px;
+}
+
+input[type="color"] {
+  width: 70px;
+  height: 30px;
+  margin: 20px;
+}
+
+.validation:valid:after {
+  content: "✓";
+  color: green;
+  padding-left: 20px;
+}
+.validation:invalid:after {
+  content: "✖";
+  color: red;
+  padding-left: 20px;
+}
+
+pre.files {
+  visibility: hidden;
+  background-color: brown;
+  border: 3px solid brown;
+  border-radius: 30px;
+  padding: 10px;
+}
+
+.uploads {
+  border-color: orange;
+}
+.uploads > legend {
+  background-color: orange;
+}
+
+table.files-list {
+  border-radius: 5px;
+  border-spacing: 5px;
+  border-collapse: collapse;
+  text-align: center;
+  padding: 7px;
+  margin: 10px;
+}
+th {
+  padding: 7px;
+  border: 3px solid yellow;
+  background-color: blue;
+}
+th.info {
+  background-color: blueviolet;
+}
+td {
+  padding: 7px;
+  border: 3px solid yellow;
+}
+
+.volume-control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+.volume-control > #volume {
+  width: 100%;
+  padding: 0;
+  margin-top: 30px;
+  /* writing-mode: vertical-lr; */
+  cursor: pointer;
+}
+input[type="range"]:focus {
+  outline: none;
+}
+.volume-control > meter {
+  width: 100%;
+}
+
+input:valid ~ .validity::after {
+  content: "✓";
+  color: greenyellow;
+}
+input:invalid ~ .validity::after {
+  content: "✖";
+  color: red;
+}
+
+input:focus {
+  background-color: #cfcfcf;
+}
+
+button {
+  color: black;
+  padding: 15px;
+  border: 3px solid gold;
+  border-radius: 35px;
+  margin-top: 30px;
+  background-color: goldenrod;
+}
+
+select#cars {
+  width: fit-content;
+  padding: 10px;
+  color: black;
+}
+optgroup {
+  font-size: 40px;
+  font-weight: 900;
+  color: black;
+}
+option {
+  color: black;
+}
+
+.calculation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+.calculation > input {
+  width: 200px;
+  margin: 20px;
+}
+.calculation > output {
+  margin: 20px;
+  padding: 30px;
+  border: 5px solid yellowgreen;
+  border-radius: 50px;
+}
+
+textarea {
+  padding: 20px;
+  border-radius: 30px;
+  color: blueviolet;
+  border: 5px solid white;
+  resize: none; /* you can't change its size */
+}
+textarea:focus {
+  border: 5px solid orchid;
+}

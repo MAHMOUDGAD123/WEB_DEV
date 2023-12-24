@@ -1,0 +1,171 @@
+dl > dt {
+  font-weight: bold;
+  color: violet;
+}
+dl > dd {
+  font-size: 30px;
+}
+
+figure,
+picture {
+  display: flex;
+  padding: 30px;
+  margin: 50px auto;
+  flex-direction: column;
+  border: 3px solid red;
+  width: fit-content;
+  align-items: center;
+  align-content: space-evenly;
+}
+figure > img {
+  width: 300px;
+  height: 200px;
+}
+figure > figcaption {
+  font-size: 25px;
+  color: aqua;
+}
+
+ol,
+ul {
+  border: 2px solid;
+  padding-inline: 70px;
+  padding-block: 30px;
+  margin: 15px;
+}
+
+ol {
+  list-style-type: lower-alpha;
+}
+ul {
+  list-style-type: disc;
+}
+
+.links {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  border: 2px solid;
+  margin: 50px;
+  padding: 20px;
+}
+.links > a {
+  font-size: 30px;
+  text-decoration: none;
+}
+.links > a:hover {
+  color: red;
+}
+
+code {
+  color: #000;
+  font-family: courier, monospace;
+  background-color: #eee;
+  border-radius: 5px;
+  padding: 0px 3px;
+}
+
+kbd > kbd {
+  background-color: #b4b4b4;
+  border: 1px solid black;
+  border-radius: 3px;
+  color: #333;
+  padding: 2px 5px;
+}
+
+.map-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+img,
+audio,
+video,
+iframe {
+  margin-block: 30px;
+}
+
+blockquote {
+  padding: 20px;
+  border-left: 5px solid #ddd;
+}
+
+table {
+  text-align: center;
+  padding: 7px;
+  margin: 70px auto;
+  background-color: #666;
+  border-collapse: collapse;
+  border-spacing: 7px;
+  border-style: solid;
+  border-color: orange;
+}
+table > caption {
+  caption-side: bottom;
+  background-color: violet;
+}
+td,
+th {
+  border: 2px solid;
+  padding: 10px;
+}
+thead {
+  background-color: cadetblue;
+}
+table .front-end {
+  background-color: chartreuse;
+}
+table .back-end {
+  background-color: tomato;
+}
+
+details {
+  margin: 70px auto;
+  width: 700px;
+  border: 3px solid yellowgreen;
+  padding: 30px;
+  border-radius: 50px;
+}
+details > summary {
+  font-size: larger;
+  font-weight: bolder;
+  color: tomato;
+}
+details > pre {
+  margin-bottom: 0px;
+}
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 70px;
+}
+dialog > p {
+  color: blueviolet;
+  font-size: 35px;
+  margin-bottom: 50px;
+}
+.dialog button {
+  color: black;
+  padding: 10px;
+  border-radius: 50px;
+  background-color: #eee;
+}
+.dialog button:hover {
+  background-color: yellowgreen;
+}
+dialog::backdrop {
+  background-image: linear-gradient(
+    45deg,
+    magenta,
+    rebeccapurple,
+    blue,
+    dodgerblue,
+    green,
+    orange,
+    red,
+    yellow
+  );
+}

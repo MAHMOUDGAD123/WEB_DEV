@@ -1,8 +1,7 @@
+"use strict";
 console.log("\n\n");
 //=====================================================
 // Playground Start
-
-("use strict");
 
 // const fun = Function("x", "y", "return x + y");
 // const _fun = (x, y) => x << y;

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="discription" content="This Is a HTML Basics Page" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Mahmoud Gad" />
+    <meta name="theme-color" content="#fff" />
+
+    <!-- Content-Security-Policy -->
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src self" /> -->
+
+    <!-- element to refresh the page every 5 sec -->
+    <!-- <meta http-equiv="refresh" content="5" /> -->
+
+    <!-- to redirect the page to url = (google.com) after 2 sec -->
+    <!-- <meta http-equiv="refresh" content="2; url=https://www.google.com/" /> -->
+
+    <script src="./script.js" async></script>
+    <link rel="stylesheet" href="./style.css" type="text/css" />
+    <link rel="stylesheet" href="../framework/style.css" type="text/css" />
+    <script src="../framework/script.js" async></script>
+    <title>HTML Basics</title>
+    <!-- make a base url to all <a> elements in the document -->
+    <base href="./HTML.html" target="_self" />
+  </head>
+  <body>
+    <div class="cont">
+      <h1 class="Header">HTML REV</h1>
+    </div>
+
+    <!-- discription list -->
+    <dl title="dl (discription list)">
+      <dt>HTML:</dt>
+      <dd>HYPERTEXT MARKUP LANGUAGE</dd>
+      <dt>CSS:</dt>
+      <dd>Cascading Style Sheets</dd>
+    </dl>
+
+    <figure title="figure">
+      <img src="/imgs/MG.jpg" alt="MG image" />
+      <figcaption>MG Logo</figcaption>
+    </figure>
+
+    <pre title="pre">
+    MM     MM   G
+    M M   M M   G   G G G G G
+    M  M M  M   G       G
+    M   M   M   G       G
+    M       M   G       G
+    M       M   G G G G G
+    </pre>
+
+    <ol title="ol (ordered list)">
+      <li>ul-1</li>
+      <li>ul-2</li>
+      <li>ul-3</li>
+      <ul title="ul (unordered list)">
+        <li>ol-1</li>
+        <li>ol-2</li>
+        <li>ol-3</li>
+      </ul>
+    </ol>
+
+    <div class="links" title="a (anchor)">
+      <a href="/imgs/MG.jpg" download="myImg.png">Download Img</a>
+      <a href="https:/www.google.com/" target="_blank">google</a>
+      <a href="tel:+201097890670">call me</a>
+      <a href="mailto:hooda.gad333@gmail.com">mail me</a>
+      <a href="sms:+201097890670">sms me</a>
+    </div>
+
+    <div class="txt">
+      <p title="bdi">my name is <bdi>محمود عبدالحمن</bdi> ismail gad</p>
+      <p title="bdo">my name is <bdo dir="rtl">"mahmoud"</bdo> gad</p>
+      <p title="code">
+        the <code>push()</code> method append an element at the end of the array
+      </p>
+      <p title="kbd">
+        please press <kbd><kbd>Ctrl</kbd> + <kbd>R</kbd></kbd> to refresh the
+        page
+      </p>
+      <ruby title="ruby annotation">
+        محمود <rp>(</rp><rt>Mahmoud</rt><rp>)</rp> إسماعيل <rp>(</rp
+        ><rt>Ismail</rt><rp>)</rp> جاد <rp>(</rp><rt>Gad</rt><rp>)</rp>
+      </ruby>
+      <p title="sub - sup">CO<sub>2</sub> -- 2<sup>2</sup> = 4</p>
+      <p title="u (underline)">my name is <u>Mahmoud Gad</u></p>
+    </div>
+
+    <div class="map-area" title="map area">
+      <map name="skills">
+        <area
+          shape="poly"
+          coords="180,0,357,133,180,190"
+          href="https://developer.mozilla.org/docs/Web/HTTP"
+          target="_blank"
+          alt="HTTP"
+        />
+        <area
+          shape="poly"
+          coords="357,133,289,344,180,190"
+          href="https://developer.mozilla.org/docs/Web/HTML"
+          target="_blank"
+          alt="HTML"
+        />
+        <area
+          shape="poly"
+          coords="68,344,289,344,180,190"
+          href="https://developer.mozilla.org/docs/Web/JavaScript"
+          target="_blank"
+          alt="JavaScript"
+        />
+        <area
+          shape="poly"
+          coords="68,344,1,133,180,190"
+          href="https://developer.mozilla.org/docs/Web/API"
+          target="_blank"
+          alt="WEB APIs"
+        />
+        <area
+          shape="poly"
+          coords="180,0,1,133,180,190"
+          href="https://developer.mozilla.org/docs/Web/CSS"
+          target="_blank"
+          alt="CSS"
+        />
+      </map>
+      <img usemap="#skills" src="./imgs/mdn-info.png" alt="MDN-Info" />
+    </div>
+
+    <figure title="audio">
+      <figcaption>The Weekend - Blinding Lights</figcaption>
+      <img
+        src="./imgs/The Weekend - Blinding Lights.jpg"
+        alt="Blinding Lights"
+        style="width: fit-content"
+      />
+      <audio
+        src="./sounds/The Weeknd - Blinding Lights.mp3"
+        controls
+        volume="1.0"
+        muted
+        autoplay
+        preload
+        loop
+      ></audio>
+    </figure>
+
+    <figure title="video">
+      <figcaption>Clean Bandit - Symphony</figcaption>
+      <video
+        width="400px"
+        preload
+        controls
+        poster="./imgs/clean-bandit-symphony-lyrics-feat-zara-larsson.png"
+        loop
+        muted
+      >
+        <source
+          src="./videos/Clean Bandit - Symphony (Lyrics) feat. Zara Larsson.mp4"
+          type="video/mp4"
+        />
+        <track
+          kind="captions"
+          src="./vtt/Clean-Bandit-Symphony-feat.-Zara-Larsson.vtt"
+          srclang="en"
+          default
+        />
+      </video>
+    </figure>
+
+    <!-- <figure title="iframe">
+      <figcaption>this is iframe</figcaption>
+      <iframe
+        src="https://htmlreference.io/element/iframe/"
+        allowfullscreen
+      ></iframe>
+    </figure> -->
+
+    <picture title="picture">
+      <figcaption>responsive picture</figcaption>
+      <source
+        srcset="./imgs/MG.png"
+        type="image/png"
+        media="(max-width: 700px)"
+      />
+      <source
+        srcset="./imgs/MG2.png"
+        type="image/png"
+        media="(max-width: 900px)"
+      />
+      <source
+        srcset="./imgs/MG3.png"
+        type="image/png"
+        media="(min-width: 900px)"
+      />
+      <img alt="MG Logo" width="300px" />
+    </picture>
+
+    <!-- only show up if javascript is disabled in the browser -->
+    <noscript style="color: red">
+      !! JavaScript is disabled in your browser please allow it for better user
+      experience !!
+    </noscript>
+
+    <blockquote title="del & ins">
+      For the record my name is <del>Ali</del> <ins>Mahmoud</ins> Gad
+    </blockquote>
+
+    <table title="table element">
+      <caption>
+        Skills
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col" colspan="5">Web Dev</th>
+        </tr>
+      </thead>
+      <tbody>
+        <colgroup>
+          <col span="3" class="front-end" />
+          <col span="2" class="back-end" />
+        </colgroup>
+        <tr>
+          <th scope="col" colspan="3">Front-End</th>
+          <th scope="col" colspan="2">Back-End</th>
+        </tr>
+        <tr>
+          <td>HTML</td>
+          <td>CSS</td>
+          <td>JS</td>
+          <td>Js</td>
+          <td>Node.js</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- details & summary -->
+    <details open title="details & summary">
+      <summary>My Information</summary>
+      <pre>
+        -> Name: Mahmoud Gad
+
+        -> Age: 26
+
+        -> Gig: Software Engineer
+      </pre>
+    </details>
+
+    <!-- dialog -->
+    <div class="dialog">
+      <button id="openBut">show dialog</button>
+      <dialog>
+        <p>this is a dialog with a groovy backdrop 🌈</p>
+        <button id="closeBut">close dialog</button>
+      </dialog>
+    </div>
+
+    <hr />
+    <div class="cont">
+      <div
+        class="back-to-top"
+        onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"
+      ></div>
+    </div>
+  </body>
+</html>
