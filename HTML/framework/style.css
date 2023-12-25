@@ -1,14 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caprasimo&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 html {
   scroll-behavior: smooth;
 }
 
+:root {
+  font-family: "Bebas Neue", sans-serif;
+  font-family: "Caprasimo", cursive;
+  font-family: "Ubuntu", sans-serif;
+  font-family: "Work Sans", sans-serif;
+}
+
 * {
-  font-family: courier, monospace;
   color: #fff;
   font-size: 30px;
   font-weight: bold;
   box-sizing: border-box;
   transition: all 100ms linear;
+}
+
+::selection {
+  color: white;
+  background-color: black;
 }
 
 body {
@@ -19,19 +32,30 @@ body {
   display: none; /* hide the scrollbar */
 }
 
-hr {
-  border: 3px solid red;
-  border-radius: 20px;
-  margin-block: 50px;
+.remove {
+  display: none;
 }
 
 .cont {
   display: flex;
   flex-flow: column;
-  flex-wrap: wrap;
   align-items: center;
   gap: 70px;
   margin-bottom: 50px;
+}
+
+.hearder-cont {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 50px auto 100px;
+  gap: 20px;
+}
+
+hr {
+  border: 3px solid red;
+  border-radius: 20px;
+  margin-block: 50px;
 }
 
 progress {
@@ -68,10 +92,11 @@ progress {
   text-align: center;
   font-weight: bolder;
   border: 5px solid red;
-  border-radius: 3px;
+  border-radius: 5px;
   padding: 10px;
-  margin-top: 50px;
+  margin-left: 20px;
   width: fit-content;
+  height: fit-content;
 }
 .Header:hover {
   background-color: yellow;
@@ -99,8 +124,8 @@ progress {
   font-size: 25px;
   text-wrap: nowrap;
   position: absolute;
-  left: 30px;
-  top: -40px;
+  left: 25px;
+  top: -50px;
   visibility: hidden;
 }
 .back-to-top:hover::after {
@@ -110,3 +135,44 @@ progress {
 ::placeholder {
   color: brown;
 }
+
+/* COUNT_DOWN & CLOCK START */
+
+.CDC {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-right: 20px;
+  text-align: center;
+  width: 250px;
+  background-color: #5561f5;
+  border-radius: 50px;
+}
+
+.CDC.TM {
+  flex-flow: row nowrap;
+}
+.CDC.TM > span {
+  width: 70px;
+  white-space: nowrap;
+}
+
+.CDC.TM:hover > span {
+  color: orange;
+  transform: scale(1.2);
+  cursor: default;
+}
+
+.CDC.TM > p {
+  position: absolute;
+  top: -40px;
+  font-size: 20px;
+  background-color: red;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+/* COUNT_DOWN & CLOCK END */
