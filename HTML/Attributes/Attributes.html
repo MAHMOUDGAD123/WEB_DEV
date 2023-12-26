@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../framework/style.css" />
+    <script src="./script.js" async></script>
+    <script src="../framework/script.js" async></script>
+    <title>Attributes</title>
+  </head>
+  <body>
+    <!-- progress Start -->
+
+    <div class="progress-cont">
+      <div id="progress"></div>
+    </div>
+    <!-- progress End -->
+
+    <!-- Header Start -->
+    <div class="hearder-cont">
+      <h1 class="Header">Attributes</h1>
+      <!-- Clock Start -->
+      <div class="TM CDC">
+        <p class="loc-time" title="Local-Time">Local Time</p>
+        <span class="hr"></span>
+        <span>:</span>
+        <span class="min"></span>
+        <span>:</span>
+        <span class="sec"></span>
+      </div>
+      <!-- Clock End -->
+    </div>
+    <!-- Header End -->
+
+    <div class="cont">
+      <!--================ Content Start ================-->
+
+      <!-- 'contenteditable' attribute & 'inputmode' -->
+      <fieldset>
+        <legend>contenteditable</legend>
+        <p contenteditable="true" inputmode="text" title="editable content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </p>
+        <p contenteditable="false">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </p>
+      </fieldset>
+
+      <!-- 'dir' attribute -->
+      <fieldset>
+        <legend>dir</legend>
+        <p dir="ltr">this paragraph has been written from left to right.</p>
+        <p dir="rtl">هذه الفقرة كتبت من اليمين الي اليسار.</p>
+      </fieldset>
+
+      <!-- 'download' attribute -->
+      <fieldset>
+        <legend>download</legend>
+        <img src="../files/imgs/MG.jpg" alt="MG LOGO" width="250px" />
+        <a
+          title="download logo"
+          id="downloadLogo"
+          href="../files/imgs/MG.png"
+          download="MG_LOGO.png"
+          >⤓</a
+        >
+      </fieldset>
+
+      <!-- 'dragable' attribute -->
+      <!-- 
+        use drag and drop API:
+        https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API
+      -->
+      <fieldset>
+        <legend>dragable</legend>
+        <p draggable="true">drag me</p>
+      </fieldset>
+
+      <!-- 'for' attribute -->
+      <fieldset
+        class="calculation"
+        oninput="sum.value = parseInt(n1.value) + parseInt(n2.value)"
+      >
+        <legend>for</legend>
+        <label for="num1"
+          ><input type="number" id="n1" placeholder="number1" value="0"
+        /></label>
+        +
+        <label for="num2"
+          ><input type="number" id="n2" placeholder="number2" value="0"
+        /></label>
+        =
+        <output id="sum" for="n1 n2">0</output>
+      </fieldset>
+
+      <!-- 'item'(scope - type - prop) attribute -->
+      <fieldset>
+        <legend>item(scope - type - prop)</legend>
+        <div itemscope itemtype="https://schema.org/Movie">
+          <h1 itemprop="name" style="font-size: 50px">Avatar</h1>
+          <span>
+            Director: <span itemprop="director">James Cameron</span> (born
+            August 16, 1954)
+          </span>
+          <span itemprop="genre">Science fiction</span>
+          <a href="https://youtu.be/0AY1XIkX7bY" itemprop="trailer">Trailer</a>
+        </div>
+      </fieldset>
+
+      <!-- 'spellcheck' attribute -->
+      <fieldset>
+        <legend title="help you to find spelling errors in your text">
+          spellcheck
+        </legend>
+        <textarea
+          id="spell-check"
+          cols="20"
+          rows="5"
+          maxlength="100"
+          spellcheck="true"
+          wrap="soft"
+        >
+        </textarea>
+        <textarea
+          id="spell-check"
+          cols="20"
+          rows="5"
+          maxlength="100"
+          spellcheck="false"
+          wrap="soft"
+        >
+        </textarea>
+      </fieldset>
+
+      <!-- 'tabindex' attribute -->
+      <fieldset>
+        <legend title="it will make the element tabable">tabindex</legend>
+        <p tabindex="0">this is a tabable element</p>
+        <p>this isn't a tabable element</p>
+        <p tabindex="0">this is a tabable element</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>translate</legend>
+        <p translate="yes">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </p>
+        <p translate="no">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </p>
+      </fieldset>
+
+      <fieldset class="data-att">
+        <legend title="data attributes">data-*</legend>
+        <p
+          data-age="26"
+          data-gig="software engineer"
+          data-birthday="10-09-1997"
+        >
+          Mahmoud Gad
+        </p>
+        <p
+          id="dataAtt"
+          data-age="29"
+          data-gig="fashion designer"
+          data-birthday="01-04-1994"
+        >
+          Amira Gad
+        </p>
+      </fieldset>
+
+      <fieldset id="inert">
+        <legend title="(inert) will stop the ineractivity of the element">
+          inert
+        </legend>
+        <button inert>inerted button</button>
+        <button>normal button</button>
+      </fieldset>
+
+      <fieldset>
+        <legend></legend>
+      </fieldset>
+
+      <!--================ Content End ================-->
+    </div>
+
+    <hr />
+    <div class="cont">
+      <div
+        class="back-to-top"
+        onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"
+      ></div>
+    </div>
+  </body>
+</html>

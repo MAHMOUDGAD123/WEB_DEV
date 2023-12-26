@@ -1,0 +1,71 @@
+p {
+  border: 3px solid yellow;
+  padding: 20px;
+  border-radius: 10px;
+}
+p:focus {
+  border-color: aqua;
+}
+
+/* 'download' attribute Start */
+
+#downloadLogo {
+  align-self: center;
+  text-decoration: none;
+  background-color: #fff;
+  border-radius: 50px;
+  width: fit-content;
+  padding: 10px;
+  color: #000;
+}
+#downloadLogo:hover {
+  background-color: #aaa;
+  transform: scale(1.5, 1.1);
+}
+#downloadLogo:active {
+  background-color: yellow;
+}
+
+/* 'download' attribute End */
+
+/* 'for' attribute Start */
+
+#n1,
+#n2,
+#sum {
+  width: 200px;
+}
+
+#sum {
+  color: crimson;
+}
+
+/* 'for' attribute End */
+
+/* 'data-*' attributes Start */
+
+.data-att > p {
+  position: relative;
+  text-align: center;
+}
+
+.data-att > p::after {
+  position: absolute;
+  top: -60px;
+  left: 40px;
+  background-color: brown;
+  border-radius: 30px;
+  padding: 10px;
+  font-size: 17px;
+  text-wrap: nowrap;
+  opacity: 0;
+  content: attr(data-gig) ' - ' attr(data-age);
+}
+.data-att > p:hover::after {
+  opacity: 1;
+}
+
+/* 'data-*' attributes End */
+
+/* '' attributes Start */
+/* '' attributes End */

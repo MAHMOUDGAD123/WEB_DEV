@@ -21,7 +21,7 @@ html {
 
 ::selection {
   color: white;
-  background-color: black;
+  background-color: blueviolet;
 }
 
 body {
@@ -41,7 +41,28 @@ body {
   flex-flow: column;
   align-items: center;
   gap: 70px;
-  margin-bottom: 50px;
+}
+
+.section {
+  border: 2px solid orangered;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+fieldset {
+  border: 5px solid orangered;
+  border-radius: 10px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+legend {
+  background-color: orangered;
+  border-radius: 50px;
+  padding: 10px;
 }
 
 .hearder-cont {
@@ -55,7 +76,7 @@ body {
 hr {
   border: 3px solid red;
   border-radius: 20px;
-  margin-block: 50px;
+  margin-block: 100px;
 }
 
 progress {
@@ -84,7 +105,7 @@ progress {
   margin: 0;
   width: 0%;
   height: 10px;
-  background-color: orangered;
+  background-color: #5561f5;
   transition: width 300ms ease-out;
 }
 
@@ -133,10 +154,19 @@ progress {
 }
 
 ::placeholder {
-  color: brown;
+  color: #5561f5;
 }
 
-/* COUNT_DOWN & CLOCK START */
+textarea {
+  background-color: #555;
+  color: #fff;
+  padding: 20px;
+  border: 1px solid orange;
+  border-radius: 30px;
+  resize: none;
+}
+
+/* CLOCK START */
 
 .CDC {
   position: relative;
@@ -175,4 +205,33 @@ progress {
   border-radius: 20px;
 }
 
-/* COUNT_DOWN & CLOCK END */
+/* CLOCK END */
+
+/* 'input & output & button' Styling Start */
+
+input,
+button,
+output {
+  color: black;
+  border-radius: 30px;
+  margin: 10px;
+  align-self: center;
+  padding: 15px;
+}
+output {
+  background-color: #fff;
+}
+button {
+  cursor: pointer;
+}
+input:focus {
+  background-color: #e5dddd;
+}
+button:active {
+  background-color: yellow;
+}
+button:hover {
+  transform: scale(1.1);
+}
+
+/* 'input' Styling End */
