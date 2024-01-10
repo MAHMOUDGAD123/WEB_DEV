@@ -49,7 +49,8 @@ body {
 
   & > * {
     transition: 300ms linear;
-    
+    padding: 5px;
+
     &:hover {
       transform: scale(1.1);
     }
@@ -64,14 +65,11 @@ body {
   display: grid;
   grid-template: auto / repeat(auto-fit, minmax(70px, 1fr));
   gap: 70px;
-  transition: all 500ms linear;
+  transition: 300ms linear;
 }
-.cont:hover {
-  /* outline: 2px solid #ffc107; */
-  transition: 0s;
-}
+
 .cont > a > img:hover {
-  transform: scale(1.2);
+  transform: scale(1.15);
 }
 
 /* Progress START */
