@@ -1,7 +1,5 @@
 "use strict";
 
-
-
 // https://developer.mozilla.org/en-US/docs/Web/API/fetch
 //=======================================================
 // github example
@@ -23,18 +21,18 @@
     const request = new Request(url, options);
     const response1 = await fetch(request);
 
-    if (!response1.ok) throw new Error('Fetch_1 Error');
-    
+    if (!response1.ok) throw new Error("Fetch_1 Error");
+
     const data1 = await response1.json();
     const response2 = await fetch(data1.repos_url);
 
-    if (!response2.ok) throw new Error('Fetch_2 Error');
+    if (!response2.ok) throw new Error("Fetch_2 Error");
 
     const data2 = await response2.json();
 
     console.log(data2[0].name.toUpperCase());
   } catch (err) {
-    console.log('ERROR:', err.message);
+    console.log("ERROR:", err.message);
   }
 })();
 

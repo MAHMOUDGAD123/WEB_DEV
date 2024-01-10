@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <link rel="icon" type="image/x-icon" href="./imgs/home.png" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" async></script>
+    <title>Home</title>
+  </head>
+  <body>
+    <!-- Clock Start -->
+    <div class="TM">
+      <!-- <a href="./Time/index.html" class="loc-time" title="Time page">Time</a> -->
+      <div class="clock">
+        <span class="hr"></span>
+        <span>:</span>
+        <span class="min"></span>
+        <span>:</span>
+        <span class="sec"></span>
+      </div>
+      <div class="date">
+        <span class="dy"></span>
+        <span class="dt"></span>
+        <span class="mn"></span>
+        <span class="yr"></span>
+      </div>
+    </div>
+    <!-- Clock End -->
+
+    <!-- icons Start -->
+    <div class="icons">
+      <a title="time page" class="icon time-page" href="./Time/index.html"
+        ><img src="./imgs/clock.png" alt="Time?" width="45"
+      /></a>
+      <a
+        title="tic tac toe"
+        class="icon tic-tac-toe"
+        href="../Tic Tac Toe/index.html"
+        ><img src="./imgs/tic-tac-toe.png" alt="Tic-Tac-Toe?" width="50"
+      /></a>
+    </div>
+    <!-- icons End -->
+
+    <!--================= Content Start =================-->
+    <div class="cont" id="cont"></div>
+    <!--================= Content End =================-->
+
+    <div
+      class="back-to-top"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    ></div>
+  </body>
+</html>

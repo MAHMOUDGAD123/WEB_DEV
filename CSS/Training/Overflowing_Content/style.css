@@ -1,0 +1,38 @@
+@layer framie, test;
+
+@layer test {
+  .wrapper {
+    & > p {
+      border: 3px solid red;
+      block-size: 300px;
+      inline-size: 300px;
+
+      /* overflow: scroll; */
+      /* overflow: hidden; */
+      /* overflow: auto; */
+      /* overflow: visible; */
+      overflow: overlay;
+
+      /* overflow: clip; */
+      /* overflow-clip-margin: 50px; */
+
+      /* overflow: hidden scroll; */
+      /* overflow-x: hidden; */
+      /* overflow-y: scroll; */
+
+      /* overflow-wrap: break-word; */
+      /* overflow-wrap: normal; */
+      /* overflow-wrap: anywhere; */
+
+      /* word-break: auto-phrase; */
+      /* word-break: manual; */
+      /* word-break: noraml; */
+      /* word-break: break-word; */
+      /* word-break: keep-all; */
+      /* word-break: break-all; */
+
+      /* word-wrap: break-word; */
+      word-wrap: normal;
+    }
+  }
+}

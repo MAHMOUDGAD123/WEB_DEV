@@ -1,0 +1,76 @@
+@layer framie, test;
+
+@layer test {
+  .wrapper {
+    border: 5px solid orange;
+    /* logical properties */
+    /* *-(block | inline)-start === *-(top | left) */
+    /* *-(block | inline)-end === *-(bottom | right) */
+    padding-block-start: 30px;
+    padding-block-end: 30px;
+    padding-inline-start: 30px;
+    padding-inline-end: 30px;
+    margin-block-start: 10px;
+    margin-block-end: 10px;
+    margin-inline-start: 10px;
+    margin-inline-end: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 20px;
+
+    /* writing-mode */
+    /* try it on firefox */
+    & > p {
+      border: 2px solid yellow;
+      padding: 10px;
+      width: 300px;
+      text-wrap: nowrap;
+      writing-mode: horizontal-tb;
+      writing-mode: sideways-rl;
+      writing-mode: sideways-lr;
+      writing-mode: vertical-lr;
+      writing-mode: vertical-rl;
+      /* transform: rotate(0.5turn); */
+    }
+
+    & > :is(.vertical, .horizontal) {
+      border: 2px solid;
+      padding: 10px;
+    }
+
+    & > .box {
+      inline-size: 300px;
+      block-size: 200px;
+    }
+    & > .vertical {
+      writing-mode: vertical-rl;
+    }
+    & > .horizontal {
+      writing-mode: horizontal-tb;
+    }
+  }
+
+  /* float */
+  .float {
+    padding: 20px;
+    margin: 15px;
+    color: red;
+    border-block: 3px solid;
+    border-inline: 3px solid;
+    border-radius: 7px;
+    /* writing-mode: vertical-lr; */
+    writing-mode: horizontal-tb;
+
+    & > :last-child {
+      clear: both;
+    }
+    & > img:first-child {
+      /* float: right; */
+      float: inline-end;
+    }
+    & > img:nth-child(2) {
+      /* float: left; */
+      float: inline-start;
+    }
+  }
+}

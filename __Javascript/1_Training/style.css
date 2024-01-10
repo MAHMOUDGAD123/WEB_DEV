@@ -41,21 +41,17 @@ body {
   position: relative;
   color: #ddd;
   width: 100%;
-  padding: 10px;
-  margin: 20px auto 70px;
+  padding: 15px;
+  margin: 30px auto;
   text-align: center;
-  transition: 0.5s;
-}
-.title:hover > p {
-  color: rgb(255, 246, 121);
-  cursor: default;
-}
-
-.title > p {
-  transition: 0.5s;
-  display: inline-block;
+  transition: 500ms;
+  width: fit-content;
   border: 3px solid;
   padding: 5px;
+}
+.title:hover {
+  color: #ffe979;
+  cursor: pointer;
 }
 
 /* COUNT_DOWN & CLOCK START */

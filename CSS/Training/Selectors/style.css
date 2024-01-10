@@ -1,0 +1,449 @@
+/*======= Attribute Selectors Start =======*/
+
+/* p[id] { */
+/* p[id][class] { */
+p[id][class][dir] {
+  font-size: 30px;
+}
+
+/* p[class~="blue"] { */
+/* p[id|="y"] { */
+/* p[id^="r-"] { */
+/* p[class$=" blue"] { */
+/* p[class*="ll re"] { */
+/* case insensitive */
+p[class*="ll ye" i] {
+  color: yellow;
+}
+
+/*======= Attribute Selectors End =======*/
+
+/*======= pseudo-classes & pseudo-elements Selectors Start =======*/
+
+/* Pesudo-Classes Start */
+
+/***** :fullscreen *****/
+.fullscreen_test {
+  align-self: center;
+  background-color: green;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.fullscreen_test:fullscreen {
+  background-color: chocolate;
+}
+.fullscreen_test:fullscreen > p {
+  font-size: 150px;
+}
+.fullscreen_test:fullscreen > .fullscreen_toggle {
+  background-color: red;
+}
+.fullscreen_toggle {
+  background-color: blueviolet;
+  color: #fff;
+  font-size: 20px;
+}
+
+/***** :modal & ::backdop *****/
+dialog > form > p {
+  color: red;
+  font-size: 50px;
+}
+dialog::backdrop {
+  background-color: rgba(0 0 0 / 0.7);
+}
+dialog:modal {
+  border: 7px solid burlywood;
+  background-color: beige;
+  border-radius: 10px;
+}
+
+/***** :picture-in-picture *****/
+video:picture-in-picture {
+  box-shadow: 3px 3px 20px 5px red;
+}
+
+/***** input pseudo-classes *****/
+
+/* input:enabled  {*/
+/* input:disabled {*/
+/* input:read-only {*/
+/* input:read-only {*/
+/* input:read-write {*/
+/* input:placeholder-shown { */
+/* input:required { */
+/* input:optional { */
+/* input:default { */
+/* input:checked { */
+/* input:indeterminate { */
+/* input:blank { */
+/* input:valid { */
+/* input:invalid { */
+/* input:in-range { */
+/* input:out-of-range { */
+/* input:user-valid { */
+input:user-invalid {
+  border: 5px solid red !important;
+  /* outline: 5px solid red !important; */
+}
+
+/***** Linguistic pseudo-classes *****/
+.linguistic > p:dir(ltr) {
+  color: red;
+}
+.linguistic > p:dir(rtl) {
+  color: orange;
+}
+.linguistic > q:lang(en) {
+  border: 1px solid red;
+  padding: 7px;
+}
+.linguistic > q:lang(ar) {
+  border: 1px solid yellow;
+  padding: 7px;
+}
+
+/***** Location pseudo-classes *****/
+
+.location > a:link {
+  color: aqua;
+}
+.location > a:visited {
+  color: chocolate;
+}
+/*--> :any-link = :link + :visited <--*/
+/* .location > a:any-link {
+  color: gold;
+} */
+
+/* .location > a:local-link {
+  color: yellow;
+} */
+
+/* .location > .section:target-within {
+  border-color: #ff0000;
+} */
+
+.location p {
+  font-size: 15px;
+  text-wrap: nowrap;
+}
+
+.location * > p:target {
+  background-color: yellow;
+  color: black;
+  border-radius: 10px;
+  padding: 5px;
+}
+.location * > p:target > i {
+  color: red;
+}
+
+/* (:scope) pseudo-class */
+
+/* [1] work as :root -> {html} */
+/* :scope == :root == html */
+/* :scope {
+  background-color: #fff;
+} */
+
+/* [2] using @scope rule */
+/* :scope == :root == <the_targeted_element> */
+@scope (.light-content) {
+  :scope {
+    background-color: plum;
+  }
+  p {
+    color: darkmagenta;
+    font-size: 15px;
+    font-size: 15px;
+  }
+}
+@scope (.dark-content) {
+  :root {
+    background-color: darkmagenta;
+  }
+  p {
+    color: plum;
+    font-size: 15px;
+  }
+}
+
+/* [3] using :scope with JavaScript  */
+/* go to (./script.js) file */
+
+/***** Resource State pseudo-classes *****/
+/* only for safari browser */
+.resource-state > video:playing {
+  border: 3px solid yellow;
+}
+.resource-state > video:paused {
+  border: 3px solid red;
+}
+
+/***** Time-dimensional pseudo-classes *****/
+/* only safari support */
+/*  :current - :past - :future */
+
+/***** Tree-structural pseudo-classes *****/
+.tree-structural > div {
+  font-size: 21px;
+  display: grid;
+  grid-template: auto / repeat(5, 1fr);
+  gap: 5px;
+}
+
+/* :root { */
+/* .tree-structural > *:empty { */
+
+/* .tree-structural > div > p:nth-child(even) { */
+/* .tree-structural > div > p:nth-child(odd) { */
+/* .tree-structural > div > p:nth-child(n+3) { */
+/* .tree-structural > div > p:nth-child(-n+3) { */
+/* .tree-structural > div > p:nth-child(n+3):nth-child(-n + 5) { */
+/* .tree-structural > div > p:nth-child(2n of .special) { */
+/* .tree-structural > div > p:nth-child(even of p:not(.special)) { */
+/* .tree-structural > div > p:nth-last-child(-n + 5) { */
+/* .tree-structural > div > p:nth-of-type(-n+5) { */
+/* .tree-structural > div > p:nth-last-of-type(-n+5) { */
+/* .tree-structural > div > p:first-child { */
+/* .tree-structural > div > p:last-child { */
+/* .tree-structural > div > p > span:only-child { */
+/* .tree-structural > div > p:first-of-type { */
+/* .tree-structural > div > p:last-of-type { */
+.tree-structural > div > p > :only-of-type {
+  background-color: orange;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+/***** User-action pseudo-classes *****/
+.user-action > div > button:hover {
+  background-color: orange;
+}
+.user-action > div > button:active {
+  box-shadow: 3px 3px 10px red;
+}
+.user-action > div > button:focus {
+  outline: 2px solid yellow;
+  outline-offset: 3px;
+}
+.user-action > label > input:focus-visible {
+  border: 3px solid red;
+}
+.user-action > label:focus-within {
+  font-weight: bolder;
+}
+
+/* functional pseudo-classes */
+
+/* :is() == :where() but :where() add nothing to (specifity_weight) */
+.functional > div > :is(ul, ol) > :is(section, div) > :is(ul, ol) {
+  list-style-type: square;
+}
+
+.functional
+  > div
+  > :where(ul, ol)
+  > :where(section, div)
+  > :where(ul, ol)
+  > li:where(.frontend, .backend) {
+  color: violet;
+}
+
+/* :not() */
+.functional
+  > div
+  > :is(ul, ol)
+  > :where(section, div)
+  > :is(ul, ol)
+  > li:not(:is(.frontend, .backend, :not_suppoted_pseudo_class)) {
+  color: chartreuse;
+}
+
+/* :has() */
+/* .functional > div > :has(+ h2, + h3, + h4, + h5, + h6) { */
+/* .functional > div > :has(+ * + bdo) { */
+.functional > div > :is(p, span, q, i, div):has(+ :is(h2, h3, h4, h5, h6)) {
+  color: cyan;
+}
+.functional > div > div:has(p):has(h3):has(+ :is(h2, h3, h4, h5, h6)) {
+  padding: 7px;
+  font-size: 17px;
+  border: 3px solid red;
+  border-radius: 5px;
+}
+
+/* Pesudo-Classes End */
+
+/* Pseudo-Elements Start */
+
+/* ::after */
+.after > p {
+  font-size: 17px;
+  text-wrap: nowrap;
+}
+.after > p > span {
+  text-decoration: underline;
+  color: chocolate;
+  position: relative;
+}
+.after > p > span:hover::after,
+.after > p > span:focus::after {
+  content: attr(data-info);
+  font-size: 15px;
+  position: absolute;
+  left: 0;
+  top: 30px;
+  background-color: #eee;
+  color: blueviolet;
+  border-radius: 10px;
+  text-wrap: nowrap;
+  padding: 10px;
+  z-index: 1;
+}
+
+/* ::before */
+.before > ul {
+  border: 5px solid red;
+  padding: 1px;
+}
+.before > ul > li {
+  list-style-type: none;
+  position: relative;
+  margin: 2px;
+  padding: 5px 40px;
+  background-color: #eee;
+  color: #5f10a9;
+  text-align: left;
+  font-size: 20px;
+  text-wrap: nowrap;
+  width: 300px;
+}
+.before > ul > li:hover {
+  background-color: #aaa;
+  cursor: pointer;
+}
+.before > ul > li.done {
+  background-color: #ccff99;
+  text-decoration: line-through;
+}
+.before > ul > li.done::before {
+  content: "✔";
+  font-size: 25px;
+  color: green;
+  position: absolute;
+  left: 3%;
+  top: -4%;
+}
+
+/* ::cue & ::cue-region*/
+/* .cue > video::cue { */
+.cue > video::cue-region {
+  color: #5f10a9;
+  background-color: #fff;
+}
+.cue > video::cue(i) {
+  color: red;
+}
+
+/* ::first-(letter - line) */
+.text > p::first-letter {
+  font-size: xx-large;
+  color: aqua;
+}
+.text > p::first-line {
+  color: burlywood;
+}
+
+/* ::file-selector-button */
+.file-but > input::file-selector-button {
+  color: #5f10a9;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: violet;
+  cursor: pointer;
+  margin-right: 20px;
+}
+.file-but > input::file-selector-button:hover {
+  background-color: teal;
+  color: #fff;
+}
+.file-but > input::file-selector-button:active {
+  border: 2px solid red;
+}
+
+/* ::marker */
+.marker > div > p {
+  display: list-item;
+}
+.marker > ul {
+  padding-left: 0;
+}
+.marker > :is(div, ul) > :is(p, li)::marker {
+  color: red;
+}
+
+/* ::placeholder */
+.placeholder > input::placeholder {
+  color: aqua;
+}
+/* ::selection */
+.selection > .red-selection::selection {
+  background-color: red;
+}
+.selection > .blue-selection::selection {
+  background-color: blue;
+}
+
+/* Pseudo-Elements End */
+
+/* Combinators Start */
+
+.combinators > .parent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* .combinators > .parent > p { */
+/* .combinators > .parent > p ~ * { */
+.combinators > .parent > p + * {
+  color: red;
+}
+/* (&) nesting selector */
+.combinators > .parent {
+  & * {
+    text-align: left;
+  }
+
+  & > .l1 {
+    & > .l2 {
+      &::before {
+        content: "--> ";
+      }
+    }
+  }
+}
+
+div {
+  & & {
+    & & {
+      & > .l3 {
+        color: #ccff99;
+
+        &::before {
+          content: "---> ";
+        }
+      }
+    }
+  }
+}
+
+/* Combinators End */
+
+/*======= pseudo-classes & pseudo-elements Selectors End =======*/

@@ -1,0 +1,48 @@
+@layer framie, test;
+
+@layer test {
+  .cont {
+    position: relative;
+    padding: 20px;
+
+    /* background */
+    background-image: url(../../Files/images/Assassins.png),
+      linear-gradient(
+        0.25turn,
+        #000111,
+        #111222,
+        #222333,
+        #333444,
+        #444555,
+        #555666
+      );
+    background-attachment: fixed, scroll;
+    background-clip: border-box, padding-box;
+    /* background-origin: content-box; */
+    /* background-color: red; */
+    background-size: 150px auto, auto;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* border */
+    /* border: 10px solid red; */
+    border-top: 10px solid red;
+    border-bottom: 10px groove green;
+    border-left: 10px double blueviolet;
+    border-right: 10px dotted blue;
+    border-radius: 10px;
+
+    & > button {
+      text-align: center;
+      position: fixed;
+      padding: 15px;
+      right: 40px;
+    }
+    & > button#move {
+      top: 380px;
+    }
+    & > button#change {
+      top: 437px;
+    }
+  }
+}
