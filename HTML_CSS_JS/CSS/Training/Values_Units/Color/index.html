@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      @import url(../../../framework/style.css) layer(framie);
+    </style>
+    <script src="./script.js" async></script>
+    <script src="../../../framework/script.js" async></script>
+    <title>Color</title>
+  </head>
+  <body>
+    <div class="progress-cont">
+      <div id="progress"></div>
+    </div>
+
+    <div class="Header">CSS</div>
+
+    <!--================ Content Start ================-->
+    <div class="cont">
+      <fieldset class="color remove">
+        <legend>Color</legend>
+        <div class="clr keyword">Keyword</div>
+        <div class="clr HEX">HEX</div>
+        <div class="clr rgb">rgb()</div>
+        <div class="clr hsl">hsl()</div>
+        <div class="clr hwb">hwb()</div>
+        <div class="clr lab">lab()</div>
+        <div class="clr lch">lch()</div>
+        <div class="clr color">color()</div>
+        <div class="clr color-mix">color-mix()</div>
+      </fieldset>
+
+      <fieldset class="color-test remove">
+        <legend>Color Test</legend>
+        <div id="output"></div>
+        <input type="text" id="input" placeholder="Enter any Color" size="40" />
+      </fieldset>
+
+      <fieldset class="light-dark remove">
+        <legend>light-dark()</legend>
+        <div class="light_dark">Light - Dark</div>
+        <div class="dark">Dark</div>
+        <div class="light">Light</div>
+      </fieldset>
+
+      <fieldset class="color_mix ">
+        <legend>Color Mix</legend>
+        <div>90%</div>
+        <div>80%</div>
+        <div>70%</div>
+        <div>60%</div>
+        <div>50%</div>
+        <div>40%</div>
+        <div>30%</div>
+        <div>20%</div>
+        <div>10%</div>
+      </fieldset>
+
+      <fieldset class="hsl-conic-gradient remove">
+        <legend>HSL Conic Gradient</legend>
+        <div class="wheel"></div>
+      </fieldset>
+
+      <fieldset class="hue-slider remove">
+        <legend>&ltHue&gt Slider</legend>
+        <!-- using gradians -->
+        <input type="range" id="slider" min="0" max="400" value="0" />
+        <p>Hue: <span id="hue-val">0grad</span></p>
+        <div id="color-circle"></div>
+      </fieldset>
+    </div>
+    <!--================= Content End =================-->
+
+    <div
+      class="back-to-top"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    ></div>
+  </body>
+</html>

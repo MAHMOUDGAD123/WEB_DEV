@@ -1,0 +1,66 @@
+:root {
+  color-scheme: light dark;
+
+  --light-color: #000;
+  --dark-color: #fff;
+
+  --light-body-bg: #eee;
+  --dark-body-bg: #000;
+
+  --light-bg: #ddd;
+  --dark-bg: #111;
+}
+
+#light-dark-btn {
+  padding: 5px;
+  border-radius: 20px;
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: 300ms;
+  outline: none;
+
+  &:hover {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  
+  &:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: 0 0 10px 5px #18baff;
+    opacity: 1;
+  }
+
+  &:active {
+    box-shadow: 0 0 10px 5px #18baff;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
+.light-mode {
+  color: var(--light-color);
+  background-color: var(--light-bg);
+}
+.dark-mode {
+  color: var(--dark-color);
+  background-color: var(--dark-bg);
+}
+
+.light-bg {
+  background-color: var(--light-body-bg);
+}
+.dark-bg {
+  background-color: var(--dark-body-bg);
+}
+
+.light-color {
+  color: var(--light-color);
+}
+.dark-color {
+  color: var(--dark-color);
+}

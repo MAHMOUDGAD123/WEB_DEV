@@ -1,0 +1,144 @@
+@layer framie, test;
+
+@layer test {
+  .cont > .filter > div {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 50px;
+
+    &:hover::after {
+      content: attr(id);
+      position: absolute;
+      top: -10%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      word-break: keep-all;
+    }
+
+    /* filter values */
+
+    &#none:hover {
+      filter: none;
+    }
+
+    &#blur:hover {
+      filter: blur(5px);
+    }
+
+    &#brightness-50:hover {
+      filter: brightness(.5);
+    }
+    &#brightness-200:hover {
+      filter: brightness(2);
+    }
+
+    &#contrast-50:hover {
+      filter: contrast(.5);
+    }
+    &#contrast-500:hover {
+      filter: contrast(5);
+    }
+
+    &#drop-shadow:hover {
+      filter: drop-shadow(150px 50px 1px #045be0);
+    }
+
+    &#grayscale-50:hover {
+      filter: grayscale(.5);
+    }
+    &#grayscale-100:hover {
+      filter: grayscale(1);
+    }
+
+    &#hue-rotate-90:hover {
+      filter: hue-rotate(90deg);
+    }
+    &#hue-rotate-270:hover {
+      filter: hue-rotate(270deg);
+    }
+
+    &#invert-50:hover {
+      filter: invert(.5);
+    }
+    &#invert-100:hover {
+      filter: invert(1);
+    }
+
+    &#opacity-30:hover {
+      filter: opacity(0.3);
+    }
+    &#opacity-70:hover {
+      filter: opacity(0.7);
+    }
+
+    &#saturate-30:hover {
+      filter: saturate(.3);
+    }
+    &#saturate-300:hover {
+      filter: saturate(3);
+    }
+
+    &#sepia-50:hover {
+      filter: sepia(.5);
+    }
+    &#sepia-100:hover {
+      filter: sepia(5);
+    }
+
+    &#saturate-dropshadow:hover {
+      filter: saturate(15) drop-shadow(50px 50px 3px #0070f2);
+    }
+  }
+
+  .cont > .filter-demo {
+    & > #target {
+      margin-block: 70px;
+      width: 450px;
+      height: 200px;
+      background: url("../../Files/images/firefox-logo.svg") no-repeat center;
+    }
+
+    & > #options {
+      width: 100%;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: space-between;
+
+      & > select#filters {
+        font-size: 15px;
+      }
+    }
+
+    & > #range {
+      width: 100%;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      gap: 40px;
+
+      & > input {
+        width: 80%;
+        align-self: flex-start;
+      }
+
+      & > #curr-val {
+        border-radius: 10px;
+        background-color: #0070f2;
+        width: 120px;
+        padding: 10px;
+        text-align: center;
+        margin-block-end: 4px;
+      }
+    }
+
+    & > #user-choice {
+      background-color: #0070f2;
+      padding: 20px;
+      border-radius: 20px;
+      width: fit-content;
+      font-size: 18px;
+    }
+  }
+}

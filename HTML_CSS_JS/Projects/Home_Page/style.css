@@ -1,0 +1,154 @@
+html {
+  scroll-behavior: smooth;
+  font-size: 25px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: bold;
+  text-align: center;
+  transition: 500ms;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+/* hide the scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  padding-inline: 100px;
+  padding-block-start: 10px;
+  padding-block-end: 100px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: relative;
+}
+
+.icons {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  gap: 50px;
+
+  & > * {
+    transition: 300ms linear;
+    padding: 5px;
+    border-radius: 20px;
+    outline: none;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: 0 0 10px 5px #18baff;
+    }
+  }
+}
+
+.cont {
+  position: relative;
+  padding: 30px;
+  border-radius: 30px;
+  display: grid;
+  grid-template: auto / repeat(auto-fit, minmax(70px, 1fr));
+  gap: 70px;
+  transition: 300ms linear;
+
+  & > a {
+    border-radius: 15px;
+    padding: 5px;
+    outline: none;
+
+    &:hover {
+      transform: scale(1.15);
+    }
+
+    &:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: 0 0 10px 5px #18baff;
+    }
+  }
+}
+
+/* Progress START */
+
+#progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  width: 0%;
+  height: 7px;
+  background-color: #5561f5;
+  transition: width 300ms ease-out;
+  z-index: 100;
+}
+
+/* Progress End */
+
+/* CLOCK START */
+
+.CD {
+  align-self: center;
+  display: flex;
+  flex-flow: column;
+  gap: 30px;
+  border-radius: 100px;
+  padding: 70px;
+
+  & > :is(.clock, .date) {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  & > .clock {
+    font-size: 70px;
+    gap: 30px;
+  }
+  & > .date {
+    font-size: 21px;
+    justify-content: center;
+    gap: 7px;
+  }
+}
+
+/* CLOCK END */
+
+/* BackToTop Start */
+
+#back-to-top {
+  cursor: pointer;
+  border: 20px solid;
+  border-radius: 50%;
+  border-color: #5561f5;
+  width: fit-content;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  transition: 700ms;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-radius: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* BackToTop End */

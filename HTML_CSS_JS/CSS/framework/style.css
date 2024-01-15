@@ -1,0 +1,396 @@
+html {
+  scroll-behavior: smooth;
+  font-size: 25px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #222;
+  padding: 10px;
+  border-radius: 30px;
+  position: relative;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  transition: 300ms;
+  margin: 0;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* hide the scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+
+.remove {
+  display: none !important;
+}
+
+.cont {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 70px;
+}
+
+.section {
+  border: 5px solid burlywood;
+  border-radius: 10px;
+  padding: 30px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+fieldset {
+  border: 7px solid #4955f7;
+  border-radius: 10px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  & > legend {
+    background-color: #4955f7;
+    border-radius: 50px;
+    padding: 10px;
+    font-size: 15px;
+  }
+}
+.o-fieldset {
+  border-color: orange;
+
+  & > legend {
+    background-color: orange;
+  }
+}
+.r-fieldset {
+  border-color: red;
+
+  & > legend {
+    background-color: red;
+  }
+}
+.g-fieldset {
+  border-color: #79c508;
+
+  & > legend {
+    background-color: #79c508;
+  }
+}
+
+/* Progress Start */
+
+.progress-cont {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 7px;
+  background-color: #eee;
+  z-index: 100;
+
+  & > #progress {
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    width: 0%;
+    height: 7px;
+    background-color: #5561f5;
+    transition: width 300ms ease-out;
+  }
+}
+/* Progress End */
+
+.Header {
+  margin: 20px auto 70px;
+  width: 100px;
+  font-weight: bolder;
+  font-size: 30px;
+  border: 5px solid;
+  padding: 7px 10px 10px;
+  letter-spacing: 2px;
+
+  &:hover {
+    color: yellow;
+    cursor: pointer;
+  }
+}
+
+/* BackToTop Start */
+
+.back-to-top {
+  cursor: pointer;
+  border: 20px solid;
+  border-radius: 50%;
+  border-color: #5561f5;
+  width: fit-content;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  transition: 700ms;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-radius: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* BackToTop End */
+
+/* Arrow_Box START */
+
+/*-------- Top-Arrow --------*/
+.arrow_box_top {
+  position: relative;
+  background-color: #5561f5;
+  border: 4px solid #76b3f0;
+  width: 300px;
+  height: 200px;
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+  }
+
+  &::after {
+    border-bottom-color: #5561f5;
+    border-width: 30px;
+    margin-left: -30px;
+  }
+
+  &::before {
+    border-bottom-color: #76b3f0;
+    border-width: 36px;
+    margin-left: -36px;
+  }
+}
+
+/*-------- Right-Arrow --------*/
+.arrow_box_right {
+  position: relative;
+  background-color: #5561f5;
+  border: 4px solid #76b3f0;
+  width: 300px;
+  height: 200px;
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    border: solid transparent;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+  }
+
+  &::after {
+    border-left-color: #5561f5;
+    border-width: 30px;
+    margin-top: -30px;
+  }
+
+  &::before {
+    border-left-color: #76b3f0;
+    border-width: 36px;
+    margin-top: -36px;
+  }
+}
+/*-------- Bottom-Arrow --------*/
+.arrow_box_bottom {
+  position: relative;
+  background-color: #5561f5;
+  border: 4px solid #76b3f0;
+  width: 300px;
+  height: 200px;
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+  }
+
+  &::after {
+    border-top-color: #5561f5;
+    border-width: 30px;
+    margin-left: -30px;
+  }
+
+  &::before {
+    border-top-color: #76b3f0;
+    border-width: 36px;
+    margin-left: -36px;
+  }
+}
+/*-------- Left-Arrow --------*/
+.arrow_box_left {
+  position: relative;
+  background-color: #5561f5;
+  border: 4px solid #76b3f0;
+  width: 300px;
+  height: 200px;
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+  }
+
+  &::after {
+    border-right-color: #5561f5;
+    border-width: 30px;
+    margin-top: -30px;
+  }
+
+  &::before {
+    border-right-color: #76b3f0;
+    border-width: 36px;
+    margin-top: -36px;
+  }
+}
+
+/* Arrow_Box End */
+
+/* 'input & textarea & output & button' Styling Start */
+
+input,
+button,
+output,
+textarea {
+  background-color: #555;
+  border: 1px solid #000;
+  color: #fff;
+  border-radius: 20px;
+  margin: 10px;
+  align-self: center;
+  padding: 15px;
+  text-align: left;
+  outline: none;
+}
+
+input:focus,
+textarea:focus {
+  background-color: #777;
+}
+
+button {
+  cursor: pointer;
+  background-color: #5561f5;
+  font-size: 17px;
+
+  &:active {
+    background-color: yellow;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+::placeholder {
+  color: #f5aa8e;
+}
+
+/* 'input & textarea & output & button' Styling End */
+
+/* Tables Styling Start */
+
+/* table {
+  border-collapse: collapse;
+}
+
+th {
+  color: orange;
+}
+
+th,
+td {
+  border: 3px solid #4955f7;
+  padding: 7px;
+  font-size: 15px;
+  text-wrap: nowrap;
+} */
+
+/* Tables Styling End */
+
+/* Select - option styling Start*/
+
+select {
+  background-color: #4955f7;
+  border-radius: 10px;
+  font-size: 25px;
+  padding: 10px;
+  outline: none;
+
+  &:focus,
+  &:focus-visible {
+    outline: 3px solid yellow;
+  }
+}
+
+/* Select - option styling End*/

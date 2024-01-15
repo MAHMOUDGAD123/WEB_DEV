@@ -1,0 +1,227 @@
+@layer framie, test;
+
+@layer test {
+  /* <color> Start */
+  .cont > .color > .clr {
+    width: 200px;
+    padding: 10px;
+    border-radius: 10px;
+
+    &.keyword {
+      color: #7a33ff;
+      background-color: red;
+      background-color: currentColor;
+    }
+
+    &.HEX {
+      /* R -> red */
+      /* G -> green */
+      /* B -> blue */
+      /* A -> alpha */
+      /* #R{1,2}G{1,2}B{1,2}A{1,2} */
+      background-color: #f00; /* RGB */
+      background-color: #f007; /* RGBA */
+      background-color: #ff0000; /* RRGGBB */
+      background-color: #ff000050; /* RRGGBBAA */
+    }
+
+    &.rgb {
+      /* all are from { 0-255 | 0%-100% } */
+      /* R -> red */
+      /* G -> green */
+      /* B -> blue */
+      /* A -> alpha */
+      /* rgb(R G B / A) */
+      background-color: rgb(255 0 0 / 70%);
+      background-color: rgb(100%, 0, 0, 0.7);
+    }
+
+    &.hsl {
+      /* H -> Hue { <number> | <angle>(deg-grad-rad-turn) } */
+      /* S -> saturation { (0-100)%? } */
+      /* L -> lightness  { (0-100)%? } */
+      /* A -> alpha */
+      /* hsl(H S L / A) */
+      background-color: hsl(90 100% 50% / 100%); /* number == degree */
+      background-color: hsl(90deg, 100%, 50%, 1); /* degree */
+      background-color: hsl(90grad 100% 50%); /* gradian */
+      background-color: hsl(90rad 100% 50%); /* radian */
+      background-color: hsl(0.25turn 100% 50%); /* turn */
+      background-color: hsl(0 100% 50%); /* red */
+      background-color: hsl(90 100% 50%); /* green */
+      background-color: hsl(240 100% 50%); /* blue */
+      background-color: hsl(60 100% 50%); /* yellow */
+    }
+
+    &.hwb {
+      /* H -> Hue { <number> | <angle>(deg-grad-rad-turn) } */
+      /* W -> whiteness { (0-100)%? } */
+      /* B -> blackness { (0-100)%? } */
+      /* A -> alpha */
+      /* hsl(H W B / A) */
+      background-color: hwb(90 100% 100% / 100%); /* number == degree */
+      background-color: hwb(90deg, 100%, 50%, 1); /* degree */
+      background-color: hwb(90grad 50% 10%); /* gradian */
+      background-color: hwb(90rad 10% 20%); /* radian */
+      background-color: hwb(0.25turn 0% 0%); /* turn */
+    }
+
+    &.lab {
+      /* l -> lightness(black/white) { (0-100)%? } */
+      /* a -> a-axis(green/red)   { (-125)-125 | (-100%)-100% } */
+      /* b -> b-axis(blue/yellow) { (-125)-125 | -(100%)-100% } */
+      /* A -> alpha */
+      /* lab(l a b / A) */
+      background-color: lab(100% 100% 100% / 100%);
+      background-color: lab(100, 125, 125, 1);
+      background-color: lab(70 125 125); /* red */
+      background-color: lab(40 -125 125); /* green */
+      background-color: lab(15 0 -125); /* blue */
+      background-color: lab(100 0 125); /* yellow */
+    }
+
+    &.lch {
+      /* L -> lightness(black/white) (0-100)%? */
+      /* C -> chroma { 0-(150)?? | 0%-100% } */
+      /* H -> Hue { <number> | <angle>(deg-grad-rad-turn) } */
+      /* A -> alpha */
+      /* lch(L C H / A) */
+      background-color: lch(100%, 100%, 100deg, 100%);
+      background-color: lch(100, 150, 100, 1);
+      background-color: lch(35 150 0); /* red */
+      background-color: lch(45 150 140); /* green */
+      background-color: lch(30 150 300); /* blue */
+    }
+
+    &.color {
+      /* https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color */
+      /* color(color-space, c1, c2, c3, alpha?) */
+      background-color: color(srgb 1 0 0 / 1); /* red */
+      background-color: color(srgb 0 1 0 / 1); /* green */
+      background-color: color(srgb 0 0 1 / 1); /* blue */
+      background-color: color(xyz 1 0 0); /* red */
+      background-color: color(xyz 0 1 0); /* green */
+      background-color: color(xyz 0 0 1); /* blue */
+    }
+
+    &.color-mix {
+      /* https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix */
+      /* used to mix two colors */
+      /* color-mix(method, color1[p1], color2[p2]) */
+      /* <rectangular-color-space> */
+      background-color: color-mix(in srgb, red, green);
+      background-color: color-mix(in xyz, red, yellow);
+      /* <polar-color-space> */
+      background-color: color-mix(in hsl shorter hue, blue, red);
+      background-color: color-mix(in hsl longer hue, blue, red);
+      background-color: color-mix(in hsl increasing hue, blue, red);
+      background-color: color-mix(in hsl decreasing hue, blue, red);
+    }
+  }
+  /* <color> End */
+
+  /* color test */
+  .cont > .color-test {
+    & > #output {
+      padding: 150px;
+      border: 1px solid;
+      border-radius: 50%;
+    }
+  }
+
+  /* light-dark() function */
+  /* experimental feature on firefox */
+  .cont > .light-dark {
+    & > div {
+      padding: 70px;
+      inline-size: 350px;
+      border-radius: 20px;
+      color: light-dark(black, white);
+      background-color: light-dark(white, black);
+
+      &.light_dark {
+        color-scheme: light dark; /* light dark */
+      }
+
+      &.dark {
+        color-scheme: dark; /* force dark */
+      }
+
+      &.light {
+        color-scheme: only light; /* force light no override */
+      }
+    }
+  }
+
+  /* color-mix() function */
+  .cont > .color_mix {
+    & > div {
+      padding: 30px;
+      border-radius: 20px;
+
+      &:nth-of-type(1) {
+        background-color: color-mix(in srgb, #7b34ff 90%, white);
+      }
+      &:nth-of-type(2) {
+        background-color: color-mix(in srgb, #7b34ff 80%, white);
+      }
+      &:nth-of-type(3) {
+        background-color: color-mix(in srgb, #7a33ff 70%, white);
+      }
+      &:nth-of-type(4) {
+        background-color: color-mix(in srgb, #7b34ff 60%, white);
+      }
+      &:nth-of-type(5) {
+        background-color: color-mix(in srgb, #7b34ff 50%, white);
+      }
+      &:nth-of-type(6) {
+        background-color: color-mix(in srgb, #7a33ff 40%, white);
+      }
+      &:nth-of-type(7) {
+        background-color: color-mix(in srgb, #7b34ff 30%, white);
+      }
+      &:nth-of-type(8) {
+        background-color: color-mix(in srgb, #7b34ff 20%, white);
+      }
+      &:nth-of-type(9) {
+        background-color: color-mix(in srgb, #7b34ff 10%, white);
+      }
+    }
+  }
+
+  /* demo hsl color wheel */
+  .cont > .hsl-conic-gradient > .wheel {
+    width: 200px;
+    height: 200px;
+    background: conic-gradient(
+      hsl(0 100% 50%),
+      hsl(60 100% 50%),
+      hsl(120 100% 50%),
+      hsl(180 100% 50%),
+      hsl(240 100% 50%),
+      hsl(300 100% 50%),
+      hsl(360 100% 50%)
+    );
+    /* border-radius: 50%; */
+    clip-path: circle(closest-side);
+  }
+
+  /* Hue Slider */
+  .cont > .hue-slider {
+    & > p {
+      padding: 7px;
+      border-radius: 10px;
+      background-color: #444;
+    }
+
+    & > p > #hue-val {
+      color: orange;
+    }
+
+    & > #color-circle {
+      padding: 70px;
+      border-radius: 50%;
+      background-color: #f00;
+    }
+  }
+}

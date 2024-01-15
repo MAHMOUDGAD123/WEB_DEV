@@ -1,0 +1,78 @@
+@layer framie, test;
+
+@layer test {
+  .cont > .image-values {
+    & > #ele {
+      background-color: orange;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    & > .box {
+      & > img {
+        max-width: 100%;
+      }
+    }
+
+    & > div {
+      width: 300px;
+      height: 300px;
+
+      &.url {
+        /* background: url("./files/light_Background.jpg"); */
+        background: url(./files/light_Background.jpg);
+      }
+
+      &.gradient {
+        border-radius: 50%;
+        background: conic-gradient(
+          red 0deg 120deg,
+          green 120deg 240deg,
+          blue 240deg
+        );
+      }
+
+      &.element {
+        /* background: element(#js); */
+        /* background: -moz-element(#ele) no-repeat center red; */
+        background: -moz-element(#js) no-repeat center red;
+        background-size: 150px;
+        border-radius: 50%;
+      }
+
+      /* not working */
+      &.image {
+        background-image: image(
+          ltr "./files/java-script.png#xywh=5,5,20,20",
+          red
+        );
+      }
+
+      &.cross-fade {
+        background: cross-fade(
+          url("./files/Dark_Background.jpg") 20%,
+          url("./files/Light_Background.jpg") 80%
+        );
+      }
+
+      &.image-set {
+        /* zoom in & out to see the change */
+        /* background-image: image-set(
+          url("./files/Dark_Background.jpg") 1x,
+          url("./files/Light_Background.jpg") 2x,
+          url("./files/java-script.png") 3x
+        ); */
+
+        /* using image-set to provide a different format */
+        background-image: image-set(
+          "./files/java-script.png" type("image/png"),
+          "./files/java-script.jpg" type("image/jpg")
+        );
+
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+      }
+    }
+  }
+}

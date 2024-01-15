@@ -1,0 +1,205 @@
+@layer framie, test;
+
+@layer test {
+  .cont > table {
+    /* table-layout: fixed; */
+    border-collapse: collapse;
+    width: 100%;
+
+    & > thead th {
+      color: orange;
+    }
+
+    & > tbody th {
+      color: greenyellow;
+    }
+
+    & > caption {
+      caption-side: top;
+      background-color: #662ff3;
+      font-size: 30px;
+    }
+
+    & :empty {
+      background-color: #555;
+    }
+
+    & > tfoot {
+      background-color: #4955f7;
+      & td {
+        font-size: 25px;
+      }
+    }
+  }
+
+  th,
+  td {
+    border: 3px solid #4955f7;
+    padding: 7px;
+    font-size: 15px;
+    text-wrap: nowrap;
+
+    &:not(tfoot td):not(tbody :first-child):not(thead *):hover {
+      background-color: #333;
+      cursor: pointer;
+    }
+  }
+
+  /* simple card */
+  .cont > #card {
+    background-color: #f00;
+    border: 5px solid #444;
+    border-radius: 30px;
+    font-family: monospace;
+
+    & * {
+      text-align: left;
+    }
+
+    & > :is(h2, p) {
+      padding: 20px;
+      width: 500px;
+      color: #000;
+    }
+
+    & > P {
+      font-size: 19px;
+    }
+
+    & > #info {
+      background-color: #bf0000;
+      font-size: 17px;
+      display: flex;
+      align-items: center;
+
+      & > img {
+        width: 7em;
+        position: relative;
+        right: -2em;
+      }
+
+      & > #address {
+        padding: 17px;
+        & > p {
+          color: #eee;
+        }
+      }
+    }
+  }
+
+  .cont > #paper {
+    width: 20em;
+    height: 30em;
+    margin-block-end: 20px;
+    border-radius: 10px;
+    border-block: 4px solid orange;
+    position: relative;
+    font-family: cursive;
+    background-color: #ddd;
+    padding: 30px;
+    overflow: hidden;
+
+    /* position vars */
+
+    & > :is(#yellow-t, #red-t, #orange-t, #yellow-b, #red-b, #orange-b) {
+      width: 300px;
+      height: 300px;
+      position: absolute;
+    }
+
+    /* top */
+    & > #yellow-t {
+      background-color: #ffd607;
+      top: -240px;
+      left: -90px;
+      transform: rotate(-20deg);
+      z-index: 3;
+    }
+    & > #orange-t {
+      background-color: #fb5454;
+      top: -235px;
+      right: -65px;
+      transform: rotate(20grad);
+      z-index: 1;
+    }
+    & > #red-t {
+      /* display: none; */
+      background-color: #f00;
+      top: -110px;
+      right: -270px;
+      transform: rotate(41grad);
+      z-index: 2;
+    }
+
+    /* bottom */
+    & > #yellow-b {
+      background-color: #ffd607;
+      bottom: -240px;
+      right: -90px;
+      transform: rotate(-20deg);
+      z-index: 3;
+    }
+    & > #orange-b {
+      background-color: #fb5454;
+      bottom: -235px;
+      left: -70px;
+      transform: rotate(20deg);
+      z-index: 1;
+    }
+    & > #red-b {
+      /* display: none; */
+      background-color: #f00;
+      bottom: -110px;
+      left: -270px;
+      transform: rotate(37deg);
+      z-index: 2;
+    }
+
+    & > img {
+      width: 3em;
+      position: absolute;
+      top: 80px;
+      left: 70px;
+    }
+
+    & > #info {
+      position: absolute;
+      bottom: 60px;
+      right: 80px;
+      letter-spacing: 1px;
+
+      & > p {
+        font-style: italic;
+        &:first-child {
+          margin-block-end: 7px;
+        }
+        font-size: 15px;
+        text-align: left;
+        color: black;
+      }
+    }
+  }
+
+  .cont > .cool-box {
+    position: relative;
+    inline-size: 400px;
+    block-size: 400px;
+    background-color: #e30100;
+    border-radius: 20px;
+    background: linear-gradient(-45deg, #f00, #fff);
+
+    &:hover {
+      box-shadow: inset #fff -5px -5px 20px;
+    }
+
+    &::after {
+      content: "This Is A Cool Box";
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      text-shadow: 3px 3px 7px#000;
+      position: absolute;
+    }
+  }
+}

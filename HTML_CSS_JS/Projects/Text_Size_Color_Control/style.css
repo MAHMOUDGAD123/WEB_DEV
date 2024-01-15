@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caprasimo&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  font-weight: bold;
+  transition: 0.5s;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+:root {
+  font-family: "Bebas Neue", sans-serif;
+  font-family: "Caprasimo", cursive;
+  font-family: "Ubuntu", sans-serif;
+  font-family: "Work Sans", sans-serif;
+}
+
+::selection {
+  color: white;
+  background-color: black;
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+
+.remove {
+  display: none !important;
+}
+
+.container {
+  margin: 70px;
+  padding: 30px 50px;
+  font-size: 20px;
+}
+
+.title {
+  position: relative;
+  color: #ddd;
+  width: 100%;
+  padding: 15px;
+  margin: 30px auto;
+  text-align: center;
+  transition: 500ms;
+  width: fit-content;
+  border: 3px solid;
+  padding: 5px;
+}
+.title:hover {
+  color: #ffe979;
+  cursor: pointer;
+}
+
+/* CHANGE SIZE AND COLOR START */
+
+.size-color {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  text-align: center;
+
+  & > #sz-but {
+    grid-template: auto / repeat(auto-fit, minmax(30px, 1fr));
+
+    & > * {
+      width: 50px;
+    }
+  }
+
+  & > #col-but {
+    grid-template: auto / repeat(auto-fit, minmax(100px, 1fr));
+
+    & > * {
+      width: 100px;
+    }
+  }
+
+  & > :is(#sz-but, #col-but) {
+    background-color: #222;
+    display: grid;
+    gap: 25px;
+    padding: 30px;
+    border-radius: 30px;
+    justify-items: center;
+
+    & > * {
+      /* background-color: red; */
+      /* color: #fff; */
+      padding: 10px;
+      border-radius: 70px;
+      cursor: pointer;
+      word-break: keep-all;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+/* CHANGE SIZE AND COLOR END */

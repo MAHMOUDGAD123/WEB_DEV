@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      @import url(../../framework/style.css) layer(framie);
+    </style>
+    <script src="./script.js" async></script>
+    <script src="../../framework/script.js" async></script>
+    <title>Filter</title>
+  </head>
+  <body>
+    <div class="progress-cont">
+      <div id="progress"></div>
+    </div>
+
+    <div class="Header">CSS</div>
+
+    <!--============= Content Start =============-->
+    <div class="cont">
+      <!-- filters -->
+      <fieldset class="filter remove">
+        <legend>Filter</legend>
+        <div id="none">
+          <img src="../../Files/images/firefox-logo.svg" />
+        </div>
+
+        <div id="blur">
+          <img src="../../Files/images/firefox-logo.svg" />
+        </div>
+
+        <div id="brightness-50">
+          <img src="../../Files/images/firefox-logo.svg" />
+        </div>
+
+        <div id="brightness-200">
+          <img src="../../Files/images/firefox-logo.svg" />
+        </div>
+
+        <div id="contrast-50">
+          <img src="../../Files/images/firefox-logo.svg" />
+        </div>
+
+        <div id="contrast-500">
+          <img src="../../Files/images/firefox-logo.svg" />
+        </div>
+
+        <div id="drop-shadow">
+          <img src="../../Files/images/firefox-logo.svg" />
+        </div>
+
+        <div id="grayscale-50">
+          <img src="../../Files/images/firefox-logo.svg" />
+        </div>
+
+        <div id="grayscale-100">
+          <img src="../../Files/images/firefox-logo.svg" />
+        </div>
+
+        <div id="hue-rotate-90">
+          <img src="../../Files/images/firefox-logo.svg" />
+        </div>
+
+        <div id="hue-rotate-270">
+          <img src="../../Files/images/firefox-logo.svg" />
+        </div>
+
+        <div id="invert-50">
+          <img src="../../Files/images/firefox-logo.svg" />
+        </div>
+
+        <div id="invert-100">
+          <img src="../../Files/images/firefox-logo.svg" />
+        </div>
+
+        <div id="opacity-30">
+          <img src="../../Files/images/firefox-logo.svg" />
+        </div>
+
+        <div id="opacity-70">
+          <img src="../../Files/images/firefox-logo.svg" />
+        </div>
+
+        <div id="saturate-30">
+          <img src="../../Files/images/firefox-logo.svg" />
+        </div>
+
+        <div id="saturate-300">
+          <img src="../../Files/images/firefox-logo.svg" />
+        </div>
+
+        <div id="sepia-50">
+          <img src="../../Files/images/firefox-logo.svg" />
+        </div>
+
+        <div id="sepia-100">
+          <img src="../../Files/images/firefox-logo.svg" />
+        </div>
+
+        <div id="saturate-dropshadow">
+          <img src="../../Files/images/firefox-logo.svg" />
+        </div>
+      </fieldset>
+
+      <fieldset class="filter-demo">
+        <legend>Filter Demo</legend>
+
+        <div id="target"></div>
+
+        <div id="options">
+          <label for="filter">Choose a filter function:</label>
+          <select id="filters"></select>
+        </div>
+
+        <div id="range">
+          <input type="range" id="value" />
+          <span id="curr-val"></span>
+        </div>
+
+        <p id="user-choice"></p>
+      </fieldset>
+    </div>
+    <!--============== Content End ==============-->
+
+    <div
+      class="back-to-top"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    ></div>
+  </body>
+</html>

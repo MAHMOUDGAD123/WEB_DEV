@@ -1,0 +1,128 @@
+:root {
+  font-family: "Caprasimo", cursive;
+  font-family: "Work Sans", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  color: #fff;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  font-weight: bold;
+  transition: 500ms;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 100px;
+}
+
+#header {
+  margin: 1em auto;
+  padding: 15px;
+  width: fit-content;
+  border: 4px solid;
+  padding: 5px;
+
+  &:hover {
+    color: #18baff;
+    cursor: default;
+  }
+}
+
+/* home button */
+#home {
+  padding: 5px;
+  border-radius: 20px;
+  transition: 300ms;
+  outline: none;
+
+  &:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: 0 0 10px 5px #18baff;
+  }
+
+  &:active {
+    box-shadow: 0 0 10px 5px #18baff;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
+/* COUNT_DOWN & CLOCK START */
+
+:is(.CLC, .CD) {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  padding: 30px 50px;
+  text-align: center;
+  border-radius: 50px;
+  inline-size: 530px;
+  gap: 15px;
+
+  & > span {
+    inline-size: 100px;
+  }
+
+  &:hover > span {
+    color: #15a3df;
+    transform: scale(1.03);
+    cursor: default;
+  }
+
+  & > #title {
+    position: absolute;
+    top: -33px;
+    font-size: 20px;
+    background-color: #70b5d3;
+    padding: 10px;
+    border-radius: 20px;
+  }
+
+  & > #title:hover {
+    cursor: default;
+  }
+}
+
+.CLC {
+  font-size: 45px;
+}
+
+.CD {
+  font-size: 40px;
+
+  & > #expired-msg {
+    display: none;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(
+      to right,
+      #ff0000,
+      #ff1d1d,
+      #ff3c3c,
+      #ff5c5c,
+      #ff9a9a,
+      #ff7d7d,
+      #ff9898
+    );
+  }
+}
+
+/* COUNT_DOWN & CLOCK END */

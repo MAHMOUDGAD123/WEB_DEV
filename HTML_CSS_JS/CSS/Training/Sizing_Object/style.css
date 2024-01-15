@@ -1,0 +1,23 @@
+@layer framie, test;
+
+@layer test {
+  img {
+    border: 2px solid;
+    border-radius: 10px;
+    width: 300px;
+    height: 200px;
+  }
+
+  .cont > .fit > img {
+    object-fit: none;
+    object-fit: contain;
+    object-fit: scale-down;
+    object-fit: cover;
+    object-fit: fill;
+  }
+
+  .cont > .position > img {
+    object-position: bottom 70px right 30px;
+    object-position: 70px 30px;
+  }
+}
