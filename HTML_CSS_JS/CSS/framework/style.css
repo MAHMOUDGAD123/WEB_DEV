@@ -18,7 +18,7 @@ body {
   color: #fff;
   font-weight: bold;
   text-align: center;
-  transition: 300ms;
+  transition: 200ms;
   margin: 0;
   user-select: none;
   -moz-user-select: none;
@@ -43,7 +43,7 @@ img {
   display: flex;
   flex-flow: column;
   align-items: center;
-  gap: 70px;
+  gap: 50px;
 }
 
 .section {
@@ -81,7 +81,7 @@ fieldset {
   }
 }
 .r-fieldset {
-  border-color: red;
+  border-color: #cf2929;
 
   & > legend {
     background-color: red;
@@ -92,6 +92,13 @@ fieldset {
 
   & > legend {
     background-color: #79c508;
+  }
+}
+.p-fieldset {
+  border-color: #5338ff;
+
+  & > legend {
+    background-color: #5338ff;
   }
 }
 
@@ -383,13 +390,12 @@ td {
 select {
   background-color: #4955f7;
   border-radius: 10px;
-  font-size: 25px;
+  font-size: 15px;
   padding: 10px;
-  outline: none;
+  border: none;
 
-  &:focus,
   &:focus-visible {
-    outline: 3px solid yellow;
+    outline: 2px solid yellow;
   }
 }
 

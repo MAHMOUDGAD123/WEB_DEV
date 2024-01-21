@@ -10,7 +10,7 @@
     </style>
     <script src="./script.js" async></script>
     <script src="../../framework/script.js" async></script>
-    <title>Blend Mode</title>
+    <title>CSS Shapes</title>
   </head>
   <body>
     <div class="progress-cont">
@@ -21,23 +21,31 @@
 
     <!--============= Content Start =============-->
     <div class="cont">
-      <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/blend-mode"
+      <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/basic-shape"
         >MDN</a
       >
-      <!-- Blend Mode -->
-      <fieldset class="blend-mode">
-        <legend>*-blend-mode</legend>
-        <div id="targets">
-          <div id="bg-target"></div>
 
-          <div id="mix-wrapper">
-            <div id="mix-target"></div>
-          </div>
+      <!-- Shapes Demo -->
+      <fieldset id="main" class="shape-demo r-fieldset">
+        <legend id="legend"></legend>
+
+        <div id="output">
+          <span id="space-ship"></span>
         </div>
+
         <div id="controls">
-          <label for="options">Choose a blend mode:</label>
+          <span id="mode_btn" tabindex="0">mode</span>
+          <span id="move_btn" tabindex="0"></span>
           <select id="options"></select>
         </div>
+
+        <input type="text" id="input" />
+      </fieldset>
+
+      <!-- Cool Shape -->
+      <fieldset class="MG-shape">
+        <legend>Cool Shape</legend>
+        <div></div>
       </fieldset>
     </div>
     <!--============== Content End ==============-->

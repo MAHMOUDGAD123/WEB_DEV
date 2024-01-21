@@ -1,0 +1,86 @@
+@layer framie, test;
+
+@layer test {
+  .cont > a {
+    text-decoration: none;
+    background: linear-gradient(blue, orange);
+    padding: 10px;
+    border-radius: 20px;
+    font-family: cursive;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  #wrapper {
+    padding: 30px;
+    font-size: 15px;
+    width: 500px;
+    text-align: center;
+  }
+
+  .shape {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+  }
+
+  .left {
+    float: left;
+  }
+  .right {
+    float: right;
+  }
+
+  .test-1 {
+    & :is(.left, .right) {
+      background: linear-gradient(red, blue);
+      shape-margin: 1%;
+    }
+
+    & .left {
+      --poly: polygon(0 0, 30% 0, 100% 100%, 0 100%);
+      clip-path: var(--poly);
+      shape-outside: var(--poly);
+    }
+
+    & .right {
+      --poly: polygon(70% 0, 100% 0, 100% 100%, 0 100%);
+      clip-path: var(--poly);
+      shape-outside: var(--poly);
+    }
+  }
+
+  .test-2 {
+    --bg-image: linear-gradient(45deg, red, transparent 70%);
+
+    & .left {
+      shape-outside: var(--bg-image);
+      background: var(--bg-image);
+      shape-image-threshold: 0.1;
+    }
+  }
+
+  #star {
+    float: left;
+    width: 200px;
+    height: 200px;
+    background: conic-gradient(red, blue);
+    --polygon: polygon(
+      50% 0%,
+      60% 40%,
+      100% 50%,
+      60% 60%,
+      50% 100%,
+      40% 60%,
+      0% 50%,
+      40% 40%
+    );
+    clip-path: var(--polygon);
+    shape-outside: var(--polygon);
+    shape-margin: 1%;
+  }
+}

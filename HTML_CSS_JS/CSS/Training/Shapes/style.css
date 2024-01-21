@@ -1,0 +1,120 @@
+@layer framie, test;
+
+@layer test {
+  .cont > a {
+    text-decoration: none;
+    background: linear-gradient(blue, orange);
+    padding: 10px;
+    border-radius: 20px;
+    font-family: cursive;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:focus-visible {
+      outline: 3px solid yellow;
+    }
+  }
+
+  #input {
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .shape-demo {
+    width: 450px;
+    gap: 50px;
+  }
+
+  #output {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+
+    & > #space-ship {
+      border-radius: 10%;
+      position: absolute;
+      border: 17px solid;
+      border-color: transparent transparent transparent #ffc107;
+    }
+  }
+
+  #controls {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+
+    & > #mode_btn {
+      width: 70px;
+    }
+
+    & > span#move_btn {
+      background-color: red;
+      &.green-bg {
+        background-color: #25d366 !important;
+      }
+    }
+
+    & > :is(#mode_btn, #move_btn) {
+      font-size: 15px;
+      padding: 10px;
+      border-radius: 30px;
+      cursor: pointer;
+      outline: none;
+
+      &:focus-visible {
+        outline: 2px solid yellow;
+      }
+    }
+  }
+
+  @keyframes move {
+    0% {
+      offset-distance: 0%;
+    }
+    100% {
+      offset-distance: 100%;
+    }
+  }
+
+  /* Cool shape */
+  .MG-shape > div {
+    width: 400px;
+    height: 400px;
+    background-image: repeating-linear-gradient(45deg, orange, red 20%);
+    animation: MG 5s infinite ease-in-out alternate;
+  }
+
+  @keyframes MG {
+    from {
+      clip-path: polygon(
+        50% 0%,
+        60% 40%,
+        100% 50%,
+        60% 60%,
+        50% 100%,
+        40% 60%,
+        0% 50%,
+        40% 40%
+      );
+    }
+    to {
+      clip-path: polygon(
+        50% 30%,
+        100% 0%,
+        70% 50%,
+        100% 100%,
+        50% 70%,
+        0% 100%,
+        30% 50%,
+        0% 0%
+      );
+    }
+  }
+}
