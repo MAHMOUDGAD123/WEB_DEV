@@ -6,11 +6,10 @@
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
     <link rel="stylesheet" href="./style.css" />
     <style>
-      @import url(../../framework/style.css) layer(framie);
+      @import url("../../framework/style.css") layer(framie);
     </style>
-    <script src="./script.js" async></script>
     <script src="../../framework/script.js" async></script>
-    <title>CSS Shapes</title>
+    <title>Text Styling</title>
   </head>
   <body>
     <div class="progress-cont">
@@ -19,49 +18,29 @@
 
     <div class="Header">CSS</div>
 
+    <a
+      id="ref"
+      href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text"
+      >MDN</a
+    >
     <!--============= Content Start =============-->
     <div class="cont">
-      <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_shapes"
-        >MDN</a
-      >
-
-      <fieldset class="test-1 remove">
-        <legend>shape-outside / shape-margin</legend>
-        <div id="wrapper">
-          <div class="shape left">L</div>
-          <div class="shape right">R</div>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor soluta
-          libero, facere fugiat quo esse eius similique saepe eaque totam
-          expedita unde tempora nulla praesentium!
-        </div>
+      <fieldset class="font remove">
+        <legend>Font</legend>
+        <p>Mahmoud ☎</p>
+        <p>10-1997</p>
+        <p>Difficult waffles</p>
+        <p id="nums">0 1st 2nd 3rd</p>
+        <p id="power">2<span>2</span></p>
       </fieldset>
 
-      <fieldset class="test-2 remove">
-        <legend>shape-image-threshold</legend>
-        <div id="wrapper">
-          <div class="shape left">L</div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-          laudantium eveniet quis similique, optio qui necessitatibus delectus
-          tenetur consequuntur velit modi deserunt, sequi, ratione ea esse
-          voluptatibus labore enim cupiditate. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Id natus obcaecati itaque quo numquam
-          iure consequatur minus tenetur! Quae explicabo ullam eos excepturi!
-          Nulla architecto facilis blanditiis odio, voluptatem ullam.
-        </div>
-      </fieldset>
-
-      <fieldset class="example">
-        <legend>Example</legend>
-        <div id="wrapper">
-          <div id="star"></div>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti
-          dignissimos nostrum ex. Dolores nam, adipisci animi quod velit rem?
-          Odio sequi et maxime dolorem nesciunt sint! Aliquid libero atque
-          aspernatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Tempora eum officiis dolores voluptatum aspernatur hic modi incidunt
-          doloribus, velit natus magni. Nobis delectus similique omnis,
-          voluptates magnam porro nam optio?
-        </div>
+      <fieldset class="text">
+        <legend>Text</legend>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing. Iusto, debitis,
+          error voluptatibus optio delectus porro maxime
+          <span class="nums">10-1997</span>.
+        </p>
       </fieldset>
     </div>
     <!--============== Content End ==============-->

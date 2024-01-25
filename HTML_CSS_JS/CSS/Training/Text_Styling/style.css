@@ -1,86 +1,114 @@
 @layer framie, test;
 
 @layer test {
-  .cont > a {
+  a#ref {
     text-decoration: none;
     background: linear-gradient(blue, orange);
     padding: 10px;
     border-radius: 20px;
     font-family: cursive;
+    width: fit-content;
 
     &:hover {
       transform: scale(1.1);
     }
   }
 
-  #wrapper {
-    padding: 30px;
-    font-size: 15px;
-    width: 500px;
-    text-align: center;
-  }
+  .font {
+    & > p {
+      /* font-family: Lora, serif; */
+      font-family: monospace;
 
-  .shape {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-    height: 200px;
-  }
+      /* font-size: 3ex; */
+      /* font-stretch: ultra-expanded; */
+      /* font-style: oblique 20deg; */
+      /* font-weight: bolder; */
+      /* line-height: 1.3; */
 
-  .left {
-    float: left;
-  }
-  .right {
-    float: right;
-  }
+      /* font-variant: small-caps; */
+      /* font-variant-caps: all-small-caps; */
+      /* font-variant-emoji: emoji; */
+      /* font-variant-ligatures: discretionary-ligatures; */
 
-  .test-1 {
-    & :is(.left, .right) {
-      background: linear-gradient(red, blue);
-      shape-margin: 1%;
+      /* font-kerning: auto; */
+      /* font-synthesis: auto; */
+
+      /* font-optical-sizing: auto; */
+      /* font-size-adjust: 0.5; */
+
+      /* shothand */
+      font: italic normal bold normal 3ex/1.3 monospace;
     }
 
-    & .left {
-      --poly: polygon(0 0, 30% 0, 100% 100%, 0 100%);
-      clip-path: var(--poly);
-      shape-outside: var(--poly);
+    & > #nums {
+      font-variant-numeric: slashed-zero ordinal;
     }
 
-    & .right {
-      --poly: polygon(70% 0, 100% 0, 100% 100%, 0 100%);
-      clip-path: var(--poly);
-      shape-outside: var(--poly);
+    & > #power > span {
+      font-variant-position: super;
     }
   }
 
-  .test-2 {
-    --bg-image: linear-gradient(45deg, red, transparent 70%);
+  .text > p {
+    border: 2px solid;
+    padding: 10px;
+    /* width: 500px; */
+    font-size: xx-large;
+    font-family: monospace;
+    /* overflow: scroll; */
 
-    & .left {
-      shape-outside: var(--bg-image);
-      background: var(--bg-image);
-      shape-image-threshold: 0.1;
-    }
-  }
+    /* -------------------------------- */
 
-  #star {
-    float: left;
-    width: 200px;
-    height: 200px;
-    background: conic-gradient(red, blue);
-    --polygon: polygon(
-      50% 0%,
-      60% 40%,
-      100% 50%,
-      60% 60%,
-      50% 100%,
-      40% 60%,
-      0% 50%,
-      40% 40%
-    );
-    clip-path: var(--polygon);
-    shape-outside: var(--polygon);
-    shape-margin: 1%;
+    /* text-align: justify; */
+    /* text-align-last: center; */
+    /* text-justify: inter-character; */
+
+    /* text-transform: uppercase; */
+
+    /* text-rendering: optimizeSpeed; */
+
+    /* text-indent: 2em hanging each-line; */
+
+    /* text-size-adjust: auto; */
+
+    /* writing-mode: vertical-lr; */
+    /* text-orientation: upright; */
+    /* & > .nums {
+      text-combine-upright: all;
+    } */
+
+    /* text wraping & word breaking */
+    /* ----------------------- */
+
+    hyphens: auto;
+
+    /* text-wrap: balance; */
+
+    /* white-space: pre-line; */
+
+    /* overflow-wrap: break-word; */
+
+    /* word-break: keep-all; */
+
+    /* width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    direction: ltr;
+    text-overflow: "\\\\"; */
+
+    /* ----------------------- */
+
+    /* text-shadow: 2px 2px 1px red, 4px 4px 2px orange; */
+
+    /* writing-mode: vertical-lr; */
+    /* text-decoration: underline wavy 2px red; */
+    /* text-underline-offset: 3px; */
+    /* text-underline-position: under left; */
+
+    /* text-emphasis-style: "M"; */
+    /* text-emphasis: filled triangle red; */
+    /* text-emphasis-position: under right; */
+
+    /* -------------------------------- */
   }
 }

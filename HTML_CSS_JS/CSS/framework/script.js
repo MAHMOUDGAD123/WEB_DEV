@@ -47,3 +47,32 @@ window.addEventListener(
 );
 
 /* Back-To-Top & Progress End */
+
+/* Password input field Start */
+
+const eye = document.getElementById("eye");
+const password = document.getElementById("password");
+
+password.placeholder = "use (ctrl + alt) to toggle";
+
+const toggle_eye = () => {
+  eye.classList.toggle("view");
+
+  if (password.type === "password") {
+    password.type = "text";
+  } else {
+    password.type = "password";
+  }
+};
+
+eye.addEventListener("click", () => {
+  toggle_eye();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.ctrlKey && e.altKey) {
+    toggle_eye();
+  }
+});
+
+/* Password input field End */

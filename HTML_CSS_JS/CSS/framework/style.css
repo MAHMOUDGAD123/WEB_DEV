@@ -1,7 +1,17 @@
+@font-face {
+  font-family: "myfont";
+  /* variable font */
+  src: url("./fonts/Marhey/Marhey-VariableFont_wght.woff2") format("woff2"),
+    url("./fonts/Marhey/Marhey-VariableFont_wght.woff") format("woff");
+
+  font-weight: 300 700;
+  font-display: swap;
+}
+
 html {
   scroll-behavior: smooth;
   font-size: 25px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "myfont", monospace, sans-serif;
 }
 
 body {
@@ -11,15 +21,13 @@ body {
   position: relative;
 }
 
-*,
-*::before,
-*::after {
+:is(*, *::before, *::after) {
   box-sizing: border-box;
   color: #fff;
   font-weight: bold;
   text-align: center;
-  transition: 200ms;
   margin: 0;
+  padding: 0;
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -35,6 +43,20 @@ img {
   display: none;
 }
 
+/* reference link */
+a#ref {
+  text-decoration: none;
+  background: linear-gradient(blue, orange);
+  padding: 10px;
+  border-radius: 20px;
+  font-family: cursive;
+  width: fit-content;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
 .remove {
   display: none !important;
 }
@@ -42,8 +64,10 @@ img {
 .cont {
   display: flex;
   flex-flow: column;
-  align-items: center;
+  place-items: center;
+  place-content: center;
   gap: 50px;
+  margin-top: 50px;
 }
 
 .section {
@@ -57,13 +81,59 @@ img {
   gap: 10px;
 }
 
+.id-title-box {
+  --spacing: 10px;
+  --brd-clr: #6f00ff;
+  --bg-clr: tomato;
+
+  margin-block-start: 30px;
+  border: 7px solid var(--brd-clr);
+  background-color: var(--bg-clr);
+  border-radius: 20px;
+  padding: var(--spacing);
+  position: relative;
+
+  &::before {
+    content: attr(id);
+    font-size: 23px;
+    position: absolute;
+    background-color: var(--brd-clr);
+    border-radius: 20px 20px 10px 10px;
+    padding: 1px 10px;
+    white-space: nowrap;
+    inset: -42px auto auto 15px;
+    display: flex;
+    place-content: center;
+    place-items: center;
+  }
+}
+
+.txt-cntr {
+  display: flex;
+  place-content: center;
+  place-items: center;
+}
+
+.counter-box {
+  counter-increment: counter;
+  display: flex;
+  place-content: center;
+  background-color: #777;
+  flex-flow: row wrap;
+
+  &::after {
+    content: attr(data-item) counter(counter);
+  }
+}
+
 fieldset {
   border: 7px solid #4955f7;
   border-radius: 10px;
   padding: 30px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  place-items: center;
+  place-content: center;
   gap: 30px;
 
   & > legend {
@@ -129,13 +199,15 @@ fieldset {
 /* Progress End */
 
 .Header {
-  margin: 20px auto 70px;
-  width: 100px;
-  font-weight: bolder;
+  margin-block-start: 20px;
+  font-weight: bold;
   font-size: 30px;
   border: 5px solid;
-  padding: 7px 10px 10px;
+  padding: 8px 10px 0;
   letter-spacing: 2px;
+  text-align: center;
+  width: fit-content;
+  margin: 30px auto 50px;
 
   &:hover {
     color: yellow;
@@ -321,24 +393,79 @@ fieldset {
 
 /* 'input & textarea & output & button' Styling Start */
 
+:root {
+  /* use the property to control the width of the inputs */
+  --input-field-wdth: 100%;
+}
+
+input:is([type="text"], [type="email"], [type="password"]) {
+  width: var(--input-field-wdth);
+}
+
 input,
 button,
 output,
 textarea {
-  background-color: #555;
-  border: 1px solid #000;
-  color: #fff;
+  --input-bg-color: #ddd;
+  --input-focus-bg-color: #ccc;
+  --input-color: #4955f7;
+
+  background-color: var(--input-bg-color);
+  color: var(--input-color);
   border-radius: 20px;
   margin: 10px;
   align-self: center;
   padding: 15px;
   text-align: left;
+  border: none;
   outline: none;
 }
 
-input:focus,
+input:not([type="submit"]):focus,
 textarea:focus {
-  background-color: #777;
+  background-color: var(--input-focus-bg-color);
+  outline: 2px solid var(--input-color);
+}
+
+input[type="submit"] {
+  cursor: pointer;
+  background-color: var(--input-color);
+  color: #fff;
+}
+
+input[type="submit"]:active {
+  background-color: #4955f795;
+}
+
+/* password & eye */
+.password-wrapper {
+  position: relative;
+  width: var(--input-field-wdth);
+
+  & > input#password:is([type="password"], [type="text"]) {
+    margin: auto;
+    width: 100%;
+
+    & + #eye {
+      content: url(../Files/images/_hide.png);
+      width: 1em;
+      position: absolute;
+      inset: unset;
+      top: 50%;
+      right: -0.2em;
+      translate: -50% -50%;
+      opacity: 0.5;
+      cursor: pointer;
+
+      &.view {
+        content: url(../Files/images/_view.png);
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
 }
 
 button {
@@ -360,10 +487,93 @@ textarea {
 }
 
 ::placeholder {
-  color: #f5aa8e;
+  color: #0009;
 }
 
 /* 'input & textarea & output & button' Styling End */
+
+/* Checkbox & Radio Styling Start */
+
+:is(.chkbox-wrapper, .radio-box) {
+  display: flex;
+  gap: 15px;
+
+  --chk-bg-color: #ddd;
+  --chk-color: #4955f7;
+  --transition: 300ms;
+}
+
+input:is([type="checkbox"], [type="radio"]) {
+  appearance: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--chk-bg-color);
+  width: 1rem;
+  height: 1rem;
+  margin: 0;
+  padding: 0;
+  transition: var(--transition);
+  outline: 3px solid transparent;
+  border: none;
+
+  &:focus {
+    outline-color: transparent;
+    background-color: var(--chk-bg-color);
+  }
+
+  &:is(:hover, :focus-visible) {
+    outline-color: var(--chk-color);
+    background-color: var(--chk-bg-color);
+  }
+
+  &::before {
+    content: "";
+    background-color: var(--chk-color);
+    transform: scale(0);
+    transition: transform var(--transition) ease-in-out;
+  }
+}
+
+/* checkbox */
+input[type="checkbox"] {
+  border-radius: 7px;
+
+  &::before {
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 0.5em;
+  }
+
+  &:checked {
+    &::before {
+      transform: scale(1);
+    }
+  }
+}
+
+/* radio */
+input[type="radio"] {
+  border-radius: 50%;
+
+  &::before {
+    width: 1em;
+    height: 1em;
+    border-radius: 1em;
+    background-color: var(--chk-bg-color);
+  }
+
+  &:checked {
+    background-color: var(--chk-color);
+
+    &::before {
+      background-color: var(--chk-bg-color);
+      transform: scale(0.5);
+    }
+  }
+}
+
+/* Checkbox & Radio Styling End */
 
 /* Tables Styling Start */
 
