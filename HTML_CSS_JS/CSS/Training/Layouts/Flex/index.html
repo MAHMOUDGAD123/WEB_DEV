@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      @import url("../../../framework/style.css") layer(framie);
+    </style>
+    <script src="../../../framework/script.js" async></script>
+    <title>Flex</title>
+  </head>
+  <body>
+    <div class="progress-cont">
+      <div id="progress"></div>
+    </div>
+
+    <div class="Header">CSS</div>
+
+    <a
+      id="ref"
+      href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout"
+      >MDN</a
+    >
+    <!--============= Content Start =============-->
+    <div class="cont">
+      <div id="flex-box" class="id-title-box">
+        <span class="counter-box red">red -</span>
+        <span class="counter-box">item -</span>
+        <span class="counter-box green">gren -</span>
+        <span class="counter-box">item -</span>
+        <span class="counter-box blue">blue -</span>
+      </div>
+
+      <!-- challenge 1 -->
+      <div id="challenge-1" class="id-title-box remove">
+        <span class="txt-cntr">logo</span>
+        <span class="txt-cntr">icon</span>
+        <span class="txt-cntr">icon</span>
+        <span class="txt-cntr">icon</span>
+      </div>
+
+      <!-- challenge 2 -->
+      <div id="challenge-2" class="id-title-box remove">
+        <div class="txt-cntr">MG</div>
+        <div class="txt-cntr">MG</div>
+        <div class="txt-cntr">MG</div>
+        <div class="txt-cntr">MG</div>
+        <div class="txt-cntr">MG</div>
+        <div class="txt-cntr">MG</div>
+        <div class="txt-cntr">MG</div>
+        <div class="txt-cntr">MG</div>
+        <div class="txt-cntr">MG</div>
+        <div class="txt-cntr">MG</div>
+      </div>
+
+      <!-- challenge 3 -->
+      <form method="get" id="challenge-3" class="id-title-box remove">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" />
+
+        <label for="password">Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="password" />
+          <span id="eye"></span>
+        </div>
+
+        <div class="chkbox-wrapper">
+          <input type="checkbox" id="remember-me" />
+          <label for="remember-me">remember me</label>
+        </div>
+
+        <div class="radio-box">
+          <input type="radio" id="male" name="gender" />
+          <label for="male">male</label>
+          <input type="radio" id="female" name="gender" />
+          <label for="female">female</label>
+        </div>
+
+        <input type="submit" value="login" />
+      </form>
+    </div>
+    <!--============== Content End ==============-->
+
+    <div
+      class="back-to-top"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    ></div>
+  </body>
+</html>

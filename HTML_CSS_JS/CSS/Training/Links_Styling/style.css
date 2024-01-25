@@ -1,0 +1,29 @@
+@layer framie, test;
+
+@layer test {
+  .link {
+    & > a {
+      transition: 0s;
+      text-decoration: none;
+      border-radius: 10px;
+
+      &:link {
+        color: aqua;
+      }
+
+      &:visited {
+        color: red;
+      }
+
+      &:hover {
+        color: cadetblue;
+        text-decoration: underline solid;
+        text-underline-offset: 4px;
+      }
+
+      &:active {
+        color: yellow;
+      }
+    }
+  }
+}

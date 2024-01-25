@@ -1,0 +1,43 @@
+@layer framie, test;
+
+@layer test {
+  @font-face {
+    font-family: "myfont";
+    /* variable font */
+    src: url("./fonts/Marhey/Marhey-VariableFont_wght.woff2") format("woff2"),
+      url("./fonts/Marhey/Marhey-VariableFont_wght.woff") format("woff");
+
+    font-weight: 300 700;
+    font-display: swap;
+  }
+
+  a#ref {
+    text-decoration: none;
+    background: linear-gradient(blue, orange);
+    padding: 10px;
+    border-radius: 20px;
+    font-family: cursive;
+    width: fit-content;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .font-face {
+    --font-wght: 300;
+    font-family: "myfont", monospace;
+    font-variation-settings: "wght" var(--font-wght);
+    font-synthesis: none;
+
+    & > h1:hover {
+      --font-wght: 700;
+      font-variation-settings: "wght" var(--font-wght);
+    }
+
+    & > p:hover {
+      --font-wght: 500;
+      font-variation-settings: "wght" var(--font-wght);
+    }
+  }
+}
