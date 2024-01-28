@@ -62,11 +62,10 @@ a#ref {
 }
 
 .cont {
-  display: flex;
-  flex-flow: column;
+  display: grid;
+  grid: none / repeat(auto-fill, minmax(500px, 1fr));
   place-items: center;
-  place-content: center;
-  gap: 50px;
+  gap: 70px;
   margin-top: 50px;
 }
 
@@ -124,6 +123,12 @@ a#ref {
   &::after {
     content: attr(data-item) counter(counter);
   }
+}
+
+.center-pos {
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
 }
 
 fieldset {

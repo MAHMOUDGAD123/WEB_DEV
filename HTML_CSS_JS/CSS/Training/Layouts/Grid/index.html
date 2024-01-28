@@ -26,16 +26,96 @@
     >
     <!--============= Content Start =============-->
     <div class="cont">
-      <div id="grid-box" class="id-title-box">
-        <span class="counter-box red"></span>
-        <span class="counter-box" ></span>
-        <span class="counter-box green" ></span>
-        <span class="counter-box" ></span>
-        <span class="counter-box blue" ></span>
-        <span class="counter-box" ></span>
-        <span class="counter-box orange" ></span>
-        <span class="counter-box" ></span>
-        <span class="counter-box violet" ></span>
+      <div id="grid-box" class="id-title-box ex-5">
+        <span tabindex="0" class="counter-box red"></span>
+        <span tabindex="0" class="counter-box green"></span>
+        <span tabindex="0" class="counter-box blue"></span>
+        <span tabindex="0" class="counter-box orange"></span>
+        <span tabindex="0" class="counter-box violet"></span>
+        <span tabindex="0" class="counter-box dark"></span>
+      </div>
+
+      <!-- grid with { display: contents } -->
+      <div id="grid-contents" class="id-title-box remove">
+        <div id="grid-box">
+          <span class="counter-box red"></span>
+          <span class="counter-box green"></span>
+          <span class="counter-box blue"></span>
+        </div>
+        <span class="counter-box orange"></span>
+        <span class="counter-box violet"></span>
+        <span class="counter-box dark"></span>
+
+        <div class="controls">
+          <label for="diplay-options">diplay:</label>
+          <select id="diplay-options"></select>
+        </div>
+      </div>
+
+      <!-- auto placement algorithm -->
+      <div id="auto-placement" class="id-title-box remove">
+        <div id="grid-box">
+          <span class="counter-box red"></span>
+          <span class="counter-box green" ></span>
+          <span class="counter-box blue" ></span>
+          <span class="counter-box orange" ></span>
+          <span class="counter-box violet" ></span>
+          <span class="counter-box dark" ></span>
+        </div>
+
+        <div class="controls">
+          <select id="auto-flow-options"></select>
+          <div class="chkbox-wrapper">
+            <input type="checkbox" id="dense">
+            <label for="dense">dense</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- subgrid-1 -->
+      <div id="subgrid-box-1" class="id-title-box remove">
+        <div>
+          <span class="counter-box" ></span>
+        </div>
+      </div>
+
+      <!-- subgrid-2 -->
+      <div id="subgrid-box-2" class="id-title-box remove">
+        <div>
+          <span class="counter-box" ></span>
+          <span class="counter-box" ></span>
+        </div>
+      </div>
+
+      <!-- subgrids-3 -->
+      <div id="subgrid-box-2" class="id-title-box remove">
+        <div>
+          <span class="counter-box" ></span>
+          <span class="counter-box" ></span>
+          <span class="counter-box" ></span>
+          <span class="counter-box" ></span>
+          <span class="counter-box" ></span>
+          <span class="counter-box" ></span>
+          <span class="counter-box" ></span>
+          <span class="counter-box" ></span>
+          <span class="counter-box" ></span>
+        </div>
+      </div>
+
+      <!-- masonry-grid -->
+      <div id="masonry-grid" class="id-title-box remove">
+        <span class="counter-box"></span>
+        <span class="counter-box"></span>
+        <span class="counter-box"></span>
+        <span class="counter-box"></span>
+        <span class="counter-box"></span>
+        <span class="counter-box"></span>
+        <span class="counter-box"></span>
+        <span class="counter-box"></span>
+        <span class="counter-box"></span>
+        <span class="counter-box"></span>
+        <span class="counter-box"></span>
+        <span class="counter-box"></span>
       </div>
 
       <!-- challenge 1 -->

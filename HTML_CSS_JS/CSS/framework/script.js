@@ -53,7 +53,9 @@ window.addEventListener(
 const eye = document.getElementById("eye");
 const password = document.getElementById("password");
 
-password.placeholder = "use (ctrl + alt) to toggle";
+if (password) {
+  password.placeholder = "use (ctrl + alt) to toggle";
+}
 
 const toggle_eye = () => {
   eye.classList.toggle("view");
@@ -65,7 +67,7 @@ const toggle_eye = () => {
   }
 };
 
-eye.addEventListener("click", () => {
+eye?.addEventListener("click", () => {
   toggle_eye();
 });
 
