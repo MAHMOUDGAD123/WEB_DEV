@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="../../../framework/script.js" async></script>
+    <style>
+      @import url(../../../framework/style.css) layer(framie);
+    </style>
+    <title>Table Form Layout</title>
+  </head>
+  <body>
+    <!-- progress Start -->
+    <div class="progress-cont">
+      <div id="progress"></div>
+    </div>
+    <!-- progress End -->
+
+    <div class="Header">CSS</div>
+
+    <a
+      id="ref"
+      href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Introduction"
+      >MDN</a
+    >
+
+    <!--================ Content Start ================-->
+    <form action="#" method="GET">
+      <div>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" />
+      </div>
+      <div>
+        <label for="password">password</label>
+        <div class="password-wrapper">
+          <input type="email" name="password" id="password" />
+          <span id="eye"></span>
+        </div>
+      </div>
+      <div class="radio-box">
+        <input type="radio" name="gender" value="male" id="male" checked />
+        <label for="male">male</label>
+        <input type="radio" name="gender" value="female" id="female" />
+        <label for="female">female</label>
+      </div>
+      <div>
+        <input type="submit" value="login" />
+      </div>
+      <p>Login</p>
+    </form>
+    <!--================= Content End =================-->
+
+    <div
+      class="back-to-top"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    ></div>
+  </body>
+</html>

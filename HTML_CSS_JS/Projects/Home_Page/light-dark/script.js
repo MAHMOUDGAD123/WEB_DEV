@@ -13,7 +13,6 @@ const change_mode = () => {
 
 light_dark_btn.addEventListener("click", (e) => {
   change_mode();
-
   console.log(e.code);
 });
 

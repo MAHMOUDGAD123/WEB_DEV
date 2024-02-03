@@ -9,6 +9,8 @@ html {
 *::before,
 *::after {
   box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   margin: 0;
   font-weight: bold;
   text-align: center;
@@ -27,7 +29,6 @@ body {
   padding-inline: 100px;
   padding-block-start: 10px;
   padding-block-end: 100px;
-  border-radius: 30px;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -36,7 +37,6 @@ body {
 
 .icons {
   display: flex;
-  flex-flow: row nowrap;
   justify-content: center;
   gap: 50px;
 
@@ -62,7 +62,7 @@ body {
   padding: 30px;
   border-radius: 30px;
   display: grid;
-  grid-template: auto / repeat(auto-fit, minmax(70px, 1fr));
+  grid-template: auto / repeat(auto-fill, minmax(70px, 1fr));
   gap: 70px;
   transition: 300ms linear;
 
@@ -99,7 +99,7 @@ body {
 
 /* Progress End */
 
-/* CLOCK START */
+/* CLOCK-Date START */
 
 .CD {
   align-self: center;
@@ -111,7 +111,6 @@ body {
 
   & > :is(.clock, .date) {
     display: flex;
-    flex-flow: row nowrap;
   }
 
   & > .clock {
@@ -125,7 +124,7 @@ body {
   }
 }
 
-/* CLOCK END */
+/* CLOCK-Date END */
 
 /* BackToTop Start */
 

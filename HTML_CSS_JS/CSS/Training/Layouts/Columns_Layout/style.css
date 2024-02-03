@@ -1,10 +1,7 @@
 @layer framie, test;
 
 @layer test {
-  .wrapper {
-    border: 2px solid orange;
-    padding: 30px;
-
+  .text {
     & > h2 {
       /* column-span: none; */
       column-span: all;
@@ -27,5 +24,68 @@
     /* column-rule-style: solid; */
     /* column-rule-color: red; */
     column-rule: 2px solid red;
+  }
+
+  .images {
+    column-width: 200px; /* max column width */
+    column-count: 4; /* max columns count */
+    columns: 200px 4; /* shorthand */
+
+    column-fill: balance;
+    gap: 30px;
+    column-rule: 5px solid #f00;
+
+    /* content break */
+    break-inside: auto;
+
+    & > h1 {
+      column-span: all;
+      color: orange;
+    }
+
+    & > figure {
+      /* prevent breaks inside the figure */
+      break-inside: avoid;
+
+      & > * {
+        color: #0093ef;
+      }
+    }
+
+    & img {
+      max-width: 50%;
+    }
+  }
+
+  .fake-masonry {
+    columns: 200px 3;
+    list-style: none;
+    --gap: clamp(1rem, 1.5vmin, 2rem);
+    gap: var(--gap);
+
+    break-before: column;
+    break-after: column;
+
+    orphans: 3;
+    widows: 3;
+
+    & > li {
+      background-color: #ff4625;
+      border: 5px solid yellow;
+      padding: 10px;
+      margin-block-end: var(--gap);
+
+      break-inside: avoid; 
+
+      /* box-decoration-break: clone; */
+
+      & > h3 {
+        color: #006eff;
+      }
+
+      & > img {
+        width: 100px;
+      }
+    }
   }
 }

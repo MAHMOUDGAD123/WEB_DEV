@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      @import url("../../../framework/style.css") layer(framie);
+    </style>
+    <script src="../../../framework/script.js" async></script>
+    <title>Media Queries</title>
+  </head>
+  <body>
+    <div class="progress-cont">
+      <div id="progress"></div>
+    </div>
+
+    <div class="Header">CSS</div>
+
+    <a
+      id="ref"
+      href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries"
+      >MDN</a
+    >
+
+    <!--================ Content Start ================-->
+
+    <div class="cont">
+      <!-- (1) -->
+      <div class="wrapper-id-title" id="media-grid">
+        <header>Header</header>
+        <nav>nav</nav>
+        <main>main</main>
+        <aside>aside</aside>
+        <footer>footer</footer>
+      </div>
+
+      <!-- (2) -->
+      <div class="wrapper-id-title" id="orientation">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- (3) -->
+      <div class="wrapper-id-title" id="color-scheme">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
+        consequuntur nam dignissimos, vero inventore distinctio quia ipsam
+        consectetur accusamus aut numquam molestiae aliquid, quis ratione
+        libero? Consequatur sequi enim quam!
+      </div>
+
+      <!-- (4) -->
+      <div class="wrapper-id-title" id="reduced-motion">
+        <div></div>
+      </div>
+
+      <!-- (5) -->
+      <div class="wrapper-id-title" id="resolution">
+        The box appears only when screen (dpi) = 120 (which's my screen dpi)
+        <div></div>
+      </div>
+
+      <!-- (6) -->
+      <div class="wrapper-id-title" id="scripting">
+        Check if the scripting is enabled
+        <div></div>
+      </div>
+    </div>
+
+    <!--================= Content End =================-->
+
+    <div
+      class="back-to-top"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    ></div>
+  </body>
+</html>

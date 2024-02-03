@@ -55,6 +55,7 @@ const password = document.getElementById("password");
 
 if (password) {
   password.placeholder = "use (ctrl + alt) to toggle";
+  password.type = "password";
 }
 
 const toggle_eye = () => {

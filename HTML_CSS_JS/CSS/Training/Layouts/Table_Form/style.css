@@ -1,0 +1,40 @@
+@layer framie, test;
+
+@layer test {
+  form {
+    display: table;
+    background: #555;
+    padding: 30px;
+    border-radius: 15px;
+    margin: 50px auto;
+    width: 100%;
+
+    & > p {
+      display: table-caption;
+      caption-side: top;
+      color: orange;
+      margin-right: 200px;
+    }
+
+    & > div {
+      display: table-row;
+
+      & > * {
+        margin: 10px auto;
+      }
+
+      &:nth-child(3) {
+        /* the radio */
+        display: flex;
+        background-color: red;
+      }
+
+      & > input[type="submit"] {
+        font-size: 25px;
+        padding: 15px;
+        border-radius: 20px;
+        line-height: 1;
+      }
+    }
+  }
+}

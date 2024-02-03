@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      @import url(../../../framework/style.css) layer(framie);
+    </style>
+    <script src="../../../framework/script.js" async></script>
+    <title>Floating Layout</title>
+  </head>
+  <body>
+    <div class="progress-cont">
+      <div id="progress"></div>
+    </div>
+
+    <div class="Header">CSS</div>
+
+    <a
+      id="ref"
+      href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Legacy_Layout_Methods"
+      >MDN</a
+    >
+
+    <!--============= Content Start =============-->
+    <div class="cont">
+      <div class="wrapper-id-title remove" id="columns-layout">
+        <h2>2 Columns layout unsing float</h2>
+        <div>
+          <h3>header</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
+            labore asperiores, assumenda impedit, quas ullam error doloribus
+            dolor earum atque provident omnis possimus veniam molestiae?
+            Perferendis doloremque at laborum dicta quibusdam, id dolore
+            adipisci, consequatur doloribus esse sed! Molestiae, ut rerum.
+            Dolore ea numquam hic fugiat aliquam natus harum incidunt.
+          </p>
+        </div>
+        <div>
+          <h3>header</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
+            labore asperiores, assumenda impedit, quas ullam error doloribus
+            dolor earum atque provident omnis possimus veniam molestiae?
+            Perferendis doloremque at laborum dicta quibusdam, id dolore
+            adipisci, consequatur doloribus esse sed! Molestiae, ut rerum.
+            Dolore ea numquam hic fugiat aliquam natus harum incidunt.
+          </p>
+        </div>
+      </div>
+
+      <!-- (4 x 4) grid using float -->
+      <div class="wrapper-id-title remove" id="legacy-grid">
+        <div class="row">
+          <span class="col c1"></span>
+          <span class="col c2"></span>
+          <span class="col c3"></span>
+          <span class="col c4"></span>
+        </div>
+        <div class="row">
+          <span class="col c1"></span>
+          <span class="col c2"></span>
+          <span class="col c3"></span>
+          <span class="col c4"></span>
+        </div>
+        <div class="row">
+          <span class="col c1"></span>
+          <span class="col c2"></span>
+          <span class="col c3"></span>
+          <span class="col c4"></span>
+        </div>
+        <div class="row">
+          <span class="col c1"></span>
+          <span class="col c2"></span>
+          <span class="col c3"></span>
+          <span class="col c4"></span>
+        </div>
+      </div>
+
+      <!-- (4 x 4) grid using flex -->
+      <div class="wrapper-id-title remove" id="flexy-grid">
+        <div class="row">
+          <span class="col c1"></span>
+          <span class="col c2"></span>
+          <span class="col c3"></span>
+          <span class="col c4"></span>
+        </div>
+        <div class="row">
+          <span class="col c1"></span>
+          <span class="col c2"></span>
+          <span class="col c3"></span>
+          <span class="col c4"></span>
+        </div>
+        <div class="row">
+          <span class="col c1"></span>
+          <span class="col c2"></span>
+          <span class="col c3"></span>
+          <span class="col c4"></span>
+        </div>
+        <div class="row">
+          <span class="col c1"></span>
+          <span class="col c2"></span>
+          <span class="col c3"></span>
+          <span class="col c4"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper-id-title" id="simple-layout">
+      <header>
+        <span class="logo">LOGO</span>
+        <span class="links-bar" tabindex="0"></span>
+        <div class="links">
+          <span>Home</span>
+          <span>Contacts</span>
+          <span>Blog</span>
+          <span>About Us</span>
+          <span>Our History</span>
+        </div>
+      </header>
+
+      <main>
+        <div>
+          <h1>Header</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Consectetur soluta porro maiores a ab rerum ipsam tempore, dicta
+            recusandae sed? In adipisci voluptatibus nisi fugit ut dolor,
+            ducimus quidem. Recusandae, sint praesentium enim sit impedit
+            consequuntur dolores doloribus ut debitis eligendi cum. Architecto
+            earum explicabo, cum reprehenderit quae saepe sapiente aliquid illo,
+            laboriosam fugit atque. Labore ratione numquam inventore officiis
+            doloremque obcaecati illo esse voluptas quam explicabo? Dicta, totam
+            eos.
+          </p>
+        </div>
+        <div>
+          <h3>Header</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
+            animi voluptate qui ad, id error, est impedit, corporis fugit
+            reprehenderit at nostrum consequuntur doloribus dolorum explicabo
+            sit mollitia pariatur ipsa.
+          </p>
+        </div>
+      </main>
+
+      <footer>
+        <div class="social">
+          <img src="../../../Files/images/facebook.png" />
+          <img src="../../../Files/images/linkedin.png" />
+          <img src="../../../Files/images/twitter.png" />
+        </div>
+        <span>2024 &copy MG</span>
+      </footer>
+    </div>
+    <!--============== Content End ==============-->
+
+    <div
+      class="back-to-top"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    ></div>
+  </body>
+</html>

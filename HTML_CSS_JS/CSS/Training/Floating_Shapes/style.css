@@ -1,22 +1,10 @@
 @layer framie, test;
 
 @layer test {
-  .cont > a {
-    text-decoration: none;
-    background: linear-gradient(blue, orange);
-    padding: 10px;
-    border-radius: 20px;
-    font-family: cursive;
-
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
-
   #wrapper {
     padding: 30px;
     font-size: 15px;
-    width: 500px;
+    width: 400px;
     text-align: center;
   }
 
@@ -64,8 +52,10 @@
     }
   }
 
+  /* example */
   #star {
-    float: left;
+    direction: rtl;
+    float: inline-end;
     width: 200px;
     height: 200px;
     background: conic-gradient(red, blue);
@@ -83,4 +73,33 @@
     shape-outside: var(--polygon);
     shape-margin: 1%;
   }
+
+  #columns-layout {
+    & > h2 {
+      clear: both;
+    }
+
+    & > div {
+      width: 45%;
+      border: 3px solid;
+      padding: 10px;
+      border-radius: 20px;
+
+      &:nth-of-type(1) {
+        float: inline-start;
+        border-color: aqua;
+      }
+
+      &:nth-of-type(2) {
+        border-color: red;
+        float: inline-end;
+      }
+
+      & > p {
+        font-size: 15px;
+      }
+    }
+  }
+
+  
 }
