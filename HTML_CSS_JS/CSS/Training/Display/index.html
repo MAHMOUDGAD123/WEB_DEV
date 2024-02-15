@@ -11,11 +11,9 @@
     <title>Diplay</title>
   </head>
   <body>
-    <!-- progress Start -->
     <div class="progress-cont">
       <div id="progress"></div>
     </div>
-    <!-- progress End -->
 
     <div class="Header">CSS</div>
 
@@ -52,6 +50,25 @@
       <option value="inline-grid" label="inline-grid"></option>
       <option value="inline grid" label="inline grid"></option>
     </select>
+
+    <div class="flow-root-test">
+      <h5>
+        we use - <code>diplay: flow-root;</code> - to fix the overflow with
+        floated elements
+      </h5>
+
+      <div class="test normal">
+        <p>this container is (<code>display: block;</code>)</p>
+        <div class="floated">floated</div>
+      </div>
+      <br />
+      <br />
+      <br />
+      <div class="test flow-root">
+        <p>this container is (<code>display: flow-root;</code>)</p>
+        <div class="floated">floated</div>
+      </div>
+    </div>
     <!--================= Content End =================-->
 
     <div class="cont">

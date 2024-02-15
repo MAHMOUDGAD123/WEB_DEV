@@ -16,4 +16,41 @@
       display: inline;
     }
   }
+
+  /* testing flow-root */
+  .flow-root-test {
+    margin-block: 50px;
+    background-color: #444;
+    padding: 20px;
+
+    & code {
+      color: orange;
+    }
+
+    .test {
+      margin: 50px 20px;
+      background-color: #888;
+      padding: 20px;
+
+      &.flow-root {
+        display: block;
+      }
+
+      &.flow-root {
+        display: flow-root;
+      }
+
+      & > .floated {
+        width: 200px;
+        aspect-ratio: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        border-radius: 15px;
+        background-color: red;
+        float: right;
+      }
+    }
+  }
 }

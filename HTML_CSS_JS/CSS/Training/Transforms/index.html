@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../../framework/style.css" />
+    <script src="./script.js" async></script>
+    <script src="../../framework/script.js" async></script>
+    <title>Transforms</title>
+  </head>
+  <body>
+    <div class="progress-cont">
+      <div id="progress"></div>
+    </div>
+
+    <div class="Header">CSS</div>
+
+    <a
+      id="ref"
+      href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transforms"
+      >MDN</a
+    >
+    <!--============= Content Start =============-->
+    <div class="cont">
+      <div class="wrapper-data-title test-area" data-title="Test Area">
+        <!-- mode switch -->
+        <div class="area-controls">
+          <div class="switch">
+            <span class="label" id="modeLabel"></span>
+            <div tabindex="0" class="key" id="switchMode"></div>
+          </div>
+        </div>
+
+        <!-- cube -->
+        <div id="output-container">
+          <div id="cube-container">
+            <div id="origin">z=0</div>
+            <div id="cube">
+              <div class="face front">1</div>
+              <div class="face back">2</div>
+              <div class="face right">3</div>
+              <div class="face left">4</div>
+              <div class="face top">5</div>
+              <div class="face bottom">6</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- settings -->
+        <div class="wrapper-data-title controls" data-title="Settings">
+          <!-- test-area controls -->
+          <div class="area-controls">
+            <!-- animation controls -->
+            <div class="chkbox-wrapper animation-control">
+              <label for="animate">Animate</label>
+              <input type="checkbox" id="animate" title="animation-activate" />
+              <input type="checkbox" id="playState" title="play-state" />
+              <input type="checkbox" id="alternate" title="alternate" />
+            </div>
+
+            <!-- reset all button -->
+            <button id="resetAll" class="reset all"></button>
+          </div>
+
+          <!-- (1) basic-settings -->
+          <div id="basicSettings" class="settings basic">
+            <!-- rotate -->
+            <div class="wrapper-data-title property" data-title="Rotation">
+              <div class="area-controls">
+                <button id="rotateReset" class="reset range"></button>
+              </div>
+              <div class="input-wrapper">
+                <label for="rotateX">X</label>
+                <input type="range" id="rotateX" min="-360" max="360" />
+                <span class="value"></span>
+              </div>
+              <div class="input-wrapper">
+                <label for="rotateY">Y</label>
+                <input type="range" id="rotateY" min="-360" max="360" />
+                <span class="value"></span>
+              </div>
+              <div class="input-wrapper">
+                <label for="rotateZ">Z</label>
+                <input type="range" id="rotateZ" min="-360" max="360" />
+                <span class="value"></span>
+              </div>
+            </div>
+
+            <!-- translate -->
+            <div class="wrapper-data-title property" data-title="Translation">
+              <div class="area-controls">
+                <button id="translateReset" class="reset range"></button>
+              </div>
+              <div class="input-wrapper">
+                <label for="translateX">X</label>
+                <input type="range" id="translateX" min="-200" max="200" />
+                <span class="value"></span>
+              </div>
+              <div class="input-wrapper">
+                <label for="translateY">Y</label>
+                <input type="range" id="translateY" min="-200" max="200" />
+                <span class="value"></span>
+              </div>
+              <div class="input-wrapper">
+                <label for="translateZ">Z</label>
+                <input type="range" id="translateZ" min="-200" max="200" />
+                <span class="value"></span>
+              </div>
+            </div>
+
+            <!-- scale -->
+            <div class="wrapper-data-title property" data-title="Scale">
+              <div class="area-controls">
+                <button id="scaleReset" class="reset range"></button>
+              </div>
+              <div class="input-wrapper">
+                <label for="scaleX">X</label>
+                <input
+                  type="range"
+                  id="scaleX"
+                  min="-2.5"
+                  max="2.5"
+                  step="0.1"
+                />
+                <span class="value"></span>
+              </div>
+              <div class="input-wrapper">
+                <label for="scaleY">Y</label>
+                <input
+                  type="range"
+                  id="scaleY"
+                  min="-2.5"
+                  max="2.5"
+                  step="0.1"
+                />
+                <span class="value"></span>
+              </div>
+              <div class="input-wrapper">
+                <label for="scaleZ">Z</label>
+                <input
+                  type="range"
+                  id="scaleZ"
+                  min="-2.5"
+                  max="2.5"
+                  step="0.1"
+                />
+                <span class="value"></span>
+              </div>
+            </div>
+
+            <!-- skew -->
+            <div class="wrapper-data-title property" data-title="Skew">
+              <div class="area-controls">
+                <button id="skewReset" class="reset range"></button>
+              </div>
+              <div class="input-wrapper">
+                <label for="skewX">X</label>
+                <input type="range" id="skewX" min="-180" max="180" />
+                <span class="value"></span>
+              </div>
+              <div class="input-wrapper">
+                <label for="skewY">Y</label>
+                <input type="range" id="skewY" min="-180" max="180" />
+                <span class="value"></span>
+              </div>
+            </div>
+
+            <!-- transform-origin -->
+            <div
+              class="wrapper-data-title property"
+              data-title="Transform-Origin"
+            >
+              <div class="area-controls">
+                <button id="transformOriginReset" class="reset range"></button>
+              </div>
+              <div class="input-wrapper">
+                <label for="transformOriginX">x-offset</label>
+                <input type="range" id="transformOriginX" min="0" max="100" />
+                <span class="value"></span>
+              </div>
+              <div class="input-wrapper">
+                <label for="transformOriginY">y-offset</label>
+                <input type="range" id="transformOriginY" min="0" max="100" />
+                <span class="value"></span>
+              </div>
+              <div class="input-wrapper">
+                <label for="transformOriginZ">z-offset</label>
+                <input type="range" id="transformOriginZ" min="0" max="100" />
+                <span class="value"></span>
+              </div>
+            </div>
+
+            <!-- prespective & prespective-origin -->
+            <div class="wrapper-data-title property" data-title="Perspective">
+              <div class="area-controls">
+                <button id="prespectiveReset" class="reset range"></button>
+              </div>
+              <div class="input-wrapper">
+                <label for="prespective">perspective</label>
+                <input
+                  type="range"
+                  id="prespective"
+                  min="100"
+                  max="1000"
+                  step="10"
+                />
+                <span class="value"></span>
+              </div>
+              <div class="input-wrapper">
+                <label for="prespectiveOriginX">perspective origin x</label>
+                <input type="range" id="prespectiveOriginX" min="0" max="100" />
+                <span class="value"></span>
+              </div>
+              <div class="input-wrapper">
+                <label for="prespectiveOriginY">perspective origin y</label>
+                <input type="range" id="prespectiveOriginY" min="0" max="100" />
+                <span class="value"></span>
+              </div>
+            </div>
+
+            <!-- transform-style -->
+            <div
+              class="wrapper-data-title property radio"
+              data-title="Transform-Style"
+            >
+              <div class="radio-box">
+                <label for="preserve_3d">preserve-3d</label>
+                <input
+                  type="radio"
+                  name="transform-style"
+                  id="preserve_3d"
+                  value="preserve-3d"
+                  class="default"
+                />
+              </div>
+              <div class="radio-box">
+                <label for="flat">flat</label>
+                <input
+                  type="radio"
+                  name="transform-style"
+                  id="flat"
+                  value="flat"
+                />
+              </div>
+            </div>
+
+            <!-- backface-visibility -->
+            <div
+              class="wrapper-data-title property radio"
+              data-title="backface"
+            >
+              <div class="radio-box">
+                <label for="visible_bf">visible</label>
+                <input
+                  type="radio"
+                  name="backface-visibility"
+                  id="visible_bf"
+                  value="visible"
+                  class="default"
+                />
+              </div>
+              <div class="radio-box">
+                <label for="hidden_bf">hidden</label>
+                <input
+                  type="radio"
+                  name="backface-visibility"
+                  id="hidden_bf"
+                  value="hidden"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- (2) advanced-settings -->
+          <div id="advancedSettings" class="settings advanced">
+            <!-- selections -->
+            <div class="selections-wrapper">
+              <span>Choose a property:</span>
+              <select id="selections"></select>
+            </div>
+
+            <!-- property input:text -->
+            <input type="text" id="prop_input" />
+
+            <div class="guide" id="transformGuide">
+              <!-- information hide & show button -->
+              <div id="showGuide" tabindex="0" title="Guide"></div>
+
+              <!-- information & options -->
+              <div id="information">
+                <div id="options"></div>
+                <code id="syntax"></code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--============== Content End ==============-->
+
+    <div
+      class="back-to-top"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    ></div>
+  </body>
+</html>

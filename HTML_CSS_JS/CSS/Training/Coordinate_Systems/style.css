@@ -1,0 +1,13 @@
+@layer framie, test;
+
+@layer test {
+  #testArea {
+    width: 70%;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+    color: orange;
+  }
+}

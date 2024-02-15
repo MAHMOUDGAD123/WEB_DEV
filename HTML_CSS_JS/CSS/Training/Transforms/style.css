@@ -1,0 +1,222 @@
+@layer framie, test;
+
+@layer test {
+  #output-container {
+    width: 70%;
+    aspect-ratio: 1 / 0.5;
+    background: linear-gradient(white, yellow, cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    & > #cube-container {
+      --size: calc(50px + 2vw);
+      /* rotate */
+      --rotateX: 0deg;
+      --rotateY: 0deg;
+      --rotateZ: 0deg;
+      /* translate */
+      --translateX: 0deg;
+      --translateY: 0deg;
+      --translateZ: 0deg;
+      /* scale */
+      --scaleX: 1;
+      --scaleY: 1;
+      --scaleZ: 1;
+      /* skew */
+      --skewX: 0;
+      --skewY: 0;
+      /* transform-origin */
+      --transformOriginX: 50%;
+      --transformOriginY: 50%;
+      --transformOriginZ: 0;
+      /* prespective */
+      --prespective: 500px;
+      --prespectiveOriginX: 50%;
+      --prespectiveOriginY: 50%;
+
+      align-self: center;
+      position: relative;
+      min-width: 500px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform-style: preserve-3d;
+
+      perspective: var(--prespective);
+      perspective-origin: var(--prespectiveOriginX) var(--prespectiveOriginY);
+
+      & > #origin {
+        padding: 5px;
+        font-size: 17px;
+        background: blue;
+        border-radius: 50%;
+        position: absolute;
+        transform-style: preserve-3d;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateZ(0);
+      }
+
+      & > #cube {
+        --opacity: 0.5;
+        width: calc(var(--size) * 2);
+        height: calc(var(--size) * 2);
+        position: absolute;
+        transition: transform 2s;
+
+        transform-origin: var(--transformOriginX) var(--transformOriginY)
+          var(--transformOriginZ);
+
+        transform: rotateX(var(--rotateX)) rotateY(var(--rotateY))
+          rotateZ(var(--rotateZ))
+          translate3d(var(--translateX), var(--translateY), var(--translateZ))
+          scale3d(var(--scaleX), var(--scaleY), var(--scaleZ))
+          skewX(var(--skewX)) skewY(var(--skewY));
+
+        & > .face {
+          backface-visibility: inherit;
+          width: calc(var(--size) * 2);
+          height: calc(var(--size) * 2);
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 1.5rem;
+
+          &.front {
+            background: rgb(255, 0, 0, var(--opacity));
+            transform: translateZ(var(--size));
+          }
+          &.back {
+            background: rgb(255, 165, 0, var(--opacity));
+            transform: rotateY(180deg) translateZ(var(--size));
+          }
+          &.right {
+            background: rgb(195, 0, 255, var(--opacity));
+            transform: rotateY(90deg) translateZ(var(--size));
+          }
+          &.left {
+            background: rgb(0, 0, 255, var(--opacity));
+            transform: rotateY(-90deg) translateZ(var(--size));
+          }
+          &.top {
+            background: rgb(0, 255, 0, var(--opacity));
+            transform: rotateX(90deg) translateZ(var(--size));
+          }
+          &.bottom {
+            background: rgb(255, 192, 203, var(--opacity));
+            transform: rotateX(-90deg) translateZ(var(--size));
+          }
+        }
+      }
+    }
+  }
+
+  .controls {
+    --main-col: blue;
+    --gutter: 0.7rem;
+    width: 100%;
+    padding: var(--gutter);
+
+    & > .settings {
+      --main-col: blue;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: var(--gutter);
+      padding: var(--gutter);
+      position: relative;
+
+      /* basic setting */
+      &.basic {
+        & .property {
+          --main-col: blueviolet;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          flex: 1;
+          margin-top: calc(var(--gutter) * 2);
+          padding: var(--gutter);
+
+          &.radio {
+            flex: none;
+            gap: 5px;
+
+            & > .radio-box {
+              width: 100%;
+              justify-content: space-between;
+            }
+          }
+
+          &::before {
+            font-size: 15px;
+            top: -16px;
+          }
+
+          & > * {
+            font-size: 17px;
+          }
+
+          & > .input-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+            & > :is(label, .value) {
+              white-space: nowrap;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex: 1;
+            }
+
+            & > .value {
+              min-width: 50px;
+            }
+
+            & > input {
+              flex: 7;
+              outline: none;
+            }
+          }
+        }
+      }
+
+      /* advanced setting */
+      &.advanced {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        padding: 50px;
+
+        & > .selections-wrapper {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 20px;
+
+          & > span {
+            white-space: nowrap;
+            font-size: 20px;
+          }
+        }
+
+        & > input {
+          width: 100%;
+
+          &::placeholder {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}

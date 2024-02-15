@@ -1,0 +1,126 @@
+@layer framie, test;
+
+@layer test {
+  .test-area {
+    --main-col: #eb9d00;
+
+    & > .settings > .area-controls > .animation-control > #iterationPause::before {
+      background-color: red;
+    }
+  }
+
+  .race-area {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+
+    & > .road {
+      width: 90%;
+      border-inline: 7px solid;
+      border-inline-color: yellowgreen red;
+      background-color: #666;
+      padding: 10px;
+      position: relative;
+
+      & > img {
+        width: 5%;
+        min-width: 30px;
+        position: relative;
+        right: 45%;
+      }
+    }
+  }
+
+  .settings {
+    --main-col: #00f;
+    --gutter: 20px;
+    width: 100%;
+    display: grid;
+    grid: none / repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: var(--gutter);
+
+    & > .property {
+      --main-col: #9500ff;
+      transition: 300ms border-color;
+
+      &:focus-within {
+        --main-col: #00a100;
+      }
+
+      .options {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+
+        & > .option {
+          --opacity: 0.6;
+          font-size: 17px;
+          background-color: rgb(85, 85, 85, var(--opacity));
+          padding: 7px 7px 5px;
+          border-radius: 15px;
+          transition: background-color 300ms;
+          cursor: pointer;
+          border: none;
+          outline: none;
+
+          &.selected {
+            background-color: #009393;
+          }
+
+          &:hover,
+          &:focus-visible {
+            --opacity: 1;
+          }
+        }
+      }
+
+      &::before {
+        font-size: 15px;
+        top: -23px;
+        transition: 300ms background-color;
+      }
+
+      & > .area-controls {
+        top: -17px;
+
+        & > .reset {
+          width: 30px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes race {
+  0% {
+    right: 45%;
+    transform: rotateZ(0);
+  }
+  45% {
+    right: -45%;
+    transform: rotateZ(0);
+  }
+  55% {
+    right: -45%;
+    transform: rotateZ(180deg);
+  }
+  90% {
+    right: 45%;
+    transform: rotateZ(180deg);
+  }
+  100% {
+    right: 45%;
+    transform: rotateZ(0);
+  }
+}
+
+@keyframes left-right {
+  0% {
+    right: 45%;
+  }
+  100% {
+    right: -45%;
+  }
+}

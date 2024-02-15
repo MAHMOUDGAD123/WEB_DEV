@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../../framework/style.css" />
+    <script src="./script.js" async></script>
+    <script src="../../framework/script.js" async></script>
+    <title>Animations</title>
+  </head>
+  <body>
+    <div class="progress-cont">
+      <div id="progress"></div>
+    </div>
+
+    <div class="Header">CSS</div>
+
+    <a
+      id="ref"
+      href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations"
+      >MDN</a
+    >
+    <!--============= Content Start =============-->
+    <div class="wrapper-data-title test-area" data-title="Test Area">
+      <!-- race area -->
+      <div class="race-area">
+        <div class="road">
+          <img src="../../Files/images/car.png" alt="car" id="car" />
+        </div>
+      </div>
+
+      <div class="wrapper-data-title settings" data-title="Settings">
+        <!-- main controls -->
+        <div class="area-controls">
+          <div class="animation-control chkbox-wrapper">
+            <label for="playState">play-state</label>
+            <input type="checkbox" id="playState" title="(run) immediately"/>
+            <input type="checkbox" id="iterationPause" title="(pause) finish iteration first then pause"/>
+          </div>
+          <button class="reset" id="resetAll"></button>
+        </div>
+
+        <!---------------- animation properties ----------------->
+
+        <!-- delay -->
+        <div class="wrapper-data-title property" id="delay" data-title="delay">
+          <div class="area-controls">
+            <button class="reset"></button>
+          </div>
+          <div class="options"></div>
+        </div>
+
+        <!-- duration -->
+        <div
+          class="wrapper-data-title property"
+          id="duration"
+          data-title="duration"
+        >
+          <div class="area-controls">
+            <button class="reset"></button>
+          </div>
+          <div class="options"></div>
+        </div>
+
+        <!-- iteration-count -->
+        <div
+          class="wrapper-data-title property"
+          id="iterationCount"
+          data-title="iteration-count"
+        >
+          <div class="area-controls">
+            <button class="reset"></button>
+          </div>
+          <div class="options"></div>
+        </div>
+
+        <!-- direction -->
+        <div
+          class="wrapper-data-title property"
+          id="direction"
+          data-title="direction"
+        >
+          <div class="area-controls">
+            <button class="reset"></button>
+          </div>
+          <div class="options"></div>
+        </div>
+
+        <!-- fill-mode -->
+        <div
+          class="wrapper-data-title property"
+          id="fillMode"
+          data-title="fill-mode"
+        >
+          <div class="area-controls">
+            <button class="reset"></button>
+          </div>
+          <div class="options"></div>
+        </div>
+
+        <!-- name -->
+        <div class="wrapper-data-title property" id="name" data-title="name">
+          <div class="area-controls">
+            <button class="reset"></button>
+          </div>
+          <div class="options"></div>
+        </div>
+
+        <!-- timing-funciton -->
+        <div class="wrapper-data-title property" id="timingFunciton" data-title="timing-funciton">
+          <div class="area-controls">
+            <button class="reset"></button>
+          </div>
+          <div class="options"></div>
+        </div>
+
+        <!-- composition -->
+        <div class="wrapper-data-title property" id="composition" data-title="composition">
+          <div class="area-controls">
+            <button class="reset"></button>
+          </div>
+          <div class="options"></div>
+        </div>
+
+        <!------------------------------------------------------->
+      </div>
+    </div>
+    <!--============== Content End ==============-->
+
+    <div
+      class="back-to-top"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    ></div>
+  </body>
+</html>

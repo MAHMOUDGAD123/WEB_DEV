@@ -48,7 +48,7 @@ window.addEventListener(
 
 /* Back-To-Top & Progress End */
 
-/* Password input field Start */
+/* Password & eye input field Start */
 
 const eye = document.getElementById("eye");
 const password = document.getElementById("password");
@@ -72,10 +72,10 @@ eye?.addEventListener("click", () => {
   toggle_eye();
 });
 
-document.addEventListener("keydown", (e) => {
-  if (e.ctrlKey && e.altKey) {
-    toggle_eye();
-  }
-});
+// document.addEventListener("keydown", (e) => {
+//   if (e.ctrlKey && e.altKey) {
+//     toggle_eye();
+//   }
+// });
 
 /* Password input field End */
