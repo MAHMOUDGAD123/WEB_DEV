@@ -1,0 +1,45 @@
+@layer framie, test;
+
+@property --css-prop {
+  syntax: "<color>#";
+  inherits: false;
+  initial-value: orange, green;
+}
+
+@layer test {
+  .container {
+    width: 350px;
+    aspect-ratio: 1;
+    background-color: #000;
+    border-radius: 20px;
+    margin: 50px auto 30px;
+    padding: 30px;
+    position: relative;
+    display: grid;
+    align-content: space-around;
+
+    & > * {
+      border-radius: 100px;
+      height: 70px;
+      display: grid;
+      place-content: center;
+      padding-top: 10px;
+      font-size: 30px;
+      cursor: pointer;
+      --fallback: #ffa500, #f00;
+
+      &.CSS {
+        background-image: linear-gradient(
+          to right,
+          var(--css-prop, var(--fallback))
+        );
+        transition: --css-prop 1s linear, color 500ms linear;
+
+        &:hover {
+          --css-prop: green, orange;
+          color: red;
+        }
+      }
+    }
+  }
+}

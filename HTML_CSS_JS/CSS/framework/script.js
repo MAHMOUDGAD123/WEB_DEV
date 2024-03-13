@@ -6,15 +6,14 @@ const progress = document.getElementById("progress");
 const at_top_mode = () => {
   btt.style.display = "none";
 };
+at_top_mode();
+
 const scroll_mode = () => {
   btt.style.display = "block";
 };
 
-window.addEventListener(
-  "load",
-  () => {
-    at_top_mode();
-
+const scroll_progress = () => {
+  if (progress) {
     const winScroll =
       document.body.scrollTop || document.documentElement.scrollTop;
     const height =
@@ -22,9 +21,10 @@ window.addEventListener(
       document.documentElement.clientHeight;
     const scrolled = (winScroll / height) * 100;
     progress.style.width = scrolled + "%";
-  },
-  true
-);
+  }
+};
+
+window.addEventListener("load", scroll_progress, true);
 
 window.addEventListener(
   "scroll",
@@ -34,14 +34,7 @@ window.addEventListener(
     } else {
       scroll_mode();
     }
-
-    const winScroll =
-      document.body.scrollTop || document.documentElement.scrollTop;
-    const height =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
-    progress.style.width = scrolled + "%";
+    scroll_progress();
   },
   true
 );
@@ -53,11 +46,6 @@ window.addEventListener(
 const eye = document.getElementById("eye");
 const password = document.getElementById("password");
 
-if (password) {
-  password.placeholder = "use (ctrl + alt) to toggle";
-  password.type = "password";
-}
-
 const toggle_eye = () => {
   eye.classList.toggle("view");
 
@@ -68,14 +56,10 @@ const toggle_eye = () => {
   }
 };
 
-eye?.addEventListener("click", () => {
-  toggle_eye();
-});
+if (password && eye) {
+  password.type = "password";
 
-// document.addEventListener("keydown", (e) => {
-//   if (e.ctrlKey && e.altKey) {
-//     toggle_eye();
-//   }
-// });
+  eye.addEventListener("click", toggle_eye);
+}
 
 /* Password input field End */

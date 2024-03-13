@@ -1,6 +1,10 @@
 @layer framie, test;
 
 @layer test {
+  fieldset {
+    width: 90%;
+  }
+
   /* <color> Start */
   .cont > .color > .clr {
     width: 200px;
@@ -156,35 +160,91 @@
   /* color-mix() function */
   .cont > .color_mix {
     & > div {
-      padding: 30px;
       border-radius: 20px;
+      width: 150px;
+      aspect-ratio: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      --first-col: #f00;
+      --second-col: #777;
 
       &:nth-of-type(1) {
-        background-color: color-mix(in srgb, #7b34ff 90%, white);
+        background-color: color-mix(
+          in srgb,
+          var(--first-col) 100%,
+          var(--second-col)
+        );
       }
       &:nth-of-type(2) {
-        background-color: color-mix(in srgb, #7b34ff 80%, white);
+        background-color: color-mix(
+          in srgb,
+          var(--first-col) 90%,
+          var(--second-col)
+        );
       }
       &:nth-of-type(3) {
-        background-color: color-mix(in srgb, #7a33ff 70%, white);
+        background-color: color-mix(
+          in srgb,
+          var(--first-col) 80%,
+          var(--second-col)
+        );
       }
       &:nth-of-type(4) {
-        background-color: color-mix(in srgb, #7b34ff 60%, white);
+        background-color: color-mix(
+          in srgb,
+          var(--first-col) 70%,
+          var(--second-col)
+        );
       }
       &:nth-of-type(5) {
-        background-color: color-mix(in srgb, #7b34ff 50%, white);
+        background-color: color-mix(
+          in srgb,
+          var(--first-col) 60%,
+          var(--second-col)
+        );
       }
       &:nth-of-type(6) {
-        background-color: color-mix(in srgb, #7a33ff 40%, white);
+        background-color: color-mix(
+          in srgb,
+          var(--first-col) 50%,
+          var(--second-col)
+        );
       }
       &:nth-of-type(7) {
-        background-color: color-mix(in srgb, #7b34ff 30%, white);
+        background-color: color-mix(
+          in srgb,
+          var(--first-col) 40%,
+          var(--second-col)
+        );
       }
       &:nth-of-type(8) {
-        background-color: color-mix(in srgb, #7b34ff 20%, white);
+        background-color: color-mix(
+          in srgb,
+          var(--first-col) 30%,
+          var(--second-col)
+        );
       }
       &:nth-of-type(9) {
-        background-color: color-mix(in srgb, #7b34ff 10%, white);
+        background-color: color-mix(
+          in srgb,
+          var(--first-col) 20%,
+          var(--second-col)
+        );
+      }
+      &:nth-of-type(10) {
+        background-color: color-mix(
+          in srgb,
+          var(--first-col) 10%,
+          var(--second-col)
+        );
+      }
+      &:nth-of-type(11) {
+        background-color: color-mix(
+          in srgb,
+          var(--first-col) 0%,
+          var(--second-col)
+        );
       }
     }
   }
@@ -222,6 +282,93 @@
       padding: 70px;
       border-radius: 50%;
       background-color: #f00;
+    }
+  }
+
+  .cont > .mix-modes {
+    --brdr-col-mix: hsl(353, 100%, 50%);
+    --counter-col-mix: hsl(278, 100%, 50%);
+    --h3-col-mix: hsl(26, 100%, 50%);
+    --p-col-mix: #fff;
+
+    &:has(#red:checked) {
+      --mode-col: #ff0000;
+    }
+    &:has(#green:checked) {
+      --mode-col: #00ff00;
+    }
+    &:has(#blue:checked) {
+      --mode-col: #00eeff;
+    }
+
+    & > .modes {
+      background-image: linear-gradient(to right, #aaa, #777);
+      padding: 25px;
+      border-radius: 100px;
+      display: flex;
+      gap: 30px;
+
+      & > input[type="radio"] {
+        outline-color: #fff;
+        &#red {
+          --chk-color: var(--mode-col);
+        }
+        &#green {
+          --chk-color: var(--mode-col);
+        }
+        &#blue {
+          --chk-color: var(--mode-col);
+        }
+      }
+    }
+
+    & > .cards {
+      margin-top: 50px;
+      width: 100%;
+      display: grid;
+      grid: none / repeat(auto-fill, minmax(min(100%, 200px), 1fr));
+      gap: 30px;
+
+      & > .card {
+        padding: 20px;
+        border-radius: 15px;
+        counter-increment: card;
+        position: relative;
+        background-color: #555;
+        border: 5px solid
+          color-mix(in srgb, var(--mode-col), var(--brdr-col-mix));
+
+        &::before {
+          content: "#" counter(card);
+          position: absolute;
+          top: -20px;
+          right: -20px;
+          font-size: 17px;
+          background-color: color-mix(
+            in srgb,
+            var(--mode-col),
+            var(--counter-col-mix)
+          );
+          border: 10px solid #222;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 100px;
+          padding-block-start: 3px;
+        }
+
+        & > h3 {
+          text-align: left;
+          color: color-mix(in srgb, var(--mode-col), var(--h3-col-mix));
+        }
+        & > p {
+          font-size: 15px;
+          text-align: left;
+          color: color-mix(in srgb, var(--mode-col), var(--p-col-mix));
+        }
+      }
     }
   }
 }

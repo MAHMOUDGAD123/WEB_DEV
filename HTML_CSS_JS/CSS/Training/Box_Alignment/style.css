@@ -1,0 +1,126 @@
+@layer framie, test;
+
+@layer test {
+  .cont > * {
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .accent-color {
+    --main-col: orange;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    accent-color: red;
+  }
+
+  .appearance {
+    --main-col: red;
+
+    & > input {
+      appearance: none;
+      background-color: red;
+      transition: background-color 500ms;
+
+      &:checked {
+        background-color: green;
+      }
+    }
+  }
+
+  .caret {
+    --main-col: orange;
+
+    & > input {
+      caret-color: red;
+      background-color: #333;
+    }
+  }
+
+  .pointer-events {
+    --main-col: green;
+    display: grid;
+    gap: 10px;
+
+    & > * {
+      background-color: royalblue;
+      border-radius: 100px;
+      padding: 10px;
+      text-decoration: none;
+      position: relative;
+      transition: background-color 500ms;
+
+      &::before {
+        position: absolute;
+        left: -100px;
+      }
+
+      &:hover {
+        background-color: orange;
+      }
+    }
+
+    .none {
+      pointer-events: none;
+
+      &::before {
+        content: "none -";
+      }
+    }
+
+    .auto {
+      pointer-events: auto;
+
+      &::before {
+        content: "auto -";
+      }
+    }
+  }
+
+  .resize {
+    --main-col: royalblue;
+    display: grid;
+    place-content: center;
+    height: 400px;
+
+    & > p {
+      width: 100px;
+      aspect-ratio: 1;
+      background-color: orange;
+      padding: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+      resize: both;
+    }
+  }
+
+  .user-select {
+    --main-col: #aaa;
+    display: grid;
+    gap: 10px;
+
+    & > * {
+      background-color: #444;
+      padding: 7px 15px;
+      border-radius: 10px;
+    }
+
+    & > .none {
+      user-select: none;
+    }
+
+    & > .auto {
+      user-select: auto;
+    }
+
+    & > .all {
+      user-select: all;
+    }
+
+    & > .text {
+      user-select: text;
+    }
+  }
+}

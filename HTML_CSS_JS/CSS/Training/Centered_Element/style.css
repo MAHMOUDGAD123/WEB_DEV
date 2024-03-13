@@ -1,0 +1,100 @@
+@layer framie, test;
+
+@layer test {
+  .method {
+    background-color: #000;
+    width: 40%;
+    aspect-ratio: 1;
+    margin: 70px auto;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 0 15px #fff;
+    --box-d: 70px;
+
+    & > :only-child {
+      width: var(--box-d);
+      height: var(--box-d);
+      background-color: orange;
+      border-radius: 20px;
+      position: relative;
+    }
+
+    &::before {
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      translate: -50% 0;
+      font-size: 20px;
+      color: red;
+      white-space: nowrap;
+    }
+  }
+
+  .one {
+    display: flex;
+    place-content: center;
+
+    &::before {
+      content: "flex / place-content";
+    }
+  }
+
+  .two {
+    display: grid;
+    place-content: center;
+
+    &::before {
+      content: "grid / place-content";
+    }
+  }
+
+  .three {
+    display: grid;
+
+    & > :only-child {
+      place-self: center;
+    }
+
+    &::before {
+      content: "grid / place-self";
+    }
+  }
+
+  .four {
+    width: 0;
+    height: 0;
+    padding: 20%;
+
+    & > :only-child {
+      translate: -50% -50%;
+    }
+
+    &::before {
+      content: "padding / translate";
+    }
+  }
+
+  .five {
+    & > :only-child {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+    }
+
+    &::before {
+      content: "positioning";
+    }
+  }
+
+  .six {
+    & > :only-child {
+      top: calc(50% - (var(--box-d) * 0.5));
+      left: calc(50% - (var(--box-d) * 0.5));
+    }
+
+    &::before {
+      content: "top / left";
+    }
+  }
+}

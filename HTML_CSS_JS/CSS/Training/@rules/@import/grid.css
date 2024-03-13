@@ -1,0 +1,9 @@
+.grid {
+  display: grid;
+  grid: auto-flow 65px / 1fr;
+  gap: 20px;
+
+  &::before {
+    content: "grid";
+  }
+}

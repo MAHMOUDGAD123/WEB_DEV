@@ -5,18 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
     <link rel="stylesheet" href="./style.css" />
-    <style>
-      @import url(../../../framework/style.css) layer(framie);
-    </style>
+    <link rel="stylesheet" href="../../../framework/style.css" />
     <script src="./script.js" async></script>
     <script src="../../../framework/script.js" async></script>
     <title>Color</title>
   </head>
   <body>
-    <div class="progress-cont">
-      <div id="progress"></div>
-    </div>
-
+    <div class="progress"></div>
     <div class="Header">CSS</div>
 
     <!--================ Content Start ================-->
@@ -47,8 +42,9 @@
         <div class="light">Light</div>
       </fieldset>
 
-      <fieldset class="color_mix ">
+      <fieldset class="color_mix remove">
         <legend>Color Mix</legend>
+        <div>100%</div>
         <div>90%</div>
         <div>80%</div>
         <div>70%</div>
@@ -58,6 +54,7 @@
         <div>30%</div>
         <div>20%</div>
         <div>10%</div>
+        <div>0%</div>
       </fieldset>
 
       <fieldset class="hsl-conic-gradient remove">
@@ -71,6 +68,53 @@
         <input type="range" id="slider" min="0" max="400" value="0" />
         <p>Hue: <span id="hue-val">0grad</span></p>
         <div id="color-circle"></div>
+      </fieldset>
+
+      <fieldset class="mix-modes">
+        <legend>modes</legend>
+        <div class="modes chkbox-wrapper">
+          <input type="radio" name="mode" id="red" checked />
+          <input type="radio" name="mode" id="green" />
+          <input type="radio" name="mode" id="blue" />
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Card</h3>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae,
+              sit?
+            </p>
+          </div>
+          <div class="card">
+            <h3>Card</h3>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae,
+              sit?
+            </p>
+          </div>
+          <div class="card">
+            <h3>Card</h3>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae,
+              sit?
+            </p>
+          </div>
+          <div class="card">
+            <h3>Card</h3>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae,
+              sit?
+            </p>
+          </div>
+          <div class="card">
+            <h3>Card</h3>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae,
+              sit?
+            </p>
+          </div>
+        </div>
       </fieldset>
     </div>
     <!--================= Content End =================-->

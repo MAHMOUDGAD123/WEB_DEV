@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../../framework/style.css" />
+    <script src="./script.js" async></script>
+    <title>Box Alignment</title>
+  </head>
+  <body>
+    <div class="progress-cont">
+      <div id="progress"></div>
+    </div>
+    <div class="Header">CSS</div>
+
+    <a
+      id="ref"
+      href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_alignment"
+      >MDN</a
+    >
+
+    <!--================ Content Start ================-->
+
+    <div class="cont">
+      <div
+        class="wrapper-data-title accent-color remove"
+        data-title="accent-color"
+      >
+        <input type="radio" />
+        <input type="checkbox" />
+        <input type="range" />
+        <progress max="100" value="70"></progress>
+      </div>
+
+      <div class="wrapper-data-title appearance remove" data-title="appearance">
+        <input type="checkbox" />
+      </div>
+
+      <div class="wrapper-data-title caret remove" data-title="caret">
+        <input type="text" />
+      </div>
+
+      <div
+        class="wrapper-data-title pointer-events remove"
+        data-title="pointer-events"
+      >
+        <a class="none" href="https:\\www.google.com">google</a>
+        <a class="auto" href="https:\\www.google.com">google</a>
+      </div>
+
+      <div class="wrapper-data-title resize remove" data-title="resize">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut error
+          deleniti quam, perspiciatis ad, pariatur repellat itaque nobis tempore
+          temporibus enim cumque, fuga sint ratione dicta atque consequatur.
+          Dolore, nisi?
+        </p>
+      </div>
+
+      <div class="wrapper-data-title user-select" data-title="user-select">
+        <code class="none">user-select: none;</code>
+        <code class="auto">user-select: auto;</code>
+        <code class="all">user-select: all;</code>
+        <code class="text">user-select: text;</code>
+      </div>
+    </div>
+
+    <!--================= Content End =================-->
+
+    <div
+      class="back-to-top"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    ></div>
+  </body>
+</html>

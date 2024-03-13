@@ -1,0 +1,214 @@
+@layer framie, test;
+
+@layer test {
+  .example {
+    margin: 50px 20px;
+    padding: 50px;
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    gap: 50px;
+    --box-d: 50px;
+    --dropArea-d: 300px;
+  }
+
+  p {
+    font-size: 15px;
+    color: orange;
+    text-align: left;
+
+    & > code {
+      color: red;
+    }
+  }
+
+  .ex-1 {
+    --main-col: hotpink;
+
+    & > #dropArea {
+      width: var(--dropArea-d);
+      height: var(--dropArea-d);
+      background-color: #000;
+      border: 5px solid cyan;
+      border-radius: 10px;
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      justify-content: flex-start;
+      align-content: flex-start;
+
+      &.filled {
+        border-color: red;
+      }
+
+      & > .box {
+        counter-increment: count;
+        position: relative;
+
+        &::before {
+          content: counter(count);
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          translate: -50% -50%;
+        }
+      }
+    }
+
+    & > #boxContainer {
+      width: var(--box-d);
+      height: var(--box-d);
+    }
+
+    & .box {
+      width: var(--box-d);
+      height: var(--box-d);
+      border-radius: 5px;
+      transition: all 500ms;
+
+      &.dragging {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .ex-2 {
+    --main-col: #9873b8;
+    background-color: #000;
+    position: relative;
+    margin-inline: 30px;
+
+    & button {
+      --bg-col: #00be00;
+      width: 40px;
+      aspect-ratio: 1;
+      padding-bottom: 3px;
+      border-radius: 100%;
+      font-size: 30px;
+      color: #fff;
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:active {
+        background-color: #00ff00;
+      }
+    }
+
+    & > #lists {
+      width: 100%;
+      display: grid;
+      grid: none / repeat(auto-fill, minmax(min(100%, 200px), 1fr));
+      gap: 30px;
+      justify-content: center;
+      align-items: start;
+
+      & > .list {
+        --bg-col: #444;
+        background-color: var(--bg-col);
+        padding: 20px 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        border-radius: 20px;
+        counter-increment: list-count;
+        margin-block-start: 30px;
+        position: relative;
+
+        &.dragOver {
+          --bg-col: #777;
+        }
+
+        &::before {
+          content: "#" counter(list-count);
+          font-size: 15px;
+          background-color: var(--bg-col);
+          padding: 2px 5px 0;
+          border-radius: 10px 10px 0 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          top: -25px;
+          left: 20px;
+        }
+
+        & button {
+          width: 25px;
+          padding-bottom: 1px;
+
+          &.add-item {
+            right: 25px;
+            font-size: 20px;
+          }
+
+          &._remove {
+            background-color: red;
+            right: -5px;
+            font-size: 17px;
+
+            &:active {
+              background-color: hotpink;
+            }
+          }
+        }
+
+        & > .items {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          justify-content: start;
+
+          & > .item {
+            --bg-col: orange;
+            width: 95%;
+            padding: 7px 15px 4px;
+            border-radius: 10px;
+            background-color: var(--bg-col);
+            text-align: start;
+            color: #fff;
+            font-size: 15px;
+            position: relative;
+            counter-increment: item-count;
+            transition: all 500ms;
+
+            &.dragging {
+              opacity: 0.4;
+
+              &::before {
+                opacity: 0.4;
+              }
+            }
+
+            & > button._remove {
+              width: 17px;
+              font-size: 11px;
+              top: 50%;
+              right: -22px;
+              translate: 0 -50%;
+              background-color: red;
+              padding-right: 1px;
+
+              &:active {
+                background-color: hotpink;
+              }
+            }
+
+            &::after {
+              content: "Item #" counter(item-count);
+            }
+          }
+        }
+      }
+    }
+  }
+}

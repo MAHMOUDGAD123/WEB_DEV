@@ -5,18 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
     <link rel="stylesheet" href="./style.css" />
-    <style>
-      @import url("../../../framework/style.css") layer(framie);
-    </style>
-    <script src="./script.js" async></script>
-    <script src="../../../framework/script.js" async></script>
+    <link rel="stylesheet" href="../../../framework/style.css" />
+    <script src="./script.js" defer></script>
+    <script src="../../../framework/script.js" defer></script>
     <title>Grid</title>
   </head>
   <body>
-    <div class="progress-cont">
-      <div id="progress"></div>
-    </div>
-
+    <div class="progress"></div>
     <div class="Header">CSS</div>
 
     <a
@@ -26,7 +21,7 @@
     >
     <!--============= Content Start =============-->
     <div class="cont">
-      <div id="grid-box" class="id-title-box ex-5">
+      <div id="grid-box" class="id-title-box ex-1 remove">
         <span tabindex="0" class="counter-box red"></span>
         <span tabindex="0" class="counter-box green"></span>
         <span tabindex="0" class="counter-box blue"></span>
@@ -56,17 +51,17 @@
       <div id="auto-placement" class="id-title-box remove">
         <div id="grid-box">
           <span class="counter-box red"></span>
-          <span class="counter-box green" ></span>
-          <span class="counter-box blue" ></span>
-          <span class="counter-box orange" ></span>
-          <span class="counter-box violet" ></span>
-          <span class="counter-box dark" ></span>
+          <span class="counter-box green"></span>
+          <span class="counter-box blue"></span>
+          <span class="counter-box orange"></span>
+          <span class="counter-box violet"></span>
+          <span class="counter-box dark"></span>
         </div>
 
         <div class="controls">
           <select id="auto-flow-options"></select>
           <div class="chkbox-wrapper">
-            <input type="checkbox" id="dense">
+            <input type="checkbox" id="dense" />
             <label for="dense">dense</label>
           </div>
         </div>
@@ -75,35 +70,35 @@
       <!-- subgrid-1 -->
       <div id="subgrid-box-1" class="id-title-box remove">
         <div>
-          <span class="counter-box" ></span>
+          <span class="counter-box"></span>
         </div>
       </div>
 
       <!-- subgrid-2 -->
       <div id="subgrid-box-2" class="id-title-box remove">
         <div>
-          <span class="counter-box" ></span>
-          <span class="counter-box" ></span>
+          <span class="counter-box"></span>
+          <span class="counter-box"></span>
         </div>
       </div>
 
       <!-- subgrids-3 -->
-      <div id="subgrid-box-2" class="id-title-box remove">
+      <div id="subgrid-box-3" class="id-title-box remove">
         <div>
-          <span class="counter-box" ></span>
-          <span class="counter-box" ></span>
-          <span class="counter-box" ></span>
-          <span class="counter-box" ></span>
-          <span class="counter-box" ></span>
-          <span class="counter-box" ></span>
-          <span class="counter-box" ></span>
-          <span class="counter-box" ></span>
-          <span class="counter-box" ></span>
+          <span class="counter-box"></span>
+          <span class="counter-box"></span>
+          <span class="counter-box"></span>
+          <span class="counter-box"></span>
+          <span class="counter-box"></span>
+          <span class="counter-box"></span>
+          <span class="counter-box"></span>
+          <span class="counter-box"></span>
+          <span class="counter-box"></span>
         </div>
       </div>
 
       <!-- masonry-grid -->
-      <div id="masonry-grid" class="id-title-box remove">
+      <div id="masonry-grid" class="id-title-box ">
         <span class="counter-box"></span>
         <span class="counter-box"></span>
         <span class="counter-box"></span>

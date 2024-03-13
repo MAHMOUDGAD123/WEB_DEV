@@ -1,0 +1,683 @@
+@layer framie, test;
+
+@layer test {
+  /* only works if the user has made no preference */
+  @media (prefers-reduced-motion: no-preference) {
+    :root {
+      scroll-timeline: --pageTimeline block;
+      overflow-x: hidden;
+    }
+
+    .cont {
+      margin: 35px;
+      gap: 10px;
+      padding: 30px;
+      background-color: #333;
+      border-radius: 20px;
+    }
+
+    h1 {
+      width: 100%;
+      text-align: left;
+      color: tomato;
+    }
+
+    p {
+      font-size: calc(10px + 1vw);
+      text-align: left;
+    }
+
+    .scroll-watcher {
+      width: 100%;
+      height: 6px;
+      background-color: red;
+      position: fixed;
+      z-index: 100;
+      inset: 0;
+      scale: 0 1;
+      transform-origin: left;
+      animation: scale-up linear;
+      animation-duration: 1ms; /* Firefox requires this to apply the animation */
+      animation-timeline: scroll(block root);
+    }
+
+    .scroll-spinner {
+      width: 25px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      inset: 0;
+      top: 20px;
+      left: 10px;
+      position: fixed;
+      background-image: linear-gradient(red 50%, blue 50%);
+      animation: spin linear;
+      animation-duration: 1ms; /* Firefox requires this to apply the animation */
+      --spining: z 1080deg;
+      animation-timeline: --pageTimeline;
+    }
+
+    img {
+      /* width: 50%; */
+      margin-block: 50px;
+      animation: linear 1ms both;
+
+      &.img-1 {
+        opacity: 0;
+        scale: 0;
+        animation-name: appear, scale-up;
+        view-timeline: --image1View block;
+        view-timeline-inset: 60% 20%;
+        animation-timeline: --image1View;
+      }
+
+      &.img-2 {
+        opacity: 0;
+        perspective: 500px;
+        animation-name: appear, rotate360X;
+        animation-timeline: view(block 60% 20%);
+      }
+
+      &.img-3 {
+        animation-name: fade-in;
+        animation-timeline: view();
+        animation-range: entry contain 50%;
+      }
+
+      &.img-4 {
+        animation-name: fade-out;
+        animation-timeline: view();
+        animation-range: exit-crossing;
+      }
+    }
+
+    /* to test the timeline-scope property */
+    .timeline-scope-test {
+      margin: 50px;
+      display: flex;
+      width: 100%;
+      height: 60dvh;
+      timeline-scope: --scroller; /* make the timeline-scope is the top parent */
+
+      & > * {
+        flex: 1;
+      }
+
+      & > .scroller {
+        background-color: red;
+        scroll-timeline: --scroller block;
+        overflow-y: scroll;
+
+        & > .long-element {
+          height: 1000px;
+        }
+      }
+
+      & > .content {
+        & > p {
+          white-space: nowrap;
+          width: fit-content;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          translate: -50% -50%;
+        }
+
+        & > .box {
+          width: 40px;
+          aspect-ratio: 1;
+          background-color: green;
+          position: absolute;
+          top: 50px;
+          left: 0;
+          border-radius: 15px;
+          animation: rotate_move_right linear 1ms both;
+          animation-timeline: --scroller;
+        }
+      }
+    }
+
+    .battery {
+      position: relative;
+      padding: 0;
+      border-width: 10px;
+      timeline-scope: --hBatteryScroller, --vBatteryScroller;
+
+      &.H {
+        width: 300px;
+        height: 200px;
+
+        &::after {
+          width: 20px;
+          height: 30%;
+          top: 50%;
+          right: -35px;
+          translate: -50% -50%;
+        }
+
+        & > .scroller {
+          overflow-x: scroll;
+          scroll-timeline: --hBatteryScroller inline;
+
+          .long-item {
+            width: 2000px;
+          }
+        }
+
+        & > .life {
+          animation-timeline: --hBatteryScroller;
+          scale: 0 1;
+          transform-origin: left;
+        }
+      }
+
+      &.V {
+        width: 200px;
+        height: 300px;
+
+        &::after {
+          width: 30%;
+          height: 20px;
+          top: -15px;
+          left: 50%;
+          translate: -50% -50%;
+        }
+
+        & > .scroller {
+          overflow-y: scroll;
+          scroll-timeline: --vBatteryScroller block;
+
+          .long-item {
+            height: 2000px;
+          }
+        }
+
+        & > .life {
+          animation-timeline: --vBatteryScroller;
+          scale: 1 0;
+          transform-origin: bottom;
+        }
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        background-color: #8abaf5;
+      }
+
+      & > .scroller {
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+      }
+
+      & > .life {
+        width: 100%;
+        height: 100%;
+        animation: linear 1ms forwards;
+        animation-name: scale-up, battery-colors;
+      }
+
+      & > .battery-percent {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        color: hotpink;
+      }
+    }
+
+    .item-list {
+      width: 100%;
+      height: 450px;
+      overflow-y: scroll;
+      margin-block: 50px;
+      list-style: none;
+      padding: 50px 20px;
+      display: grid;
+      background-color: #666;
+      gap: 5px;
+
+      & > li {
+        counter-increment: counter;
+        background-color: blue;
+        width: 100%;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: forwards 1ms;
+        animation-timeline: view();
+        /* animation-name: enter, leave; */
+        /* animation-range: entry, exit; */
+        animation-name: v-enter-leave;
+
+        &::before {
+          content: "item" " #" counter(counter);
+        }
+      }
+    }
+
+    .stacking-cards {
+      width: 100%;
+      height: 500px;
+      background-color: #000;
+      overflow-y: scroll;
+      position: relative;
+
+      & > .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        height: 100%;
+
+        & > h1 {
+          color: orange;
+          text-align: center;
+        }
+
+        & > p {
+          color: red;
+        }
+      }
+
+      & > .text {
+        padding: 30px 100px;
+        color: #fff;
+      }
+
+      & > .cards {
+        transform-style: preserve-3d;
+
+        & > .card {
+          border-radius: 20px;
+          background-color: orange;
+          width: 90%;
+          height: 250px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: sticky;
+          top: 50px;
+          margin: 30px auto;
+          scale: 1;
+          overflow: hidden;
+          animation: linear 1ms forwards;
+          animation-name: scale-down;
+          animation-timeline: view();
+          animation-range: contain;
+
+          &:nth-child(1) {
+            top: 0;
+            --scale-down: 0.7;
+          }
+          &:nth-child(2) {
+            top: 50px;
+            --scale-down: 0.8;
+          }
+          &:nth-child(3) {
+            top: 100px;
+            --scale-down: 0.9;
+          }
+          &:nth-child(4) {
+            top: 150px;
+            --scale-down: 1;
+          }
+
+          & > .figure {
+            flex: 1;
+            height: 100%;
+            background-image: linear-gradient(red, blue);
+          }
+
+          & > .details {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 15px;
+
+            & > .title {
+              color: black;
+              padding-block: 0;
+              font-size: calc(1rem + 2vw);
+            }
+
+            & > .info {
+              color: green;
+              font-size: calc(0.3rem + 1vw);
+              text-align: left;
+            }
+
+            & > .read-more {
+              background-color: blue;
+              padding: 10px 15px 7px;
+              border-radius: 20px;
+              font-size: calc(0.2rem + 0.5vw);
+              white-space: nowrap;
+            }
+          }
+        }
+      }
+    }
+
+    .scroll-scapping {
+      width: 100%;
+      margin-block: 30px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      background-color: #000;
+
+      & > h3 {
+        font-size: calc(0.7rem + 1vw);
+      }
+
+      & > .snapping {
+        width: 60%;
+        aspect-ratio: 1;
+        list-style: none;
+        overflow: scroll;
+        position: relative;
+        display: grid;
+
+        & > li {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          counter-increment: count;
+          scroll-snap-align: center;
+          scroll-snap-stop: always;
+
+          &::after {
+            content: counter(count);
+            font-size: 50px;
+            color: blue;
+          }
+
+          &:nth-child(1) {
+            background-color: red;
+          }
+          &:nth-child(2) {
+            background-color: orange;
+          }
+          &:nth-child(3) {
+            background-color: violet;
+          }
+          &:nth-child(4) {
+            background-color: pink;
+          }
+          &:nth-child(5) {
+            background-color: green;
+          }
+          &:nth-child(6) {
+            background-color: turquoise;
+          }
+          &:nth-child(7) {
+            background-color: sienna;
+          }
+          &:nth-child(8) {
+            background-color: royalblue;
+          }
+          &:nth-child(9) {
+            background-color: indigo;
+          }
+        }
+
+        &.V {
+          grid: auto-flow 100% / 1fr;
+          scroll-snap-type: y mandatory;
+        }
+
+        &.H {
+          grid: 1fr / auto-flow 100%;
+          scroll-snap-type: x proximity;
+        }
+
+        &.HV {
+          grid: auto-flow 100% / repeat(3, 100%);
+          scroll-snap-type: both mandatory;
+        }
+      }
+    }
+
+    .date-picker {
+      background-color: #000;
+      width: 100%;
+      height: 400px;
+      display: grid;
+      grid: 50% 50% / 1fr;
+      padding: 50px 20px;
+      gap: 30px;
+
+      & > #inputs {
+        width: 100%;
+        display: grid;
+        grid: 100% / min(100%, 150px) repeat(2, min(100%, 70px));
+        place-content: center;
+        gap: 7px;
+
+        & > * {
+          position: relative;
+
+          &:focus-within::before {
+            color: hotpink;
+          }
+
+          &::before {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            translate: -50% 0;
+          }
+          &.years::before {
+            content: "y";
+          }
+          &.months::before {
+            content: "m";
+          }
+          &.days::before {
+            content: "d";
+          }
+
+          & > ul {
+            height: 100%;
+            outline: none;
+            border-radius: 20px;
+            background-color: #222;
+            list-style: none;
+            overflow-y: scroll;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            scroll-snap-type: y mandatory;
+
+            & > li {
+              flex: 1 0 35%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              scroll-snap-align: center;
+              scroll-snap-stop: always;
+              animation: scroll-effect 1ms linear both;
+              animation-timeline: view();
+              font-size: 0.7rem;
+            }
+          }
+        }
+      }
+
+      & > #outputDate {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: orange;
+        font-size: calc(0.5rem + 2vw);
+      }
+    }
+  }
+}
+
+/* keyframes */
+@keyframes rotate_move_right {
+  to {
+    left: calc(100% - 40px);
+    rotate: 720deg;
+  }
+}
+@keyframes scale-up {
+  to {
+    scale: 1 1;
+  }
+}
+@keyframes scale-down {
+  to {
+    scale: var(--scale-down);
+  }
+}
+@keyframes spin {
+  to {
+    rotate: var(--spining);
+  }
+}
+@keyframes appear {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes rotate360X {
+  from {
+    transform: perspective(5000px) rotateX(360deg);
+  }
+  to {
+    transform: perspective(5000px) rotateX(0);
+  }
+}
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes battery-colors {
+  0% {
+    background-color: red;
+  }
+  30% {
+    background-color: orange;
+  }
+  60% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: cyan;
+  }
+}
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes leave {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+@keyframes v-enter-leave {
+  entry 0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  entry 100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  exit 0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  exit 100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+@keyframes h-enter-leave {
+  entry 0% {
+    opacity: 0;
+    transform: translateX(100%) rotateY(-50deg);
+  }
+  entry 100% {
+    opacity: 1;
+    transform: translateX(0) rotateY(0);
+  }
+  exit 0% {
+    opacity: 1;
+    transform: translateX(0) rotateY(0);
+  }
+  exit 100% {
+    opacity: 0;
+    transform: translateX(-100%) rotateY(50deg);
+  }
+}
+@keyframes img-slider-effect {
+  contain 50% {
+    transform: perspective(600px) translate3d(0, 0, 300px);
+  }
+  entry 0% {
+    transform: translate3d(100%, 0, 0) rotateY(-70deg);
+  }
+  entry 100% {
+    transform: translate3d(0, 0, 0) rotateY(-70deg);
+  }
+  exit 0% {
+    transform: translate3d(0, 0, 0) rotateY(70deg);
+  }
+  exit 100% {
+    transform: translate3d(-100%, 0, 0) rotateY(70deg);
+  }
+}
+@keyframes scroll-effect {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(2);
+  }
+}

@@ -1,0 +1,78 @@
+@layer framie, test;
+
+@layer test {
+  h2 {
+    background-image: linear-gradient(90deg, red 50%, blue 50%);
+    padding: 10px 15px 5px;
+    border-radius: 10px;
+    width: fit-content;
+    margin: auto;
+  }
+
+  .place {
+    margin: 50px 50px;
+    display: grid;
+    grid: auto-flow 100px / 1fr 1fr;
+    gap: 20px;
+
+    & > * {
+      background-color: orange;
+      border-radius: 20px;
+      content: counter(count);
+      display: grid;
+      place-content: center;
+      counter-increment: count;
+
+      &:before {
+        content: counter(count);
+      }
+    }
+  }
+
+  .justifyItems {
+    justify-items: start;
+    justify-items: end;
+    justify-items: first baseline;
+    justify-items: last baseline;
+    justify-items: self-start;
+    justify-items: self-end;
+    justify-items: center;
+    justify-items: left;
+    justify-items: right;
+    justify-items: legacy right;
+    justify-items: safe left;
+  }
+
+  .justifySelf {
+    & > :nth-child(1) {
+      background-color: red;
+      justify-self: safe center;
+    }
+  }
+
+  .justifyContent {
+    display: flex;
+
+    & > * {
+      width: 50px;
+    }
+
+    justify-content: right;
+  }
+
+  .alignItems {
+    align-items: center;
+  }
+
+  .alignSelf {
+    & > :nth-child(1) {
+      background-color: red;
+      align-self: start;
+    }
+  }
+
+  .alignContent {
+    height: 400px;
+    align-content: space-between;
+  }
+}

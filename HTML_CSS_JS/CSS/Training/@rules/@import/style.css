@@ -1,0 +1,35 @@
+@layer framie, test, high;
+
+@import "./columns.css" layer supports(columns: 2) screen and (width <= 600px);
+
+@import url("./grid.css") layer supports(display: grid) screen and
+  (600px < width <= 1000px);
+
+@import url(./flex.css) layer(high) supports(display: flex) screen and
+  (width > 1000px);
+
+@layer test {
+  .container {
+    width: calc(300px + 5vw);
+    aspect-ratio: 1;
+    background-color: #000;
+    border-radius: 20px;
+    margin: 100px auto 30px;
+    padding: 30px;
+    position: relative;
+
+    & > * {
+      background-color: orange;
+      border-radius: 20px;
+    }
+
+    &::before {
+      content: "none";
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      translate: -50%;
+      color: red;
+    }
+  }
+}

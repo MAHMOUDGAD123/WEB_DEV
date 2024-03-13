@@ -1,0 +1,12 @@
+.flex {
+  display: flex;
+  gap: 20px;
+
+  &::before {
+    content: "flex";
+  }
+
+  & > * {
+    flex: 1;
+  }
+}

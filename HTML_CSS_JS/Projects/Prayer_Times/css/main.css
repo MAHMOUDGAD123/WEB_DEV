@@ -1,0 +1,194 @@
+/* Global rules Start */
+
+@font-face {
+  font-family: "en_font";
+  src: url("../files/fonts/Madimi_One/MadimiOne-Regular.woff2") format("woff2"),
+    url("../files/fonts/Madimi_One/MadimiOne-Regular.woff") format("woff");
+  font-weight: 100 1000;
+  font-display: swap;
+}
+@font-face {
+  font-family: "ar_font";
+  src: url("../files/fonts/El_Messiri/ElMessiri-VariableFont_wght.woff2")
+      format("woff2"),
+    url("../files/fonts/El_Messiri/ElMessiri-VariableFont_wght.woff")
+      format("woff");
+  font-weight: 100 1000;
+  font-display: swap;
+}
+
+:root {
+  --border-rad: 20px;
+  --col1: #faac0d;
+  --col2: #108207;
+  --col3: #076e00;
+  --col4: #eee;
+  --font: "en_font";
+  --transition: 500ms;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font), "Courier New", Courier, monospace;
+  color: #fff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  scrollbar-width: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::-webkit-scrollbar {
+  /* hide the scrollbar */
+  display: none;
+}
+
+body {
+  height: 100dvh;
+  background-color: #000;
+  gap: 20px;
+  padding: 10px 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Global rules End */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  font-size: 2rem;
+
+  & > .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > img {
+      width: 90px;
+    }
+
+    & > .txt {
+      font-size: 1.7rem;
+      word-spacing: -5px;
+
+      &.en {
+        & > span:first-of-type {
+          color: var(--col1);
+        }
+        & > span:last-of-type {
+          color: var(--col2);
+        }
+      }
+
+      &.ar {
+        font-family: "ar_font";
+        & > span:first-of-type {
+          color: var(--col2);
+        }
+        & > span:last-of-type {
+          color: var(--col1);
+        }
+      }
+    }
+  }
+}
+
+main {
+  flex: 1;
+  display: flex;
+  gap: 5px;
+  border-radius: var(--border-rad);
+  overflow: hidden;
+  background-color: var(--col1);
+
+  & > .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--col1);
+    background-image: url(../files/imgs/m1.png),
+      linear-gradient(var(--col1), var(--col2));
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  & > nav {
+    width: 90px;
+    height: 100%;
+    background-color: var(--col2);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    padding: 7px;
+
+    & > * {
+      padding: 10px;
+      border-radius: var(--border-rad);
+      background-color: var(--col3);
+      width: 90%;
+      height: 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      outline: none;
+      border: none;
+
+      &:focus-visible,
+      &:hover {
+        outline: 3px solid var(--col4);
+      }
+
+      &.open {
+        background-color: var(--col1);
+        color: var(--col2);
+      }
+
+      & > i {
+        font-size: 1.5rem;
+      }
+
+      & > .txt {
+        font-size: 0.75rem;
+      }
+    }
+  }
+}
+
+footer {
+  border-radius: var(--border-rad);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  & > .copy {
+    & > span:first-of-type {
+      color: var(--col2);
+    }
+    & > span:last-of-type {
+      color: var(--col1);
+    }
+  }
+}

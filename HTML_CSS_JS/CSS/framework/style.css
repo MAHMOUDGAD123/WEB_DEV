@@ -13,6 +13,7 @@
     scroll-behavior: smooth;
     font-size: 25px;
     font-family: "myfont", monospace, sans-serif;
+    scroll-timeline: --pageTimeline block; /* used with scroll-spinner */
   }
 
   body {
@@ -32,6 +33,7 @@
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
+    scrollbar-width: none; /* remove the scrollbar from all */
   }
 
   img,
@@ -43,11 +45,6 @@
   img {
     display: block;
     margin: 0 auto;
-  }
-
-  /* hide the scrollbar */
-  ::-webkit-scrollbar {
-    display: none;
   }
 
   /* reference link */
@@ -203,6 +200,10 @@
     }
   }
 
+  table {
+    border-collapse: collapse;
+  }
+
   /* Progress Start */
 
   .progress-cont {
@@ -213,7 +214,7 @@
     margin: 0;
     width: 100%;
     height: 7px;
-    background-color: #eee;
+    background-color: #eee5;
     z-index: 100;
 
     & > #progress {
@@ -227,6 +228,36 @@
       transition: width 300ms ease-out;
     }
   }
+
+  .progress {
+    background-color: #5561f5;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 5px;
+    z-index: 100;
+    scale: 0 1;
+    --scale-up: 1 1;
+    transform-origin: left;
+    animation: scale-up linear 1ms;
+    animation-timeline: scroll(nearest);
+  }
+
+  .scroll-spinner {
+    width: 25px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    inset: 0;
+    top: 20px;
+    left: 10px;
+    position: fixed;
+    background-image: linear-gradient(red 50%, blue 50%);
+    animation: spin linear;
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    --spining: z 1080deg;
+    animation-timeline: --pageTimeline;
+  }
+
   /* Progress End */
 
   .Header {
@@ -258,7 +289,7 @@
     right: 20px;
     bottom: 20px;
     transition: 700ms;
-    opacity: 0.5;
+    opacity: 0.3;
 
     &:hover {
       opacity: 1;
@@ -509,7 +540,7 @@
     cursor: pointer;
     background-color: var(--bg-col);
     color: var(--col);
-    transition: transform 300ms, background-color 200ms;
+    transition: transform 200ms, background-color 200ms;
     border: none;
     outline: none;
 
@@ -545,120 +576,102 @@
     & > label {
       white-space: nowrap;
     }
-  }
 
-  input:is([type="checkbox"], [type="radio"]) {
-    appearance: none;
-    background-color: var(--chk-bg-color);
-    width: 1rem;
-    aspect-ratio: 1;
-    margin: 0;
-    padding: 0;
-    transition: var(--transition);
-    outline: none;
-    border: none;
-    cursor: pointer;
-    position: relative;
-
-    &:focus {
+    & > input:is([type="checkbox"], [type="radio"]) {
+      appearance: none;
+      background-color: var(--chk-bg-color);
+      width: 1rem;
+      aspect-ratio: 1;
+      margin: 0;
+      padding: 0;
+      transition: var(--transition);
       outline: none;
-    }
+      border: none;
+      cursor: pointer;
+      position: relative;
 
-    &:hover,
-    &:focus-visible {
-      outline: 3px solid var(--chk-color);
-      background-color: var(--chk-bg-color);
-    }
+      &:focus {
+        outline: none;
+      }
 
-    &::before {
-      content: "";
-      background-color: var(--chk-color);
-      transform: scale(0);
-      transition: transform var(--transition) ease-in-out;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      translate: -50% -50%;
-    }
-  }
-
-  /* checkbox */
-  input[type="checkbox"] {
-    border-radius: 7px;
-
-    &::before {
-      width: 80%;
-      aspect-ratio: 1;
-      border-radius: 0.5em;
-    }
-
-    &:checked::before {
-      transform: scale(1);
-    }
-  }
-
-  /* radio */
-  input[type="radio"] {
-    border-radius: 50%;
-
-    &::before {
-      width: 50%;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background-color: var(--chk-bg-color);
-    }
-
-    &:checked {
-      background-color: var(--chk-color);
+      &:hover,
+      &:focus-visible {
+        outline: 3px solid var(--chk-color);
+        background-color: var(--chk-bg-color);
+      }
 
       &::before {
+        content: "";
+        background-color: var(--chk-color);
+        transform: scale(0);
+        transition: transform var(--transition) ease-in-out;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+      }
+    }
+
+    /* checkbox */
+    & > input[type="checkbox"] {
+      border-radius: 7px;
+
+      &::before {
+        width: 90%;
+        aspect-ratio: 1;
+        border-radius: 0.5em;
+        border-radius: inherit;
+      }
+
+      &:checked::before {
+        transform: scale(1);
+      }
+    }
+
+    /* radio */
+    & > input[type="radio"] {
+      border-radius: 50%;
+
+      &::before {
+        width: 50%;
+        aspect-ratio: 1;
+        border-radius: 50%;
         background-color: var(--chk-bg-color);
-        transform: scale(0.6);
+      }
+
+      &:checked {
+        background-color: var(--chk-color);
+
+        &::before {
+          background-color: var(--chk-bg-color);
+          transform: scale(0.6);
+        }
       }
     }
   }
 
   /* Checkbox & Radio Styling End */
 
-  /* Tables Styling Start */
-
-  /* table {
-  border-collapse: collapse;
-}
-
-th {
-  color: orange;
-}
-
-th,
-td {
-  border: 3px solid #4955f7;
-  padding: 7px;
-  font-size: 15px;
-  text-wrap: nowrap;
-} */
-
-  /* Tables Styling End */
-
   /* Select - option styling Start*/
-
   select {
     --bg-col: #4955f7;
     background-color: var(--bg-col);
     border-radius: 10px;
     font-size: 15px;
-    padding: 10px;
+    padding: 10px 10px 10px 17px;
     border: none;
+
+    & > option {
+      color: inherit;
+    }
 
     &:focus-visible {
       outline: 2px solid yellow;
     }
   }
-
   /* Select - option styling End*/
 
   /* Test Area Styling Start */
-
   .test-area {
     --main-col: #00a2ff;
     width: 100%;
@@ -877,6 +890,22 @@ td {
       }
     }
   }
-
   /* Test Area Styling End */
+
+  /* animations keyframes */
+  @keyframes scale-up {
+    to {
+      scale: var(--scale-up);
+    }
+  }
+  @keyframes scale-down {
+    to {
+      scale: var(--scale-down);
+    }
+  }
+  @keyframes spin {
+    to {
+      rotate: var(--spining);
+    }
+  }
 }

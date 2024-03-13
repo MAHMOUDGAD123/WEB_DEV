@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../../framework/style.css" />
+    <script src="./script.js" async></script>
+    <script src="../../framework/script.js" async></script>
+    <title>Drag & Drop</title>
+  </head>
+  <body>
+    <div class="progress-cont">
+      <div id="progress"></div>
+    </div>
+
+    <div class="Header">CSS</div>
+
+    <a
+      id="ref"
+      href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scrollbars_styling"
+      >MDN</a
+    >
+    <!--============= Content Start =============-->
+
+    <div class="wrapper-data-title example ex-1 remove" data-title="ex-1">
+      <div id="dropArea"></div>
+      <div id="boxContainer"></div>
+      <div>
+        <p>- Click on the box to change the color.</p>
+        <p>- Drag it to the dark area and drop it.</p>
+        <p>- <code>"double click"</code> on the box to remove it.</p>
+        <p>- Press <code>"shift + r"</code> to remove the last box.</p>
+        <p>- Press <code>"shift + c"</code> to clear the console.</p>
+        <p>
+          - Press <code>"shift + f"</code> to fill the drop area with boxes.
+        </p>
+        <p>- Press <code>"shift + z"</code> to run the chameleon mode.</p>
+      </div>
+    </div>
+
+    <div class="wrapper-data-title example ex-2" data-title="ex-2">
+      <button id="addListBtn" title="add list">+</button>
+      <div id="lists"></div>
+    </div>
+
+    <!--============== Content End ==============-->
+
+    <div
+      class="back-to-top"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    ></div>
+  </body>
+</html>

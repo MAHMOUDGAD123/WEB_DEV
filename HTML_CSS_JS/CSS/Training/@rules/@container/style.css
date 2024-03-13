@@ -1,0 +1,185 @@
+@layer framie, test;
+
+@layer test {
+  .container {
+    --main-col: #449100;
+    width: 90%;
+    height: fit-content;
+    background-color: #000;
+    border-radius: 20px;
+    margin: 70px auto 30px;
+    padding: 30px;
+
+    & > .holder {
+      inline-size: 100%;
+      block-size: 100%;
+    }
+  }
+
+  .ex-1 {
+    container-type: inline-size;
+
+    & > .holder {
+      display: flex;
+      gap: 10px;
+      height: 500px;
+
+      & > * {
+        flex: 1;
+        background-color: orange;
+        border-radius: 10px;
+      }
+    }
+
+    @container (inline-size < 500px) {
+      .holder {
+        flex-direction: column;
+
+        & > * {
+          background-color: red;
+        }
+      }
+    }
+  }
+
+  .ex-2 {
+    container: ex2Cont / inline-size;
+    aspect-ratio: 1 / 0.6;
+
+    & > .holder {
+      display: grid;
+      grid: repeat(6, 1fr) / repeat(6, 1fr);
+      grid-template-areas:
+        "h h h h h h"
+        "n m m m m a"
+        "n m m m m a"
+        "n m m m m a"
+        "n m m m m a"
+        "f f f f f f";
+      gap: 5px;
+      font-size: 17px;
+
+      & > .header {
+        grid-area: h;
+        background-color: red;
+      }
+      & > .main {
+        grid-area: m;
+        background-color: orange;
+      }
+      & > .nav {
+        grid-area: n;
+        background-color: violet;
+      }
+      & > .aside {
+        grid-area: a;
+        background-color: blue;
+      }
+      & > .footer {
+        grid-area: f;
+        background-color: brown;
+      }
+    }
+
+    @container ex2Cont (inline-size <= 500px) {
+      .holder {
+        grid-template-areas:
+          "h h h h h n"
+          "m m m m m a"
+          "m m m m m a"
+          "m m m m m a"
+          "m m m m m a"
+          "f f f f f f";
+      }
+    }
+    @container ex2Cont (500px < inline-size <= 900px) {
+      .holder {
+        grid-template-areas:
+          "h h h h h h"
+          "m m m m a a"
+          "m m m m a a"
+          "m m m m n n"
+          "m m m m n n"
+          "f f f f f f";
+      }
+    }
+  }
+
+  .card {
+    display: grid;
+    grid: 1fr 2fr / none;
+    background-color: #555;
+    border-radius: 20px;
+    overflow: hidden;
+
+    & > .img {
+      background-image: linear-gradient(45deg, blue, red);
+    }
+
+    & > .content {
+      padding: 20px;
+
+      & > h3 {
+        font-size: 25px;
+        color: orange;
+        text-align: left;
+      }
+
+      & > p {
+        font-size: 12px;
+        color: #e4e4e4c0;
+        text-align: left;
+      }
+    }
+  }
+
+  .ex-3 {
+    container: ex3Cont / inline-size;
+
+    & > .holder {
+      display: grid;
+      grid: repeat(3, 1fr) / repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    @container ex3Cont (inline-size <= 500px) {
+      .holder {
+        grid: none;
+
+        & > .card {
+          grid: none / 30% 1fr;
+        }
+      }
+    }
+    @container ex3Cont (500px < inline-size <= 900px) {
+      .holder {
+        grid: none / 1fr 1fr;
+
+        & > .card {
+          grid: 1fr 2fr / none;
+        }
+      }
+    }
+  }
+
+  .ex-4 {
+    container-type: inline-size;
+
+    & > .holder {
+      display: flex;
+      gap: 10px;
+      height: 300px;
+
+      & > * {
+        flex: 1;
+        background-color: #666;
+      }
+    }
+
+    @container style(color: #ffa500) and (width >= 500px) {
+      .counter-box {
+        background-color: #aaa;
+      }
+    }
+  }
+}

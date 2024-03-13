@@ -81,7 +81,7 @@ const porp_map = new Map([
       null,
     ],
   ],
-  ["name", ["animation-name", 1, ["none", "race", "left-right"], null]],
+  ["name", ["animation-name", 0, ["none", "race", "left-right"], null]],
 ]);
 
 // set settings on load
@@ -239,4 +239,19 @@ car.addEventListener("animationstart", loger);
 car.addEventListener("animationend", loger);
 car.addEventListener("animationiteration", loger);
 
+// ---------------------------------------------------
+
+// ex-4 loading
+// ---------------------------------------------------
+const loading = document.getElementById("loading");
+let count = 1;
+opacity = 1;
+
+setInterval(() => {
+  loading.querySelector(`:nth-child(${count})`).style.opacity = opacity;
+  if (++count > 12) {
+    count = 1;
+    opacity = opacity === 1 ? 0.2 : 1;
+  }
+}, 100);
 // ---------------------------------------------------

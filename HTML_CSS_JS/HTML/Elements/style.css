@@ -18,8 +18,7 @@ picture {
   align-content: space-evenly;
 }
 figure > img {
-  width: 300px;
-  height: 200px;
+  max-width: 100%;
 }
 figure > figcaption {
   font-size: 25px;
