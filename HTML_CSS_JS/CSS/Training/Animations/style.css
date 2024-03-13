@@ -347,12 +347,13 @@
         justify-content: center;
         animation: r-rotate360 infinite linear 2s;
         background-image: conic-gradient(
-            white 0,
-            black 120deg,
-            transparent 120deg
-          ),
-          conic-gradient(white 120deg, black 240deg, transparent 120deg),
-          conic-gradient(white 240deg, black 360deg);
+          white 0,
+          black 120deg,
+          white 120deg,
+          black 240deg,
+          white 240deg,
+          black 360deg
+        );
       }
 
       & > :nth-child(6) {
@@ -403,7 +404,7 @@
       }
 
       & > :nth-child(7) {
-        --w: 20px;
+        --w: 10px;
         border: var(--w) solid;
         position: relative;
         animation: rotate360 infinite 2s linear;
@@ -419,7 +420,7 @@
         }
 
         &::before {
-          width: calc(100% + var(--w) * 2);
+          width: calc(100% + var(--w) * 5);
           background-image: conic-gradient(black, transparent);
           top: 50%;
         }
@@ -429,6 +430,9 @@
           background-color: #fff;
           transform: translateY(-50%);
         }
+      }
+
+      & > :nth-child(8) {
       }
     }
 
