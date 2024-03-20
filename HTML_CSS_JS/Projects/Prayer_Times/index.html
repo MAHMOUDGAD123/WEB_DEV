@@ -7,7 +7,9 @@
     <link rel="icon" type="image/x-icon" href="./files/imgs/logo.png" />
     <link rel="stylesheet" href="./css/all.min.css" />
     <link rel="stylesheet" href="./css/main.css" />
-    <script src="./js/main.js" type="module" async></script>
+    <link rel="stylesheet" href="./files/flaticon-uicons/css/all/all.css" />
+    <script src="./js/main.mjs" type="module" defer></script>
+    <script src="./js/time.mjs" type="module" defer></script>
     <title>Athan</title>
   </head>
   <body>
@@ -20,30 +22,164 @@
       </div>
     </header>
 
-    <main class="V">
+    <main>
       <nav>
-        <div tabindex="0" class="prayer-times open">
+        <div tabindex="0" id="prayer_times_btn">
           <i class="fa-solid fa-person-praying"></i>
           <div class="txt">
             Prayer<br />
             Times
           </div>
         </div>
-        <div tabindex="0" class="islamic-cal">
+        <div tabindex="0" id="month_cal_btn">
           <i class="fa-solid fa-calendar-days"></i>
           <div class="txt">
-            Islamic<br />
-            Calender
+            Month<br />
+            Calendar
           </div>
         </div>
-        <div tabindex="0" class="settings">
+        <div tabindex="0" id="settings_btn">
           <i class="fa-solid fa-sliders"></i>
           <div class="txt">Settings</div>
         </div>
       </nav>
+
       <div class="content">
-        <div class="date"></div>
-        <div class="location"></div>
+        <div id="prayerTimesPage">
+          <div class="date">
+            <div class="weekday">
+              <div id="today">Today</div>
+              <i class="fa-solid fa-calendar-days"></i>
+            </div>
+
+            <div class="d-m-y">
+              <div class="day">
+                <div class="hijri">-</div>
+                <div class="melady">-</div>
+              </div>
+
+              <div class="month">
+                <div class="hijri">-</div>
+                <div class="melady">-</div>
+              </div>
+
+              <div class="year">
+                <div class="hijri">-</div>
+                <div class="melady">-</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="location">
+            <i class="fa-solid fa-location-crosshairs"></i>
+            <div id="city_country">- -</div>
+          </div>
+
+          <div class="clock">
+            <i class="fa-regular fa-clock"></i>
+            <div class="time">
+              <div class="hr"></div>
+              <div>:</div>
+              <div class="min"></div>
+              <div>:</div>
+              <div class="sec"></div>
+            </div>
+          </div>
+
+          <div class="times">
+            <div class="next-prayer">
+              <div class="prayer-name">Prayer</div>
+              <div class="txt">Remaining Time</div>
+              <div class="clock counter-down">
+                <div class="hr">--</div>
+                <div>:</div>
+                <div class="min">--</div>
+                <div>:</div>
+                <div class="sec">--</div>
+              </div>
+              <audio
+                id="athan"
+                preload="metadata"
+                src="./files/sounds/NaserElQetami_Athan.mp3"
+              ></audio>
+            </div>
+
+            <div class="prayers">
+              <div class="prayer fajr">
+                <div class="icon-name">
+                  <i class="fi fi-ss-moon"></i>
+                  <div class="name">Fajr</div>
+                </div>
+                <div class="time">--:--</div>
+              </div>
+
+              <div class="prayer sunrise">
+                <div class="icon-name">
+                  <i class="fi fi-rs-sunrise-alt"></i>
+                  <div class="name">Sunrise</div>
+                </div>
+                <div class="time">--:--</div>
+              </div>
+
+              <div class="prayer dhuhr">
+                <div class="icon-name">
+                  <i class="fi fi-rr-sun"></i>
+                  <div class="name">Dhuhr</div>
+                </div>
+                <div class="time">--:--</div>
+              </div>
+
+              <div class="prayer asr">
+                <div class="icon-name">
+                  <i class="fi fi-rr-cloud-sun"></i>
+                  <div class="name">Asr</div>
+                </div>
+                <div class="time">--:--</div>
+              </div>
+
+              <div class="prayer maghrib">
+                <div class="icon-name">
+                  <i class="fi fi-rs-sunset"></i>
+                  <div class="name">Maghrib</div>
+                </div>
+                <div class="time">--:--</div>
+              </div>
+
+              <div class="prayer isha">
+                <div class="icon-name">
+                  <i class="fi fi-sr-star-and-crescent"></i>
+                  <div class="name">Isha</div>
+                </div>
+                <div class="time">--:--</div>
+              </div>
+
+              <div class="prayer midnight">
+                <div class="icon-name">
+                  <i class="fi fi-sr-stars"></i>
+                  <div class="name">Midnight</div>
+                </div>
+                <div class="time">--:--</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="monthCalendarPage">
+          <div class="hijri-m-y">
+            <div id="t_hijri_1st">--- ---</div>
+            <span>-</span>
+            <div id="t_hijri_2nd">--- ---</div>
+          </div>
+
+          <div class="controls">
+            <select id="t_sel_month"></select>
+            <select id="t_sel_year"></select>
+          </div>
+
+          <div class="t-wrapper">
+            <table id="cal_table"></table>
+          </div>
+        </div>
       </div>
     </main>
 
