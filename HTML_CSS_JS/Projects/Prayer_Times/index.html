@@ -25,31 +25,34 @@
     <main>
       <nav>
         <div tabindex="0" id="prayer_times_btn">
-          <i class="fa-solid fa-person-praying"></i>
+          <i class="fa-solid fa-person-praying icon"></i>
           <div class="txt">
             Prayer<br />
             Times
           </div>
         </div>
         <div tabindex="0" id="month_cal_btn">
-          <i class="fa-solid fa-calendar-days"></i>
+          <i class="fa-solid fa-calendar-days icon"></i>
           <div class="txt">
             Month<br />
             Calendar
           </div>
         </div>
         <div tabindex="0" id="settings_btn">
-          <i class="fa-solid fa-sliders"></i>
+          <i class="fa-solid fa-sliders icon"></i>
           <div class="txt">Settings</div>
         </div>
       </nav>
 
       <div class="content">
         <div id="prayerTimesPage">
+          <!-- bad internet icon -->
+          <i class="fi fi-br-wifi-exclamation bad-net"></i>
+
           <div class="date">
             <div class="weekday">
               <div id="today">Today</div>
-              <i class="fa-solid fa-calendar-days"></i>
+              <i class="fa-solid fa-calendar-days icon"></i>
             </div>
 
             <div class="d-m-y">
@@ -71,12 +74,12 @@
           </div>
 
           <div class="location">
-            <i class="fa-solid fa-location-crosshairs"></i>
+            <i class="fa-solid fa-location-crosshairs icon"></i>
             <div id="city_country">- -</div>
           </div>
 
           <div class="clock">
-            <i class="fa-regular fa-clock"></i>
+            <i class="fa-regular fa-clock icon"></i>
             <div class="time">
               <div class="hr"></div>
               <div>:</div>
@@ -107,7 +110,7 @@
             <div class="prayers">
               <div class="prayer fajr">
                 <div class="icon-name">
-                  <i class="fi fi-ss-moon"></i>
+                  <i class="fi fi-ss-moon icon"></i>
                   <div class="name">Fajr</div>
                 </div>
                 <div class="time">--:--</div>
@@ -115,7 +118,7 @@
 
               <div class="prayer sunrise">
                 <div class="icon-name">
-                  <i class="fi fi-rs-sunrise-alt"></i>
+                  <i class="fi fi-rs-sunrise-alt icon"></i>
                   <div class="name">Sunrise</div>
                 </div>
                 <div class="time">--:--</div>
@@ -123,7 +126,7 @@
 
               <div class="prayer dhuhr">
                 <div class="icon-name">
-                  <i class="fi fi-rr-sun"></i>
+                  <i class="fi fi-rr-sun icon"></i>
                   <div class="name">Dhuhr</div>
                 </div>
                 <div class="time">--:--</div>
@@ -131,7 +134,7 @@
 
               <div class="prayer asr">
                 <div class="icon-name">
-                  <i class="fi fi-rr-cloud-sun"></i>
+                  <i class="fi fi-rr-cloud-sun icon"></i>
                   <div class="name">Asr</div>
                 </div>
                 <div class="time">--:--</div>
@@ -139,7 +142,7 @@
 
               <div class="prayer maghrib">
                 <div class="icon-name">
-                  <i class="fi fi-rs-sunset"></i>
+                  <i class="fi fi-rs-sunset icon"></i>
                   <div class="name">Maghrib</div>
                 </div>
                 <div class="time">--:--</div>
@@ -147,7 +150,7 @@
 
               <div class="prayer isha">
                 <div class="icon-name">
-                  <i class="fi fi-sr-star-and-crescent"></i>
+                  <i class="fi fi-sr-star-and-crescent icon"></i>
                   <div class="name">Isha</div>
                 </div>
                 <div class="time">--:--</div>
@@ -155,7 +158,7 @@
 
               <div class="prayer midnight">
                 <div class="icon-name">
-                  <i class="fi fi-sr-stars"></i>
+                  <i class="fi fi-sr-stars icon"></i>
                   <div class="name">Midnight</div>
                 </div>
                 <div class="time">--:--</div>
@@ -166,13 +169,18 @@
 
         <div id="monthCalendarPage">
           <div class="hijri-m-y">
-            <div id="t_hijri_1st">--- ---</div>
+            <div id="t_hijri_1st"># #</div>
             <span>-</span>
-            <div id="t_hijri_2nd">--- ---</div>
+            <div id="t_hijri_2nd"># #</div>
           </div>
 
           <div class="controls">
+            <!-- bad internet icon -->
+            <i class="fi fi-br-wifi-exclamation bad-net"></i>
             <select id="t_sel_month"></select>
+            <div id="loading">
+              <div></div>
+            </div>
             <select id="t_sel_year"></select>
           </div>
 

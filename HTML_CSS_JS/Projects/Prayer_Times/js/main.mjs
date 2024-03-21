@@ -4,7 +4,6 @@ import { frmt_time } from "./time.mjs";
 //==================== Dependances End =====================
 
 //==================== Data & tools Start =====================
-
 let run = true;
 let curr_prayer_key = 0;
 let curr_page = null;
@@ -129,14 +128,23 @@ const is_prayer = () => {
   return curr_prayer_key !== 2 && curr_prayer_key !== 7;
 };
 
+const bad_internet = () => {
+  const bad_net_icon = curr_page.querySelector("i.bad-net");
+  bad_net_icon.style.display = "block";
+
+  setTimeout(() => {
+    bad_net_icon.style.display = "none";
+  }, 2500);
+};
 //===================== Data & tools End ======================
 
 //===================== initialization & testing Start ======================
-
 // set the initial page
 curr_page = document.getElementById("prayerTimesPage");
 curr_page.style.display = "flex";
 document.getElementById(page_btn.get(curr_page.id)).classList.add("picked");
+// set month calendar page selections
+set_month_year_selections();
 
 // data init
 if (run) {
@@ -157,17 +165,13 @@ if (run) {
       // add the location
       const address_ele = document.getElementById("city_country");
       address_ele.textContent = `${address.city} - ${address.country}`;
+      // Month Calendar Page
+      set_month_calendar(data);
     }
-    // Month Calendar Page
-    set_month_year_selections();
-    set_month_calendar(data);
+  } else {
+    bad_internet();
   }
 }
-/*else {
-  // testing
-  const next_prayer_key = get_next_prayer_key();
-  set_next_prayer(next_prayer_key);
-}*/
 //====================== initialization & testing End =======================
 
 //========================= Functions Start =========================
@@ -182,6 +186,8 @@ const update_dates_times = async () => {
     const _today = data[new Date().getDate() - 1];
     set_times_dates(_today);
     set_next_prayer(1);
+  } else {
+    bad_internet();
   }
 };
 
@@ -443,13 +449,15 @@ function set_month_calendar(data) {
     const timings = day.timings;
     const next_hijri_month = hijri.month.number;
 
-    if (curr_hijri_month === next_hijri_month) {
-      const weekday = gregorian.weekday.en.slice(0, 3).toLowerCase();
-      const day = +gregorian.day;
-      tbody.innerHTML += `
-        <tr class="data" data-day="${day}">
-          <th scope="row">${day} ${weekday}</th>
-          <th scope="row">${hijri.day}</th>
+    if (curr_hijri_month !== next_hijri_month) {
+      set_t_header(gregorian_month.en, hijri_month_2nd);
+    }
+    const weekday = gregorian.weekday.en.slice(0, 3).toLowerCase();
+    const g_day = +gregorian.day;
+    tbody.innerHTML += `
+        <tr class="data" data-day="${g_day}">
+          <th scope="row">${g_day} ${weekday}</th>
+          <th scope="row">${+hijri.day}</th>
           <td>${get_time_only(timings.Fajr)}</td>
           <td>${get_time_only(timings.Sunrise)}</td>
           <td>${get_time_only(timings.Dhuhr)}</td>
@@ -457,9 +465,6 @@ function set_month_calendar(data) {
           <td>${get_time_only(timings.Maghrib)}</td>
           <td>${get_time_only(timings.Isha)}</td>
         </tr>`;
-    } else {
-      set_t_header(gregorian_month.en, hijri_month_2nd);
-    }
     // make the next is the current
     curr_hijri_month = next_hijri_month;
   });
@@ -473,16 +478,20 @@ function set_month_calendar(data) {
 }
 
 async function update_month_calendar(month, year) {
+  const loading = document.getElementById("loading");
+  loading.style.opacity = 1;
   const { data } = await api(true, month, year);
+  loading.style.opacity = 0;
   // console.log("Data:", data);
   if (data) {
     set_month_calendar(data);
+  } else {
+    bad_internet();
   }
 }
 //========================= Functions End =========================
 
 //========================= Events Start =========================
-
 // Pages Btns
 page_btn.forEach((btn_id, page_id, map) => {
   const page = document.getElementById(page_id);
@@ -509,14 +518,15 @@ page_btn.forEach((btn_id, page_id, map) => {
   });
 });
 
+// table selections
 document.getElementById("t_sel_month").addEventListener("input", (e) => {
   const month = +e.target.value;
-  console.log(month);
+  // console.log("Month:", month);
   update_month_calendar(month, 0);
 });
 document.getElementById("t_sel_year").addEventListener("input", (e) => {
   const year = +e.target.value;
-  console.log(year);
+  // console.log("Year:", year);
   update_month_calendar(0, year);
 });
 //========================== Events End ==========================
