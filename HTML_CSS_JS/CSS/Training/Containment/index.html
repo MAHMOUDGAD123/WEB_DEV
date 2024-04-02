@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <link
+      rel="shortcut icon"
+      href="../../Files/images/css-3.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../../framework/style.css" />
+    <script src="./script.js" async></script>
+    <script src="../../framework/script.js" async></script>
+    <title>Containment</title>
+  </head>
+  <body>
+    <div class="progress"></div>
+
+    <div class="Header">CSS</div>
+
+    <a
+      id="ref"
+      href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scrollbars_styling"
+      >MDN</a
+    >
+    <!--============= Content Start =============-->
+
+    <!-- isolation -->
+    <div class="wrapper-data-title isolation" data-title="isolation">
+      <div class="title">isolation / z-index</div>
+      <div class="wrapper auto" data-title="auto">
+        <code>isolation: auto;</code>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="wrapper isolate" data-title="isolate">
+        <code>isolation: isolate;</code>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+    <!-- inset -->
+    <div class="wrapper-data-title inset" data-title="inset"></div>
+
+    <!--============== Content End ==============-->
+
+    <div
+      class="back-to-top"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    ></div>
+  </body>
+</html>

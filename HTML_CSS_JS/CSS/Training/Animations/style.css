@@ -113,7 +113,7 @@
       margin-bottom: 20px;
     }
 
-    .ex-1 > :only-child {
+    & > .ex-1 > :only-child {
       position: relative;
       width: 50%;
       height: 100px;
@@ -123,7 +123,7 @@
       animation: scale-up-down infinite 3s alternate linear;
     }
 
-    .ex-2 > :only-child {
+    & > .ex-2 > :only-child {
       position: relative;
       width: 100px;
       height: 100px;
@@ -133,7 +133,7 @@
       animation: bounce infinite 1s alternate ease-in;
     }
 
-    .ex-3 {
+    & > .ex-3 {
       display: flex;
       flex-direction: column;
       gap: 50px;
@@ -183,7 +183,7 @@
       }
     }
 
-    .ex-4 {
+    & > .ex-4 {
       display: flex;
       flex-direction: column;
       gap: 70px;
@@ -433,7 +433,7 @@
       }
     }
 
-    .ex-5 > .container {
+    & > .ex-5 > .container {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -472,7 +472,7 @@
       }
     }
 
-    .ex-6 > :only-child {
+    & > .ex-6 > :only-child {
       --clr: orange;
       width: 200px;
       background-color: var(--clr);
@@ -497,12 +497,12 @@
       }
     }
 
-    & > :nth-child(7) {
+    & > .ex-7 {
       width: 90%;
       height: 300px;
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 25px;
       background-color: #fff;
       overflow: hidden;
       --transition: 500ms;
@@ -533,12 +533,16 @@
         align-items: center;
         font-size: 35px;
         position: relative;
+        translate: -50%;
+        transition-property: translate;
+        transition-duration: var(--transition);
 
         &::before,
         &::after {
           content: "";
           position: absolute;
           display: block;
+          box-sizing: border-box;
         }
 
         &::after {
@@ -547,17 +551,18 @@
           top: 50%;
           left: 50%;
           translate: -50% -50%;
-          transition: color var(--transition);
+          transition-property: color, font-size, translate;
+          transition-duration: var(--transition);
         }
 
         &::before {
-          width: 300px;
-          height: calc(var(--width) - 5px);
+          width: 100%;
+          aspect-ratio: 1;
           background-color: #fff;
           border-radius: 100px;
           left: 50%;
           transition: transform var(--transition);
-          transform: rotate(-10deg) translateY(-30px) translateX(100px);
+          transform: translateY(-10px) translateX(100%);
         }
       }
 
@@ -568,12 +573,16 @@
         }
 
         & > :nth-child(2) {
+          translate: none;
+          font-size: 45px;
+
           &::before {
-            transform: rotate(-10deg) translateY(-30px) translateX(-45px);
+            transform: translateY(-10px) translateX(-30%);
           }
 
           &::after {
             color: #603394;
+            translate: -20px -50%;
           }
         }
       }

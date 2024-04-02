@@ -1,0 +1,69 @@
+@layer framie, test;
+
+@layer test {
+  .wrapper-data-title {
+    margin: 50px auto;
+    align-items: center;
+
+    & > .title {
+      background-color: orange;
+      border-radius: 100px;
+      width: fit-content;
+      padding: 10px;
+      margin: auto;
+    }
+
+    & code {
+      font-size: 15px;
+      background-color: #3f3f3f;
+      color: #dcdcdc;
+      padding: 5px;
+      border-radius: 10px;
+    }
+
+    & > .wrapper {
+      width: 80%;
+      --main-col: orange;
+      margin: 30px auto;
+    }
+  }
+
+  /* isolation property */
+  .isolation {
+    & > * {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+
+      & > :nth-child(2) {
+        width: 50%;
+        height: 100px;
+        background-color: red;
+      }
+
+      & > :nth-child(3) {
+        width: 80%;
+        height: 50px;
+        background-color: blue;
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        translate: -50% -50%;
+        z-index: -1;
+      }
+    }
+
+    & > .auto {
+      isolation: auto;
+    }
+
+    & > .isolate {
+      isolation: isolate;
+    }
+  }
+
+  .inset {
+  }
+}
