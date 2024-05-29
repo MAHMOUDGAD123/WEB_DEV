@@ -1,0 +1,100 @@
+@layer framie, test;
+
+@layer test {
+  code {
+    font-size: 15px;
+    background-color: #3f3f3f;
+    color: #dcdcdc;
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+  .wrapper-data-title {
+    margin: 50px auto;
+    align-items: center;
+  }
+
+  .wrapper {
+    padding: 10px;
+  }
+
+  @counter-style circled-alpha-cyc {
+    system: cyclic;
+    symbols: a b c d e f;
+    prefix: "(";
+    suffix: ") ";
+    range: 5 8, 10 18;
+    fallback: lower-roman;
+  }
+
+  @counter-style circled-alpha-fix {
+    system: fixed 5;
+    symbols: a b c d e f;
+    suffix: "- ";
+  }
+
+  @counter-style circled-alpha-num {
+    system: extends decimal;
+    suffix: "_ ";
+    pad: 3 "0";
+  }
+
+  @counter-style circled-alpha-sym {
+    system: symbolic;
+    symbols: a b c d e f;
+    suffix: ". ";
+  }
+
+  .lists {
+    display: flex;
+    justify-content: space-around;
+    gap: 7px;
+    font-size: 17px;
+    white-space: nowrap;
+
+    & > * {
+      position: relative;
+      list-style-position: inside;
+
+      &::before {
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        translate: -50%;
+        color: orange;
+      }
+    }
+  }
+
+  .list_1 {
+    list-style-type: circled-alpha-cyc;
+
+    &::before {
+      content: "cyclic";
+    }
+  }
+
+  .list_2 {
+    list-style-type: circled-alpha-fix;
+
+    &::before {
+      content: "fixed";
+    }
+  }
+
+  .list_3 {
+    list-style-type: circled-alpha-num;
+
+    &::before {
+      content: "ex-decimal";
+    }
+  }
+
+  .list_4 {
+    list-style-type: circled-alpha-sym;
+
+    &::before {
+      content: "symbolic";
+    }
+  }
+}

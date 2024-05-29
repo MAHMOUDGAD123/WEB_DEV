@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
     <link rel="stylesheet" href="./style.css" />
-    <!-- <link rel="stylesheet" href="../../framework/style.css" /> -->
+    <link rel="stylesheet" href="../../framework/style.css" />
+    <link rel="icon" href="../../Files/images/css-3.png" type="image/x-icon" />
     <script src="./script.js" async></script>
     <script src="../../framework/script.js" async></script>
     <title>Diplay</title>
@@ -18,38 +19,37 @@
     <div class="Header">CSS</div>
 
     <!--================ Content Start ================-->
-    <div class="container">
-      <p>1</p>
-      <p>2</p>
-      <p>3</p>
-      <p>4</p>
-      <p>5</p>
-      <p>6</p>
-      <p>7</p>
+    <div class="wrapper">
+      <select id="select">
+        <option selected value="block" label="block"></option>
+        <option value="inline" label="inline"></option>
+        <option value="inline-block" label="inline-block"></option>
+        <option value="flow-root" label="flow-root"></option>
+        <option value="flex" label="flex"></option>
+        <option value="inline-flex" label="inline-flex"></option>
+        <option value="grid" label="grid"></option>
+        <option value="inline-grid" label="inline-grid"></option>
+      </select>
+
+      <div class="container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+      </div>
+      <div class="container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+      </div>
     </div>
-    <div class="container">
-      <p>1</p>
-      <p>2</p>
-      <p>3</p>
-      <p>4</p>
-      <p>5</p>
-      <p>6</p>
-      <p>7</p>
-    </div>
-    <select id="select">
-      <option selected value="block" label="block"></option>
-      <option value="inline" label="inline"></option>
-      <option value="inline-block" label="inline-block"></option>
-      <option value="inline flow-root" label="inline flow-root"></option>
-      <option value="block flow-root" label="block flow-root"></option>
-      <option value="flow-root" label="flow-root"></option>
-      <option value="flex" label="flex"></option>
-      <option value="inline-flex" label="inline-flex"></option>
-      <option value="inline flex" label="inline flex"></option>
-      <option value="grid" label="grid"></option>
-      <option value="inline-grid" label="inline-grid"></option>
-      <option value="inline grid" label="inline grid"></option>
-    </select>
 
     <div class="flow-root-test">
       <h5>
@@ -61,21 +61,26 @@
         <p>this container is (<code>display: block;</code>)</p>
         <div class="floated">floated</div>
       </div>
+
       <br />
       <br />
       <br />
+
       <div class="test flow-root">
         <p>this container is (<code>display: flow-root;</code>)</p>
+        <div class="floated">floated</div>
+      </div>
+
+      <div class="test overflow-auto">
+        <p>this container is (<code>overflow: auto;</code>)</p>
         <div class="floated">floated</div>
       </div>
     </div>
     <!--================= Content End =================-->
 
-    <div class="cont">
-      <div
-        class="back-to-top"
-        onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
-      ></div>
-    </div>
+    <div
+      class="back-to-top"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    ></div>
   </body>
 </html>

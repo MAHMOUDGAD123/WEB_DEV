@@ -26,7 +26,6 @@
       &:nth-child(3) {
         /* the radio */
         display: flex;
-        background-color: red;
       }
 
       & > input[type="submit"] {

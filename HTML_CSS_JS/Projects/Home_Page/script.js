@@ -2,7 +2,7 @@ const progress = document.getElementById("progress");
 const btt = document.getElementById("back-to-top");
 const CD = document.querySelector(".CD");
 const cont = document.getElementById("cont");
-const icons = document.querySelector(".icons").children;
+const icons = document.getElementById("icons").children;
 
 const at_top_mode = () => {
   cont.style.marginTop = "350px";

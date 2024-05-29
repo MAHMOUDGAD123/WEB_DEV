@@ -1,6 +1,14 @@
 @layer framie, test;
 
 @layer test {
+  code {
+    font-size: 15px;
+    background-color: #3f3f3f;
+    color: #dcdcdc;
+    padding: 5px;
+    border-radius: 10px;
+  }
+
   .wrapper-data-title {
     margin: 50px auto;
     align-items: center;
@@ -11,14 +19,6 @@
       width: fit-content;
       padding: 10px;
       margin: auto;
-    }
-
-    & code {
-      font-size: 15px;
-      background-color: #3f3f3f;
-      color: #dcdcdc;
-      padding: 5px;
-      border-radius: 10px;
     }
 
     & > .wrapper {
@@ -64,6 +64,92 @@
     }
   }
 
+  /* inset property */
   .inset {
+    position: relative;
+    width: 300px;
+    aspect-ratio: 1;
+
+    & > :last-child {
+      position: absolute;
+      background-color: red;
+      inset: 3rem 2rem 1rem 0.5rem;
+    }
+  }
+
+  /* contain property */
+  .contain {
+    display: grid;
+    contain: layout;
+
+    & > .wrapper {
+      position: relative;
+      margin-bottom: 70px;
+
+      &::before,
+      &::after {
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 150px;
+        border-radius: 30px;
+        aspect-ratio: 1 / 0.5;
+      }
+      &::before {
+        content: "fixed";
+        position: fixed;
+        bottom: 90%;
+        right: 0;
+        background-color: red;
+      }
+      &::after {
+        content: "floated";
+        float: start;
+        background-color: blue;
+      }
+
+      &.size {
+        contain: size;
+        contain-intrinsic-size: auto 300px;
+      }
+
+      &.inline-size {
+        contain: inline-size;
+      }
+
+      &.layout {
+        contain: layout;
+      }
+
+      &.paint {
+        contain: paint;
+      }
+    }
+  }
+
+  .style-container {
+    & ul {
+      list-style-type: none;
+      font-size: 20px;
+    }
+
+    & li {
+      counter-increment: item-counter;
+
+      &::before {
+        color: red;
+        content: counter(item-counter) ". ";
+      }
+    }
+
+    & li.container {
+      contain: style;
+
+      &::after {
+        content: "*";
+        color: pink;
+      }
+    }
   }
 }

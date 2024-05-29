@@ -151,3 +151,40 @@ body {
 }
 
 /* BackToTop End */
+
+@media (width < 600px) {
+  .CD {
+    & > .clock {
+      font-size: 45px;
+      gap: 20px;
+    }
+    & > .date {
+      font-size: 15px;
+      gap: 5px;
+    }
+  }
+
+  .icons {
+    gap: 30px;
+
+    & > a {
+      &:nth-child(1) > img {
+        width: 40px;
+      }
+      &:nth-child(2) > img {
+        width: 40px;
+      }
+      &:nth-child(3) > img {
+        width: 45px;
+      }
+    }
+  }
+
+  .cont {
+    gap: 25px;
+
+    & > a > img {
+      width: 40px;
+    }
+  }
+}

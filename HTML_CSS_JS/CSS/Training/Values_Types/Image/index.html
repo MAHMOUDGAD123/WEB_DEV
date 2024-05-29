@@ -5,34 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
     <link rel="stylesheet" href="./style.css" />
-    <style>
-      @import url(../../../framework/style.css) layer(framie);
-    </style>
-    <script src="./script.js" async></script>
-    <script src="../../../framework/script.js" async></script>
+    <link rel="stylesheet" href="../../../framework/style.css" />
+    <script src="../../../framework/script.js" defer></script>
     <title>Image Value</title>
   </head>
   <body>
-    <div class="progress-cont">
-      <div id="progress"></div>
-    </div>
-
+    <div class="progress"></div>
     <div class="Header">CSS</div>
 
     <!--============= Content Start =============-->
-    <div class="cont">
-      <fieldset class="image-values">
-        <legend>Image</legend>
-        <div class="url"></div>
-        <div class="gradient"></div>
-        <img id="js" src="./files/java-script.png" width="50" />
-        <p id="ele">This is an element</p>
-        <div class="element"></div>
-        <div class="image remove"></div>
-        <div class="cross-fade remove"></div>
-        <div class="image-set"></div>
-      </fieldset>
-    </div>
+    <fieldset class="image-values">
+      <legend>Image</legend>
+      <div class="url"></div>
+      <div class="gradient"></div>
+      <img id="js" src="./files/java-script.png" width="50" />
+      <p id="ele">This is an element</p>
+      <div class="element"></div>
+      <div class="image remove"></div>
+      <div class="cross-fade remove"></div>
+      <div class="image-set"></div>
+    </fieldset>
+
+    <fieldset class="object">
+      <legend>object</legend>
+      <img src="./files/java-script.jpg" />
+      <img src="./files/java-script.jpg" />
+    </fieldset>
     <!--============== Content End ==============-->
 
     <div

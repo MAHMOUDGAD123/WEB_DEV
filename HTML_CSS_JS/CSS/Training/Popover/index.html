@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../../framework/style.css" />
+    <link rel="icon" href="../../Files/images/css-3.png" type="image/x-icon" />
+    <script src="./script.js" async></script>
+    <script src="../../framework/script.js" defer></script>
+    <title>Popover</title>
+  </head>
+  <body>
+    <div class="progress"></div>
+    <div class="Header">CSS</div>
+
+    <!--================ Content Start ================-->
+
+    <div class="btns">
+      <button popovertarget="popoverEle" popovertargetaction="show">
+        Show
+      </button>
+      <button popovertarget="popoverEle" popovertargetaction="hide">
+        Hide
+      </button>
+      <button popovertarget="popoverEle" popovertargetaction="toggle">
+        Toggle
+      </button>
+    </div>
+
+    <div id="popoverEle" popover>I'm A Popover</div>
+
+    <!--================= Content End =================-->
+
+    <div
+      class="back-to-top"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    ></div>
+  </body>
+</html>

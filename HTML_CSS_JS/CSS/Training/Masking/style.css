@@ -1,0 +1,91 @@
+@layer framie, test;
+
+@layer test {
+  .text {
+    text-transform: uppercase;
+    font-size: 1rem;
+    text-wrap: nowrap;
+  }
+
+  img {
+    width: 250px;
+  }
+
+  .img {
+    width: 250px;
+    height: 300px;
+    background-image: url(../../Files/images/sea-bg.jpg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .mask {
+    --main-col: orange;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    justify-content: space-between;
+    padding-block-start: 40px;
+    width: fit-content;
+    background-color: #111;
+  }
+
+  .holder {
+    display: flex;
+    gap: 60px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    & > .num {
+      color: #ff5e00;
+      width: 105px;
+      text-align: center;
+      font-size: 0.8rem;
+      text-wrap: nowrap;
+    }
+  }
+
+  .btn {
+    width: 40px;
+    height: 40px;
+    background-color: #444;
+    border-radius: 100px;
+    transition: background-color 500ms;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.off {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    & > i {
+      color: orange;
+      transition: color 500ms;
+    }
+
+    &:hover {
+      background-color: orange;
+
+      & > i {
+        color: white;
+      }
+    }
+  }
+
+  [data-title="linear-gradient"] > img {
+    mask-image: linear-gradient(#000, transparent);
+  }
+
+  [data-title="SVG"] > .img {
+    mask-image: url(../../Files/images/svg/0.svg);
+    mask-position: center;
+    mask-size: 50%;
+    mask-repeat: no-repeat;
+  }
+}

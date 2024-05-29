@@ -1,0 +1,198 @@
+@layer framie, test;
+
+@layer test {
+  button {
+    padding: 10px 20px;
+    width: fit-content;
+    border-radius: 100px;
+    background-color: orangered;
+  }
+
+  fieldset {
+    margin-bottom: 50px;
+  }
+
+  dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    padding: 50px;
+    border-radius: 30px;
+    border: 5px solid red;
+    background-color: orange;
+
+    &::backdrop {
+      background-color: rgb(0 0 0 / 0.75);
+    }
+  }
+
+  .cool-dialog {
+    .output {
+      font-size: 15px;
+      align-self: flex-start;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 2px solid #ff4500;
+      width: 100%;
+      border-radius: 100px;
+      overflow: hidden;
+
+      & > span {
+        padding: 10px 10px 7px;
+        font-size: 20px;
+      }
+
+      & > :first-child {
+        background-color: #ff4500;
+        border-radius: inherit;
+      }
+    }
+
+    & > dialog {
+      width: 80%;
+      max-width: 600px;
+      border-radius: 30px;
+      border: 5px solid #ff4500;
+      background-color: orange;
+
+      & > form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        width: 100%;
+
+        & > label {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          & > span {
+            color: #ff4500;
+            padding-top: 3px;
+          }
+
+          & > input {
+            font-size: 15px;
+            background-color: #ffdfa2;
+
+            &::placeholder {
+              opacity: 0.5;
+            }
+          }
+        }
+
+        & > .btns {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 15px;
+        }
+      }
+    }
+  }
+
+  .ex-1 {
+    contain: layout;
+
+    dialog {
+      transition-property: opacity, scale, layout, display;
+      transition-duration: 1s;
+      transition-behavior: normal, normal, allow-discrete, allow-discrete;
+      opacity: 0;
+      scale: 0;
+
+      &::backdrop {
+        transition-property: background-color, layout, display;
+        transition-duration: 1s;
+        transition-behavior: normal, allow-discrete, allow-discrete;
+        background-color: rgb(0 0 0 / 0);
+      }
+
+      &[open] {
+        opacity: 1;
+        scale: 1;
+
+        &::backdrop {
+          background-color: rgb(0 0 0 / 0.75);
+        }
+
+        @starting-style {
+          & {
+            opacity: 0;
+            scale: 0;
+
+            &::backdrop {
+              background-color: rgb(0 0 0 / 0);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .ex-2 {
+    contain: layout;
+
+    & > dialog {
+      animation: fade-out 1s forwards;
+
+      &::backdrop {
+        animation: disappear 1s forwards;
+      }
+
+      &[open] {
+        animation: fade-in 1s forwards;
+
+        &::backdrop {
+          animation: appear 1s forwards;
+        }
+      }
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      scale: 0;
+      display: none;
+    }
+    to {
+      opacity: 1;
+      scale: 1;
+      display: block;
+    }
+  }
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+      scale: 1;
+      display: block;
+    }
+    to {
+      opacity: 0;
+      scale: 0;
+      display: none;
+    }
+  }
+
+  @keyframes appear {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes disappear {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+}

@@ -255,3 +255,23 @@ setInterval(() => {
   }
 }, 100);
 // ---------------------------------------------------
+// wall clock
+
+{
+  const hrs_hand = document.getElementById("hrsHand");
+  const min_hand = document.getElementById("minHand");
+  const sec_hand = document.getElementById("secHand");
+
+  setInterval(() => {
+    const t = new Date();
+    hrs_hand.style.transform = `rotate(${
+      ((t.getHours() + t.getMinutes() / 60) / 12) * 360
+    }deg)`; // 0 - 23
+    min_hand.style.transform = `rotate(${
+      ((t.getMinutes() + t.getSeconds() / 60) / 60) * 360
+    }deg)`; // 0 - 59
+    sec_hand.style.transform = `rotate(${(t.getSeconds() / 60) * 360}deg)`; // 0 - 59
+  }, 1000);
+}
+
+// ---------------------------------------------------

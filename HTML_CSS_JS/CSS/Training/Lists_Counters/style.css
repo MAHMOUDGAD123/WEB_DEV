@@ -1,0 +1,245 @@
+@layer framie, test;
+
+@layer test {
+  code {
+    font-size: 15px;
+    background-color: #3f3f3f;
+    color: #dcdcdc;
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  .wrapper-data-title {
+    margin: 50px auto;
+    align-items: center;
+  }
+
+  .wrapper {
+    padding: 10px;
+  }
+
+  .example {
+    display: flex;
+    justify-content: space-around;
+    gap: 7px;
+    font-size: 17px;
+    white-space: nowrap;
+
+    & > * {
+      position: relative;
+      /* counter-reset: item-count; */
+
+      & > li::before {
+        content: counter(item-count) "_ ";
+        color: red;
+      }
+
+      &::before {
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        translate: -50%;
+        color: orange;
+      }
+    }
+  }
+
+  .ex-1 {
+    & > .list_1 {
+      & > li {
+        counter-increment: item-count 0;
+      }
+
+      &::before {
+        content: "+0";
+      }
+    }
+
+    & > .list_2 {
+      & > li {
+        counter-increment: item-count;
+      }
+
+      & > li:first-child {
+        counter-increment: none;
+      }
+
+      &::before {
+        content: "+1";
+      }
+    }
+
+    & > .list_3 {
+      & > li {
+        counter-increment: item-count 2;
+      }
+
+      &::before {
+        content: "+2";
+      }
+    }
+
+    & > .list_4 {
+      & > li {
+        counter-increment: item-count -1;
+      }
+
+      &::before {
+        content: "-1";
+      }
+    }
+  }
+
+  .ex-2 {
+    & > .list_1 {
+      & > li {
+        counter-increment: item-count;
+      }
+
+      & > li:nth-child(5) {
+        background-color: #eee;
+        padding: 5px 7px 3px;
+        border-radius: 100px;
+        counter-set: item-count 1;
+      }
+
+      &::before {
+        content: "+1";
+      }
+    }
+
+    & > .list_2 {
+      & > li {
+        counter-increment: item-count;
+      }
+
+      & > li:first-child {
+        counter-increment: none;
+      }
+
+      & > li:nth-child(5) {
+        background-color: #eee;
+        padding: 5px 7px 3px;
+        border-radius: 100px;
+        counter-set: item-count -5;
+      }
+
+      &::before {
+        content: "+1";
+      }
+    }
+
+    & > .list_3 {
+      & > li {
+        counter-increment: item-count 2;
+      }
+
+      & > li:nth-child(5) {
+        background-color: #eee;
+        padding: 5px 7px 3px;
+        border-radius: 100px;
+        counter-set: item-count 50;
+      }
+
+      &::before {
+        content: "+2";
+      }
+    }
+
+    & > .list_4 {
+      & > li {
+        counter-increment: item-count -1;
+      }
+
+      & > li:nth-child(7) {
+        background-color: #eee;
+        padding: 5px 7px 3px;
+        border-radius: 100px;
+        counter-set: item-count 7;
+      }
+
+      &::before {
+        content: "-1";
+      }
+    }
+  }
+
+  .ex-3 {
+    & > * > li::before {
+      content: "(" counter(item-count, lower-roman) "-"
+        counter(item-count, decimal-leading-zero) ") ";
+    }
+
+    & > .list_1 {
+      & > li {
+        counter-increment: item-count;
+      }
+
+      &::before {
+        content: "+1";
+      }
+    }
+
+    & > .list_2 {
+      & > li {
+        counter-increment: item-count 2;
+      }
+
+      &::before {
+        content: "+2";
+      }
+    }
+
+    & > .list_3 {
+      counter-reset: item-count 14;
+
+      & > li {
+        counter-increment: item-count -1;
+      }
+
+      &::before {
+        content: "-1";
+      }
+    }
+  }
+
+  .ex-4 {
+    & ul {
+      counter-reset: item-count;
+    }
+
+    & > .list_1 {
+      & li {
+        font-size: 20px;
+      }
+
+      & li::before {
+        counter-increment: item-count;
+        content: "(" counters(item-count, ".", decimal) ") ";
+      }
+
+      &::before {
+        content: "+1";
+      }
+    }
+
+    & > .list_2 {
+      & li {
+        font-size: 20px;
+      }
+
+      & li::before {
+        counter-increment: item-count;
+        content: "(" counters(item-count, "-", lower-roman) ") ";
+      }
+
+      &::before {
+        content: "+1";
+      }
+    }
+  }
+}

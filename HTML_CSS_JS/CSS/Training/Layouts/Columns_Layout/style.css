@@ -8,6 +8,9 @@
       margin: 20px;
     }
 
+    orphans: 3;
+    widows: 3;
+
     columns: 4 200px;
     /* column-count: 3; */
     /* column-width: 200px; */
@@ -58,16 +61,10 @@
   }
 
   .fake-masonry {
-    columns: 200px 3;
+    columns: 250px 5;
     list-style: none;
     --gap: clamp(1rem, 1.5vmin, 2rem);
     gap: var(--gap);
-
-    break-before: column;
-    break-after: column;
-
-    orphans: 3;
-    widows: 3;
 
     & > li {
       background-color: #ff4625;
@@ -75,9 +72,11 @@
       padding: 10px;
       margin-block-end: var(--gap);
 
-      break-inside: avoid; 
-
+      break-inside: avoid;
       /* box-decoration-break: clone; */
+
+      break-before: column;
+      break-after: column;
 
       & > h3 {
         color: #006eff;

@@ -1,5 +1,12 @@
 @layer framie, test;
 
+@font-face {
+  font-family: "Poetsen One";
+  src: url("../../Files/fonts/Poetsen_One/PoetsenOne-Regular.ttf");
+  font-weight: 100 1000;
+  font-display: swap;
+}
+
 @layer test {
   .wrapper-id-title {
     width: 400px;
@@ -1293,6 +1300,28 @@
         border-color: #194380 transparent transparent;
         width: var(--r);
         height: var(--r);
+      }
+    }
+  }
+
+  .brandat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & > :only-child {
+      width: 80%;
+      aspect-ratio: 1;
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      /* background-image: linear-gradient(orange, white); */
+
+      & > :only-child {
+        color: #333;
+        font-size: 1.3rem;
       }
     }
   }

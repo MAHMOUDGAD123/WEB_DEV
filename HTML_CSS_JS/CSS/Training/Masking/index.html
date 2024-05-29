@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../../framework/style.css" />
+    <link rel="stylesheet" href="../../Files/fontawesome/css/all.min.css" />
+    <script src="./script.js" defer></script>
+    <title>Image Masking</title>
+  </head>
+  <body>
+    <div class="progress-cont">
+      <div id="progress"></div>
+    </div>
+    <div class="Header">CSS</div>
+
+    <!--================ Content Start ================-->
+
+    <div class="cont">
+      <div class="wrapper-data-title mask remove" data-title="linear-gradient">
+        <img src="../../Files/images/cool-image.jpg" />
+      </div>
+
+      <div class="wrapper-data-title mask" data-title="SVG">
+        <div class="img" id="img"></div>
+
+        <div class="holder">
+          <div class="btn off" id="leftBtn">
+            <i class="fa-solid fa-arrow-left"></i>
+          </div>
+
+          <span class="num" id="count">0</span>
+
+          <div class="btn" id="rightBtn">
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+
+        <div class="holder">
+          <div class="btn" id="zoomOut">
+            <i class="fa-solid fa-minus"></i>
+          </div>
+
+          <span class="num" id="zoom">x0.5</span>
+
+          <div class="btn" id="zoomIn">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+        </div>
+
+        <div class="holder">
+          <div class="btn off" id="modeLeft">
+            <i class="fa-solid fa-arrow-left"></i>
+          </div>
+
+          <span class="num" id="mode">no-repeat</span>
+
+          <div class="btn" id="modeRight">
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--================= Content End =================-->
+
+    <div
+      class="back-to-top"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    ></div>
+  </body>
+</html>

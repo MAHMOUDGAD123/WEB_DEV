@@ -11,33 +11,35 @@
     font-display: swap;
   }
 
-  a#ref {
-    text-decoration: none;
-    background: linear-gradient(blue, orange);
-    padding: 10px;
-    border-radius: 20px;
-    font-family: cursive;
-    width: fit-content;
-
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
-
   .font-face {
-    --font-wght: 300;
     font-family: "myfont", monospace;
-    font-variation-settings: "wght" var(--font-wght);
+    font-variation-settings: "wght" 300;
     font-synthesis: none;
 
     & > h1:hover {
-      --font-wght: 700;
-      font-variation-settings: "wght" var(--font-wght);
+      font-variation-settings: "wght" 700;
     }
 
     & > p:hover {
-      --font-wght: 500;
-      font-variation-settings: "wght" var(--font-wght);
+      font-variation-settings: "wght" 500;
+    }
+  }
+
+  #font-face-api {
+    & > h1 {
+      color: orange;
+
+      &:hover {
+        font-variation-settings: "wght" 700;
+      }
+    }
+
+    & > p {
+      color: #eee;
+
+      &:hover {
+        font-variation-settings: "wght" 500;
+      }
     }
   }
 }

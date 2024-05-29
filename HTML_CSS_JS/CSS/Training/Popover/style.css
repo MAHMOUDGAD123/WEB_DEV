@@ -1,0 +1,74 @@
+@layer framie, test;
+
+@layer test {
+  button {
+    padding: 10px 20px 13px;
+    width: fit-content;
+    border-radius: 100px;
+    width: 100px;
+    background-color: orangered;
+
+    &:active {
+      background-color: yellow;
+      color: orangered;
+    }
+  }
+
+  .btns {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  [popover] {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    color: orangered;
+    padding: 50px;
+    border-radius: 20px;
+    animation: fade-out 1s forwards;
+
+    &:popover-open {
+      animation: fade-in 1s forwards;
+
+      &::backdrop {
+        animation: backdrop-fade-in 1s forwards;
+      }
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    to {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+  }
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+      transform: scaleX(1);
+      display: block;
+    }
+    to {
+      opacity: 0;
+      transform: scaleX(0);
+      display: none;
+    }
+  }
+
+  @keyframes backdrop-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}

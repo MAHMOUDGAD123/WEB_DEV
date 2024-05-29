@@ -9,14 +9,14 @@ console.time("T");
 
 const resolveAfter2 = (v) => {
   return new Promise((res, rej) => {
-    setTimeout(res, 2000, `resolved => ${v}` );
+    setTimeout(res, 2000, `resolved => ${v}`);
   });
 };
 
 // async function returns a Promsie object
 async function asyncCall() {
   const response = await resolveAfter2(1997);
-  log('inside: ', response);
+  log("inside: ", response);
   return response;
 }
 
@@ -33,13 +33,12 @@ const getPromise = (val, t) => {
 };
 
 const __async__ = async (n, name, t) => {
-  await log(name, 'start');
+  await log(name, "start");
 
-  for (let i = 0; i < n; ++i)
-    log(name, await getPromise(i + 1, t));
+  for (let i = 0; i < n; ++i) log(name, await getPromise(i + 1, t));
 
-  await log(name, 'finished');
-}
+  await log(name, "finished");
+};
 
 // __async__(5, 'one:', 500);
 // __async__(5, 'two:', 1000);
@@ -73,12 +72,12 @@ async function asyncPrint(n, name) {
 // })(1997);
 
 async function asyncFun(name) {
-  log(name, 'begin');
-  await log(name, 'middle');
+  log(name, "begin");
+  await log(name, "middle");
   // log(name, await 'middle');
   // log(name, 'middle');
-  log(name, 'last');
-};
+  log(name, "last");
+}
 
 // asyncFun('1st:');
 // asyncFun('2nd:');
@@ -128,17 +127,18 @@ function basicReturn() {
 //=====================================================
 // example
 
-const __getPromise__ = (flag) => new Promise((res, rej) => {
-  setTimeout(_ => {
-    if (flag) res('resolved');
-    else rej('rejected');
-  }, 1);
-});
+const __getPromise__ = (flag) =>
+  new Promise((res, rej) => {
+    setTimeout((_) => {
+      if (flag) res("resolved");
+      else rej("rejected");
+    }, 1);
+  });
 
 const __asyncy__ = async (flag) => {
   // (1) you can use this one line only
-  const result = await __getPromise__(flag).catch(err => err);
-  log(`${flag ? 'SUCCESS' : 'ERROR'}: ${result}`);
+  const result = await __getPromise__(flag).catch((err) => err);
+  log(`${flag ? "SUCCESS" : "ERROR"}: ${result}`);
 
   // (2) or you can use try__catch block instead
   // try {
@@ -156,4 +156,4 @@ __asyncy__(false);
 //=====================================================
 
 // console.timeEnd("T");
-// log('\n');
+// log("\n");

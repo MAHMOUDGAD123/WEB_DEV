@@ -22,13 +22,13 @@
 
     <a
       id="ref"
-      href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scrollbars_styling"
+      href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containmen"
       >MDN</a
     >
     <!--============= Content Start =============-->
 
     <!-- isolation -->
-    <div class="wrapper-data-title isolation" data-title="isolation">
+    <div class="wrapper-data-title isolation remove" data-title="isolation">
       <div class="title">isolation / z-index</div>
       <div class="wrapper auto" data-title="auto">
         <code>isolation: auto;</code>
@@ -43,7 +43,42 @@
     </div>
 
     <!-- inset -->
-    <div class="wrapper-data-title inset" data-title="inset"></div>
+    <div class="wrapper-data-title inset remove" data-title="inset">
+      <code>inset: 100px 60px;</code>
+      <div></div>
+    </div>
+
+    <!-- contain -->
+    <div class="wrapper-data-title contain" data-title="contain">
+      <div class="wrapper size">
+        <code>contain: size;</code><br />
+        <code>contain-intrinsic-size: auto 300px;</code>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+
+      <div class="wrapper layout">
+        <code>contain: layout;</code>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+
+      <div class="wrapper paint">
+        <code>contain: paint;</code>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+    </div>
+
+    <div
+      class="wrapper-data-title style-container"
+      data-title="style-container"
+    >
+      <code>contain: style;</code>
+      <ul>
+        <li>item</li>
+        <li>item</li>
+        <li class="container">item</li>
+        <li>item</li>
+      </ul>
+    </div>
 
     <!--============== Content End ==============-->
 

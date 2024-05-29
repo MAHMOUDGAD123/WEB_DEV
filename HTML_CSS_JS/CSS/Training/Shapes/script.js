@@ -5,7 +5,8 @@ const shapes = new Map([
   ["circle", "<r>? [ at <position> ]?"],
   ["ellipse", "<rx, ry>? [ at <position> ]?"],
   ["polygon", "<fill-rule>?, [ <xi>, <yi> ]#"],
-  ["path", ""],
+  ["path", "[ <fill-rule>, ]? <string>"],
+  ["ray", " <angle> && <ray-size>? && contain? && [ at <position> ]?"],
 ]);
 
 /* mode => [

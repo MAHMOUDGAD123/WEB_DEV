@@ -1,17 +1,16 @@
 const log = console.log; // alias
-"use strict";
+("use strict");
 console.time("T");
 log("\n\n");
-
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/raw
 //=====================================================
 
 const people = [
-  {name: 'Alfred', age: 47, sex: 'male'},
-  {name: 'George', age: 27, sex: 'famale'},
-  {name: 'Regina', age: 31, sex: 'female'},
-  {name: 'Trisha', age: 30, sex: 'female'}
+  { name: "Alfred", age: 47, sex: "male" },
+  { name: "George", age: 27, sex: "famale" },
+  { name: "Regina", age: 31, sex: "female" },
+  { name: "Trisha", age: 30, sex: "female" },
 ];
 
 // this is something like (printf) in C => printf("format", ...substitutions)
@@ -38,7 +37,6 @@ people.forEach((p) => {
 });
 
 //=====================================================
-
 
 log("\n\n");
 console.timeEnd("T");
