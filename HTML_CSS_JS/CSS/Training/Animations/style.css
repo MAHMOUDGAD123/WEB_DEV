@@ -771,27 +771,63 @@
           left: 100%;
           translate: 0 -50%;
           transform-origin: left;
+          border-radius: 100px;
           rotate: -90deg;
         }
 
         & > .hrs-hand {
           width: 80px;
           height: 8px;
-          background-color: #00ff88;
+          background-color: #006aff;
           z-index: 1;
         }
         & > .min-hand {
           width: 90px;
           height: 5px;
-          background-color: red;
+          background-color: #ffa500;
           z-index: 2;
         }
         & > .sec-hand {
           width: 100px;
-          height: 2px;
+          height: 3px;
           background-color: #ffea00;
           z-index: 3;
         }
+      }
+    }
+
+    & > .ex-10 > :only-child {
+      width: 70%;
+      height: 80%;
+      border-radius: 10px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      contain: layout;
+      padding: 10px;
+
+      &::before {
+        content: "";
+        background-color: orange;
+        width: 150px;
+        height: 10000px;
+        position: absolute;
+        animation: rotate360 infinite 2s linear;
+        z-index: -1;
+      }
+      &::after {
+        content: "MG";
+        color: red;
+        font-size: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #000;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
       }
     }
   }

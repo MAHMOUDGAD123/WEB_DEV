@@ -73,3 +73,5 @@ Object.defineProperties(arr_like, {
 
 // log(...arr_like);
 log(arr.concat(arr_like));
+
+//---------------------------------------

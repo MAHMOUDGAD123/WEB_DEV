@@ -155,7 +155,6 @@ const cells_map = new Map([
 
 // functions Start
 // -------------------------------------------------
-
 const _switch_turn = () => {
   turn = turn ? 0 : 1;
 };
@@ -268,7 +267,6 @@ const who_won = async () => {
 
 // Check Algorithms End
 // -------------------------------------------------
-
 const make_winner = async () => {
   if (fill_count >= 5) {
     const result = await who_won();
@@ -291,7 +289,7 @@ const make_winner = async () => {
 };
 
 const cell_on_click = (cell) => {
-  if (!cell.children.length) {
+  if (playing && !cell.children.length) {
     console.log("---------------------");
     console.log("cell", cell.id, `- ${icons[turn].toUpperCase()}`);
     const index = index_map.get(cell);
@@ -373,62 +371,36 @@ play.addEventListener("keydown", (e) => {
 });
 
 clear.addEventListener("click", () => {
-  clear_all();
-  console.log("clear");
+  if (playing) {
+    clear_all();
+    console.log("clear");
+  }
 });
 clear.addEventListener("keydown", (e) => {
-  if (e.code === "Space") {
+  if (playing &&  e.code === "Space") {
     clear_all();
     console.log("clear");
   }
 });
 
 reset.addEventListener("click", () => {
-  reset_all();
-  console.log("reset");
+  if (playing) {
+    reset_all();
+    console.log("reset");
+  }
 });
 reset.addEventListener("keydown", (e) => {
-  if (e.code === "Space") {
+  if (playing && e.code === "Space") {
     reset_all();
     console.log("reset");
   }
 });
 
 /* mouse click on cells */
-_1.addEventListener("click", () => {
-  cell_on_click(_1);
-});
-
-_2.addEventListener("click", () => {
-  cell_on_click(_2);
-});
-
-_3.addEventListener("click", () => {
-  cell_on_click(_3);
-});
-
-_4.addEventListener("click", () => {
-  cell_on_click(_4);
-});
-
-_5.addEventListener("click", () => {
-  cell_on_click(_5);
-});
-
-_6.addEventListener("click", () => {
-  cell_on_click(_6);
-});
-
-_7.addEventListener("click", () => {
-  cell_on_click(_7);
-});
-
-_8.addEventListener("click", () => {
-  cell_on_click(_8);
-});
-
-_9.addEventListener("click", () => {
-  cell_on_click(_9);
+all_cells.forEach(cell => {
+  cell.addEventListener('click', () => {
+    cell_on_click(cell);
+  });
 });
 
 // -------------------------------------------------
