@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../../framework/style.css" />
     <script src="./script.js" async></script>
-    <style>
-      @import url("../../framework/style.css") layer(framie);
-    </style>
     <script src="../../framework/script.js" async></script>
     <title>Transitions</title>
   </head>
@@ -26,11 +24,11 @@
     >
     <!--============= Content Start =============-->
     <div class="cont">
-      <div class="wrapper-id-title transition-props" id="transition-props">
+      <div class="wrapper-id-title transition-props remove" id="transition-props">
         <div></div>
       </div>
 
-      <div class="wrapper-id-title timing-funcs" id="timing-funcs">
+      <div class="wrapper-id-title timing-funcs remove" id="timing-funcs">
         <div class="linear"></div>
         <div class="ease"></div>
         <div class="ease-in"></div>
@@ -45,12 +43,12 @@
         <div class="jump-both"></div>
       </div>
 
-      <div class="wrapper-id-title starting-style" id="starting-style">
+      <div class="wrapper-id-title starting-style remove" id="starting-style">
         <button>Show</button>
         <div class="box">Box</div>
       </div>
 
-      <div class="wrapper moving-ball remove" id="moving-ball">
+      <div class="wrapper moving-ball" id="moving-ball">
         <p>Click on the screen to move the ball</p>
         <div id="ball"></div>
       </div>

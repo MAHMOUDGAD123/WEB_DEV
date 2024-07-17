@@ -1,7 +1,7 @@
 const log = console.log; // alias
 ("use strict");
 console.time("T");
-log("\n\n");
+log("\n");
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/raw
 //=====================================================
@@ -16,8 +16,13 @@ const people = [
 // this is something like (printf) in C => printf("format", ...substitutions)
 // strings => format
 // a, b, c  => ...substitutions
-function greet(strings, a, b, c) {
-  console.log(strings[0] + a + strings[1] + b + strings[2] + c + strings[3]);
+function greet(strings, ...info) {
+  console.log(strings[0] + info[0] + strings[1] + info[1] + strings[2] + info[2] + strings[3]);
+}
+
+// using arguments object of function
+function greet_arg() {
+  console.log(arguments[0][0] + arguments[1] + arguments[0][1] + arguments[2] + arguments[0][2] + arguments[3] + arguments[0][3]);
 }
 
 /*
@@ -36,7 +41,13 @@ people.forEach((p) => {
   greet`Woah, ${p.name} is ${p.age} and gender is ${p.sex}`;
 });
 
+log();
+
+people.forEach((p) => {
+  greet_arg`Woah, ${p.name} is ${p.age} and gender is ${p.sex}`;
+});
+
 //=====================================================
 
-log("\n\n");
+log("\n");
 console.timeEnd("T");

@@ -6,15 +6,41 @@
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
     <link rel="icon" type="image/x-icon" href="./java-script.png" />
     <link rel="stylesheet" href="./style.css" />
-    <script src="./script.js" type="module" defer></script>
+    <script src="./tools.js" defer></script>
+    <script src="./properties.js" defer></script>
+    <script src="./nodes.js" defer></script>
+    <script src="./playing.js" defer></script>
+    <script src="./range.js" defer></script>
     <title>DOM</title>
   </head>
   <body>
     <div class="DOM">DOM</div>
 
-    <div class="cont">
+    <div class="cont remove">
       <div class="rainbow _1">CSS</div>
       <div id="rainbow" class="rainbow _2">JS</div>
+    </div>
+
+    <div class="cont activeElement remove">
+      <form action="#">
+        <textarea name="ta1" id="textarea1">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus provident corrupti assumenda omnis, blanditiis nostrum dolore nobis, tenetur ipsa laudantium iure soluta culpa odit architecto, nisi qui commodi quasi molestiae!
+        </textarea>
+        <textarea name="ta1" id="textarea2">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint exercitationem fugit perferendis unde pariatur omnis, maxime quo accusantium! Iusto nulla asperiores provident eos officia minima.
+        </textarea>
+      </form>
+
+      <div class="outputs">
+        <fieldset>
+          <legend>Active-Element</legend>
+          <span class="active-ele"></span>
+        </fieldset>
+        <fieldset>
+          <legend>Selected-Text</legend>
+          <span class="selected-txt"></span>
+        </fieldset>
+      </div>
     </div>
 
     <div class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"></div>

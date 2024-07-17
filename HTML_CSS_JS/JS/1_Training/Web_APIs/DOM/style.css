@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'cairo';
+  src: url(../../../../CSS/framework/fonts/Cairo/Cairo-VariableFont_slnt\,wght.ttf);
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -14,8 +19,9 @@ html {
 
 body {
   background-color: #000;
-  font-family: monospace;
+  font-family: 'cairo', monospace;
   color: #fff;
+  padding: 10px;
 }
 
 img,
@@ -24,11 +30,103 @@ video {
   max-width: 100%;
 }
 
+p {
+  padding: 20px;
+  font-size: 1.5rem;
+  background-color: #333;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+code {
+  padding: 20px 30px;
+  font-size: 1.5rem;
+  background-color: #555;
+  border-radius: 10px;
+  display: block;
+  margin: 50px auto;
+  width: 70%;
+}
+
+ul {
+  background-color: #333;
+  padding: 20px;
+  list-style: none;
+  width: fit-content;
+
+  & > li {
+    background-color: #777;
+    padding: 10px;
+    margin-block: 5px;
+    font-size: 20px;
+    border-radius: 100px;
+    text-align: center;
+  }
+}
+
+.title {
+  display: block;
+  color: orange;
+  font-size: 30px;
+  text-align: center;
+  margin: 30px auto;
+}
+
+.box {
+  gap: 10px;
+  background-color: #333;
+  padding: 10px;
+  margin: 30px 0;
+
+  &.flex {
+    display: flex;
+    flex-flow: row wrap;
+
+    & > .slot {
+      flex: 1 0 200px;
+    }
+  }
+
+  &.grid {
+    display: grid;
+    grid: auto-flow / repeat(auto-fill, minmax(200px, 1fr));
+
+    & > .slot {
+      height: 120px;
+    }
+  }
+
+  & > .slot {
+    display: flex;
+    flex-flow: row wrap;
+    place-content: center;
+    
+    &.count {
+      counter-increment: counter;
+      background-color: #777;
+
+      &::after {
+        content: counter(counter);
+        font-size: 45px;
+      }
+    }
+
+    &.empty {
+      background-color: #000;
+
+      &::after {
+        content: 'empty';
+        font-size: 25px;
+      }
+    }
+  }
+}
+
 .DOM {
   width: fit-content;
-  margin: 20px auto 70px;
+  margin: 10px auto 70px;
   border: 5px solid orange;
-  padding: 10px 20px;
+  padding: 1px 20px;
   font-size: 25px;
   transition: 0.5s;
   cursor: pointer;
@@ -36,6 +134,7 @@ video {
 
   &:hover {
     color: orangered;
+    border-color: tomato;
   }
 }
 
@@ -62,9 +161,28 @@ video {
 }
 
 .cont {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 50px;
+  margin-bottom: 70px;
+}
+
+fieldset {
+  padding: 10px;
+  border: 5px solid orangered;
+  border-radius: 10px;
+  background-color: #333;
+  max-width: 100%;
+  line-break: anywhere;
+
+  & > legend {
+    background-color: orangered;
+    padding: 1px 15px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+  }
 }
 
 .rainbow {
@@ -80,6 +198,36 @@ video {
     animation: rainbow-effect 14s linear infinite alternate;
   }
 }
+
+.activeElement {
+  background-color: #5561f5;
+  padding: 10px;
+  gap: 20px;
+
+  & > form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+
+  & > textarea {
+    height: 100px;
+    padding: 5px;
+  }
+  }
+
+  & > .outputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+}
+
+.remove {
+  display: none;
+}
+
 @keyframes rainbow-effect {
   0% {
     background-color: red;

@@ -1,0 +1,43 @@
+@font-face {
+  font-family: "cairo";
+  src: url("./files/fonts/Madimi_One/MadimiOne-Regular.woff2") format("woff2"),
+    url("./files/fonts/Madimi_One/MadimiOne-Regular.woff") format("woff");
+  font-weight: 100 1000;
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  scrollbar-width: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+/* hide the scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: "cairo";
+  color: #fff;
+  white-space: nowrap;
+}
+
+body {
+  background-color: #000;
+
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
