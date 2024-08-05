@@ -158,6 +158,40 @@
 
 //------------------------------------------------------
 
+// createTreeWalker()
+//------------------------------------------------------
+
+// const cont = createCountedDivs(6, 'grid', 'count');
+// const treeWalker = document.createTreeWalker(cont, NodeFilter.SHOW_ALL, node => {
+//   return NodeFilter.FILTER_ACCEPT;
+// });
+
+// log(treeWalker.currentNode === treeWalker.root);
+
+// while (treeWalker.nextNode()) {
+//   log(treeWalker.currentNode);
+// }
 
 //------------------------------------------------------
+
+// elementFromPoint() & elementsFromPoint()
+//------------------------------------------------------
+
+// createGrandParentChild(false);
+
+// document.addEventListener('click', (e) => {
+//   log(document.elementFromPoint(e.clientX, e.clientY));
+// });
+
+// document.addEventListener('click', (e) => {
+//   const elements = document.elementsFromPoint(e.clientX, e.clientY);
+//   elements.forEach(ele => {
+//     log(ele);
+//   });
+// });
+
+//------------------------------------------------------
+
+
+
 //------------------------------------------------------

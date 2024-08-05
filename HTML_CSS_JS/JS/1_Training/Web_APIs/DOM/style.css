@@ -11,6 +11,7 @@
   margin: 0;
   padding: 0;
   font-weight: bolder;
+  scroll-padding: 10px;
 }
 
 html {
@@ -22,6 +23,12 @@ body {
   font-family: 'cairo', monospace;
   color: #fff;
   padding: 10px;
+  height: 100dvh;
+}
+
+::selection {
+  background-color: orange;
+  color:  blue;
 }
 
 img,
@@ -40,12 +47,23 @@ p {
 
 code {
   padding: 20px 30px;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   background-color: #555;
   border-radius: 10px;
   display: block;
-  margin: 50px auto;
-  width: 70%;
+  margin: 20px auto;
+  width: 80%;
+}
+
+hr {
+  background-color: orange;
+  border-radius: 100px;
+  height: 7px;
+  margin: 20px 0;
+}
+
+u {
+  color: orange;
 }
 
 ul {
@@ -62,6 +80,48 @@ ul {
     border-radius: 100px;
     text-align: center;
   }
+}
+
+label {
+  color: orangered;
+  font-size: 1.25rem;
+}
+
+input {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+button {
+  padding: 20px;
+  background-color: #5561f5;
+  border-radius: 100px;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 300ms;
+
+  &:active {
+    color: orange;
+    background-color: white;
+  }
+
+  &:hover {
+    box-shadow: 0 0 10px 3px orange;
+  }
+}
+
+select {
+  padding: 10px;
+  border-radius: 100px;
+  margin: 20px auto;
+  display: block;
+  font-size: 1.3rem;
 }
 
 .title {
@@ -113,11 +173,6 @@ ul {
 
     &.empty {
       background-color: #000;
-
-      &::after {
-        content: 'empty';
-        font-size: 25px;
-      }
     }
   }
 }
@@ -167,6 +222,19 @@ ul {
   align-items: center;
   gap: 50px;
   margin-bottom: 70px;
+}
+
+.cntr {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+.flex-cntr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 fieldset {

@@ -84,5 +84,4 @@
   // document.title = 'Document Object Model';
   // log(document.title)
 
-  // log();
 }
