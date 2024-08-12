@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "cairo";
+  src: url("./fonts/Cairo-VariableFont_slnt_wght.woff2") format("woff2"),
+    url("./fonts/Cairo-VariableFont_slnt_wght.woff") format("woff");
+  font-weight: 100 1000;
+  font-display: swap;
+}
+
 html {
   scroll-behavior: smooth;
   font-size: 25px;
@@ -18,6 +26,7 @@ html {
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
+  scrollbar-width: none;
 }
 
 /* hide the scrollbar */
@@ -62,22 +71,70 @@ body {
   padding: 30px;
   border-radius: 30px;
   display: grid;
-  grid-template: auto / repeat(auto-fill, minmax(70px, 1fr));
+  grid-template: none / repeat(auto-fit, minmax(70px, 1fr));
   gap: 70px;
   transition: 300ms linear;
 
-  & > a {
-    border-radius: 15px;
-    padding: 5px;
-    outline: none;
+  &.edit-on > .wrapper > .remove-icon {
+    display: block;
+  }
 
-    &:hover {
-      transform: scale(1.15);
+  & > .wrapper {
+    position: relative;
+
+    & > .remove-icon {
+      width: 12px;
+      aspect-ratio: 1;
+      background-color: orangered;
+      position: absolute;
+      top: 0;
+      right: -10px;
+      translate: -50%;
+      border-radius: 100px;
+      cursor: pointer;
+      display: none;
     }
 
-    &:focus-visible {
-      transform: translateY(-3px);
-      box-shadow: 0 0 10px 5px #18baff;
+    & > a {
+      border-radius: 15px;
+      padding: 5px;
+      outline: none;
+      display: block;
+
+      & > img {
+        max-width: 100%;
+      }
+
+      &:hover {
+        transform: scale(1.15);
+      }
+
+      &:focus-visible {
+        transform: translateY(-3px);
+        box-shadow: 0 0 10px 5px #18baff;
+      }
+    }
+  }
+
+  & > .add-new-site-btn {
+    background-color: #aaa;
+    opacity: 0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    border-radius: 100%;
+    font-family: monospace;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    place-self: center;
+    padding: 5px 5px 8px;
+
+    &:hover {
+      opacity: 1;
+      box-shadow: 0 0 10px 2px #00bcd4;
+      color: #00bcd4;
     }
   }
 }
@@ -152,6 +209,109 @@ body {
 
 /* BackToTop End */
 
+/* settings */
+#edit-btn {
+  padding: 5px;
+  border-radius: 20px;
+  position: fixed;
+  top: 40px;
+  right: 30px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: 300ms;
+  outline: none;
+
+  &:hover {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+
+  &:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: 0 0 10px 5px #18baff;
+    opacity: 1;
+  }
+
+  &:active {
+    box-shadow: 0 0 10px 5px #18baff;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
+.new-link-form {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 35px;
+  background-color: #000c;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  font-family: "cairo";
+
+  &::before {
+    content: "Adding New Link";
+    color: #00bcd4;
+    font-size: 1.3rem;
+  }
+
+  & > .btns-wrapper {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+button {
+  width: 110px;
+  font-size: 1rem;
+  border-radius: 100px;
+  outline: none;
+  border: none;
+  background-color: #00bcd4;
+  opacity: 0.5;
+  cursor: pointer;
+  font-family: "cairo";
+  z-index: 100;
+
+  &:hover {
+    opacity: 1;
+  }
+  &:active {
+    background-color: #5561f5;
+  }
+  &:focus-visible {
+    opacity: 1;
+  }
+}
+
+input {
+  border-radius: 100px;
+  padding: 15px;
+  text-align: left;
+  outline: none;
+  border: none;
+  width: 75%;
+  max-width: 600px;
+
+  &:focus-within {
+    outline: 3px solid #18baff;
+    transition: none;
+  }
+
+  &::placeholder {
+    color: #00bcd4;
+  }
+}
+
 @media (width < 600px) {
   .CD {
     & > .clock {
@@ -183,7 +343,7 @@ body {
   .cont {
     gap: 25px;
 
-    & > a > img {
+    & > .wrapper > a > img {
       width: 40px;
     }
   }

@@ -1,0 +1,10 @@
+{
+  "name": "home_page",
+  "version": "1.0.0",
+  "main": "node_fs.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
