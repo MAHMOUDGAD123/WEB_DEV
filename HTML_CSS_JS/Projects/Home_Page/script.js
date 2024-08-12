@@ -175,6 +175,7 @@ const createLink = (name, href, i) => {
 
   const removeIcon = document.createElement("div");
   removeIcon.className = "remove-icon";
+  removeIcon.title = "remove";
   removeIcon.dataset.index = i;
 
   const link = document.createElement("a");
