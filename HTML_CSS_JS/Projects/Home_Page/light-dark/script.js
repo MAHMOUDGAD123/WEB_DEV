@@ -1,19 +1,37 @@
-const light_dark_btn = document.getElementById("light-dark-btn");
-const l_d_elements = document.querySelectorAll(".l-d");
+// set the page theme
+const mode = window.localStorage.getItem("l-d") || "d";
+(() => {
+  if (mode === "d") {
+    document.body.classList.remove("light-bg");
+    document.body.classList.add("dark-bg");
+    document.querySelectorAll(".l-d").forEach((ele) => {
+      ele.classList.remove("light-mode");
+      ele.classList.add("dark-mode");
+    });
+  } else {
+    document.body.classList.add("light-bg");
+    document.body.classList.remove("dark-bg");
+    document.querySelectorAll(".l-d").forEach((ele) => {
+      ele.classList.add("light-mode");
+      ele.classList.remove("dark-mode");
+    });
+  }
+})();
 
 const change_mode = () => {
-  document.body.classList.toggle("light-bg");
+  const isLight = document.body.classList.toggle("light-bg");
   document.body.classList.toggle("dark-bg");
-
-  l_d_elements.forEach((ele) => {
+  document.querySelectorAll(".l-d").forEach((ele) => {
     ele.classList.toggle("light-mode");
     ele.classList.toggle("dark-mode");
   });
+  window.localStorage.setItem("l-d", isLight ? "l" : "d");
 };
+
+const light_dark_btn = document.getElementById("light-dark-btn");
 
 light_dark_btn.addEventListener("click", (e) => {
   change_mode();
-  console.log(e.code);
 });
 
 light_dark_btn.addEventListener("keydown", (e) => {

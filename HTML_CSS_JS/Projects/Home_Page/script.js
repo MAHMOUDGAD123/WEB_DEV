@@ -164,9 +164,7 @@ const backup = [
   ["amazon", "https://www.amazon.eg/"],
 ];
 
-/**
- * @type {string[][]}
- */
+/** @type {string[][]} */
 const links = JSON.parse(window.localStorage.getItem("home-links")) || backup;
 
 const createLink = (name, href, i) => {
