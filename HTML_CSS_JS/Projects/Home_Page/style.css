@@ -164,7 +164,7 @@ body {
   flex-flow: column;
   gap: 30px;
   border-radius: 100px;
-  padding: 70px;
+  padding: 90px;
 
   & > :is(.clock, .date) {
     display: flex;

@@ -4,9 +4,9 @@ const at_top_mode = () => {
   const btt = document.getElementById("back-to-top");
   const cont = document.getElementById("cont");
 
-  cont.style.marginTop = "200px";
+  cont.style.marginTop = "400px";
   btt.style.display = "none";
-  CD.style.marginTop = "180px";
+  CD.style.marginTop = "220px";
   CD.style.height = "fit-content";
   CD.style.rotate = "x 0deg";
   CD.style.opacity = 1;
