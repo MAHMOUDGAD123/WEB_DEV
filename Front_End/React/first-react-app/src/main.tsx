@@ -5,6 +5,6 @@ import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App initCount={1} />
+    <App initCount={0} />
   </StrictMode>
 );

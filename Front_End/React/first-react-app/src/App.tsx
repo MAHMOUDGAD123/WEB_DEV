@@ -1,20 +1,23 @@
 import { useState } from "react";
 import "./App.css";
+import {
+  postsData,
+  minInfoCount,
+  maxInfoCount,
+  emojiMin,
+  emojiMax,
+} from "./globals";
 
 function Header(): JSX.Element {
   return <h2 className="header">FIRST REACT APP</h2>;
 }
 
-function Post(props: { _id: number }): JSX.Element {
+function Post(props: { _id: number; children: JSX.Element[] }): JSX.Element {
   return (
     <div className="post" id={`post${props._id}`}>
       <h2 className="title">Title - {`${props._id}`}</h2>
       <hr />
-      <p className="info">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo
-        nihil facilis voluptas rerum itaque labore tenetur fugiat non
-        perferendis saepe.
-      </p>
+      {props.children}
     </div>
   );
 }
@@ -24,8 +27,39 @@ function Posts(props: { count: number }): JSX.Element {
     <div className="posts">
       {(() => {
         const posts: JSX.Element[] = [];
+        let id: number = 0;
+        let infoCount: number = 0;
+        let emoji: string = "";
         for (let i = 0; i < props.count; ++i) {
-          posts.push(<Post _id={i + 1} key={i} />);
+          if (i < postsData.length) {
+            // get data from the backup
+            ({ id, infoCount, emoji } = postsData[i]);
+          } else {
+            // create new post
+            id = i;
+
+            infoCount =
+              (Math.random() * (maxInfoCount - minInfoCount + 1) +
+                minInfoCount) >>>
+              0;
+
+            emoji = `${String.fromCodePoint(
+              (Math.random() * (emojiMax - emojiMin + 1) + emojiMin) >>> 0
+            )}`;
+            // save the new post data
+            postsData.push({
+              id: id,
+              infoCount: infoCount,
+              emoji: emoji,
+            });
+          }
+          // add the post
+          posts.push(
+            <Post _id={id + 1} key={id}>
+              <p className="info">{`${(emoji + " ").repeat(infoCount)}`}</p>
+              <div className="count">{infoCount}</div>
+            </Post>
+          );
         }
         return posts;
       })()}
@@ -57,10 +91,11 @@ function Tag(props: { _id: number }): JSX.Element {
 
 function AddNewBtn(props: {
   count: number;
-  addPostHandler: React.Dispatch<React.SetStateAction<number>>;
+  postCountState: React.Dispatch<React.SetStateAction<number>>;
 }) {
   const addNewTagAndPost = () => {
-    props.addPostHandler(props.count + 1);
+    props.postCountState(props.count + 1);
+    console.log("postsData:", postsData.length + 1);
   };
 
   return (
@@ -72,12 +107,14 @@ function AddNewBtn(props: {
 
 function RemoveBtn(props: {
   count: number;
-  addPostHandler: React.Dispatch<React.SetStateAction<number>>;
+  postCountState: React.Dispatch<React.SetStateAction<number>>;
 }) {
   const removeTagAndPost = () => {
     const n = props.count;
     if (!n) return;
-    props.addPostHandler(props.count - 1);
+    postsData.pop();
+    props.postCountState(props.count - 1);
+    console.log("postsData:", postsData.length);
   };
 
   return (
@@ -89,19 +126,19 @@ function RemoveBtn(props: {
 
 function Controls(props: {
   count: number;
-  addPostHandler: React.Dispatch<React.SetStateAction<number>>;
+  postCountState: React.Dispatch<React.SetStateAction<number>>;
 }) {
   let i: number = 0;
   return (
     <div className="controls">
       <AddNewBtn
         count={props.count}
-        addPostHandler={props.addPostHandler}
+        postCountState={props.postCountState}
         key={++i}
       />
       <RemoveBtn
         count={props.count}
-        addPostHandler={props.addPostHandler}
+        postCountState={props.postCountState}
         key={++i}
       />
     </div>
@@ -110,7 +147,7 @@ function Controls(props: {
 
 function Tags(props: {
   count: number;
-  addPostHandler: React.Dispatch<React.SetStateAction<number>>;
+  postCountState: React.Dispatch<React.SetStateAction<number>>;
 }): JSX.Element {
   return (
     <div className="tags" id="tags">
@@ -124,7 +161,7 @@ function Tags(props: {
         tags.push(
           <Controls
             count={props.count}
-            addPostHandler={props.addPostHandler}
+            postCountState={props.postCountState}
             key={++i}
           />
         );
@@ -137,22 +174,22 @@ function Tags(props: {
 
 function Content(props: {
   count: number;
-  addPostHandler: React.Dispatch<React.SetStateAction<number>>;
+  postCountState: React.Dispatch<React.SetStateAction<number>>;
 }): JSX.Element {
   return (
     <div className="content">
       <Posts count={props.count} />
-      <Tags count={props.count} addPostHandler={props.addPostHandler} />
+      <Tags count={props.count} postCountState={props.postCountState} />
     </div>
   );
 }
 
 export default function App(props: { initCount: number }) {
-  const [postCount, addPostHandler] = useState(props.initCount);
+  const [postCount, postCountState] = useState(props.initCount);
   return (
     <>
       <Header />
-      <Content count={postCount} addPostHandler={addPostHandler} />
+      <Content count={postCount} postCountState={postCountState} />
     </>
   );
 }
