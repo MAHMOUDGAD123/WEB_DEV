@@ -4,9 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <link
+      rel="shortcut icon"
+      href="../../Files/images/css-3.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="../../framework/style.css" />
-    <script src="../../framework/script.js" async></script>
+    <script src="../../framework/script.js" defer></script>
+    <script src="./script.js" defer></script>
     <title>Cool Shapes</title>
   </head>
   <body>
@@ -214,12 +220,20 @@
         <div class="circle _3"></div>
       </div>
 
-      <div class="hover-effect wrapper-id-title" id="hover-effect">
+      <div class="hover-effect wrapper-id-title remove" id="hover-effect">
         <div class="item">HTML</div>
         <div class="item">CSS</div>
         <div class="item">JavaScript</div>
         <div class="item">TypeScript</div>
         <div class="item">React</div>
+      </div>
+
+      <div class="dead-pool wrapper-id-title remove" id="dead-pool">
+        <div><div></div></div>
+      </div>
+
+      <div class="theme-toggle wrapper-id-title" id="theme-toggle">
+        <div id="themeSwitch"></div>
       </div>
     </div>
 

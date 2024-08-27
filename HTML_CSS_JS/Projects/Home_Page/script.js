@@ -6,7 +6,7 @@ const at_top_mode = () => {
 
   cont.style.marginTop = "400px";
   btt.style.display = "none";
-  CD.style.marginTop = "220px";
+  CD.style.marginTop = "170px";
   CD.style.height = "fit-content";
   CD.style.rotate = "x 0deg";
   CD.style.opacity = 1;
@@ -126,6 +126,7 @@ const backup = [
   ["github", "https://github.com/"],
   ["git", "https://git-scm.com/docs"],
   ["x", "https://twitter.com/"],
+  ["tiktok", "https://www.tiktok.com/"],
   ["mdn", "https://developer.mozilla.org/"],
   ["linkedin", "https://linkedin.com"],
   ["stackoverflow", "https://stackoverflow.com/"],

@@ -1,0 +1,11 @@
+.header {
+  background-color: #777;
+  text-align: center;
+  padding: 10px;
+  font-weight: 1000;
+  font-size: 2rem;
+}
+
+:global h1 {
+  color: tomato;
+}

@@ -1,0 +1,111 @@
+#page {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  color: #000;
+  background-color: #eee;
+  padding: 20px;
+  border-radius: 10px;
+
+  &.dark {
+    color: #fff;
+    background-color: #222;
+
+    & > .items-list {
+      background-color: #333;
+    }
+
+    & > .filter > .btn {
+      color: #000;
+      background-color: #eee;
+    }
+  }
+
+  & > .filter {
+    display: flex;
+    gap: 15px;
+
+    & > .btn {
+      background-color: #333;
+      padding: 5px 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      color: #fff;
+      font-family: monospace;
+      font-weight: bolder;
+      font-size: 0.85rem;
+
+      &.clicked {
+        background-color: orange;
+      }
+
+      &:hover {
+        outline: 3px solid orangered;
+      }
+    }
+  }
+
+  & > .items-list {
+    --w: 100px;
+    width: 100%;
+    display: grid;
+    gap: 20px;
+    grid: none / repeat(auto-fit, minmax(min(var(--w), 100%), 1fr));
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ccc;
+
+    & > .item {
+      height: var(--w);
+      font-size: 2rem;
+      font-weight: bolder;
+      display: grid;
+      place-content: center;
+      border-radius: inherit;
+    }
+  }
+
+  & > #themeSwitch {
+    --switch-d: 50px;
+    width: var(--switch-d);
+    height: calc(var(--switch-d) * 0.5);
+    background-color: #999;
+    border-radius: 1000px;
+    cursor: pointer;
+    transition: background-color 500ms;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+    &.dark {
+      background-color: #555;
+
+      &::before {
+        background-image: url(../assets/moon.svg);
+        left: 75%;
+      }
+    }
+
+    &::before {
+      content: "";
+      width: 40%;
+      aspect-ratio: 1;
+      position: absolute;
+      top: 50%;
+      left: 25%;
+      translate: -50% -50%;
+      border-radius: inherit;
+      background-image: url(../assets/sun.svg);
+      background-color: orangered;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 80%;
+      transition: background-image 500ms allow-discrete, left 500ms;
+    }
+  }
+}

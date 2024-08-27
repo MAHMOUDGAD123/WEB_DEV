@@ -1399,4 +1399,111 @@
       }
     }
   }
+
+  #dead-pool {
+    background-color: #f4ac3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & > :only-child {
+      background-color: #94283a;
+      width: 300px;
+      height: 300px;
+      border-radius: 1000px;
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: "";
+        background-color: inherit;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        height: 100%;
+        width: 55px;
+        z-index: 100;
+      }
+
+      & > :only-child {
+        background-color: #010101;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        width: 85%;
+        aspect-ratio: 1;
+        border-radius: inherit;
+
+        &::before,
+        &::after {
+          content: "";
+          background-color: #fff;
+          position: absolute;
+          top: 35%;
+          width: 40px;
+          aspect-ratio: 1;
+          border-radius: inherit;
+          clip-path: inset(50% 0 0 0);
+          /* clip-path: xywh(50% 0 100% 100%); */
+        }
+
+        &::before {
+          left: 15%;
+          rotate: z 30deg;
+        }
+
+        &::after {
+          right: 15%;
+          rotate: z -30deg;
+        }
+      }
+    }
+  }
+
+  #theme-toggle {
+    --bg-col: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-col);
+
+    & > #themeSwitch {
+      --switch-d: 150px;
+      width: var(--switch-d);
+      height: calc(var(--switch-d) * 0.5);
+      background-color: #f4b12c;
+      border-radius: 1000px;
+      position: relative;
+      cursor: pointer;
+      transition: background-color 500ms;
+
+      &.dark {
+        background-color: #000;
+
+        &::before {
+          background-image: url(../../Files/images/moon.svg);
+          left: 75%;
+        }
+      }
+
+      &::before {
+        content: "";
+        width: 40%;
+        aspect-ratio: 1;
+        position: absolute;
+        top: 50%;
+        left: 25%;
+        translate: -50% -50%;
+        border-radius: inherit;
+        background-image: url(../../Files/images/sun.svg);
+        background-color: orangered;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 60%;
+        transition: background-image 500ms allow-discrete, left 500ms;
+      }
+    }
+  }
 }

@@ -1,0 +1,24 @@
+.render-counter {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.stop-watch {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  & > h1 {
+    font-family: monospace;
+  }
+
+  & > .controls {
+    display: flex;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,300 @@
+:root {
+  --tag-wdth: 83px;
+}
+
+hr {
+  background-color: #aaa;
+  height: 2px;
+  border-radius: 100px;
+  margin-block-end: 10px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.header {
+  text-align: center;
+  font-size: 2rem;
+  background-color: orange;
+  padding: 20px;
+  box-shadow: 0 0 20px 5px deepskyblue;
+}
+
+.content {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 100%;
+  perspective: 2000px;
+  padding: 30px;
+
+  &.showInfo {
+    & > .infoCard {
+      transform: none;
+    }
+
+    & > form {
+      transform: rotateY(-180deg);
+    }
+  }
+}
+
+.infoCard {
+  display: flex;
+  height: fit-content;
+  gap: 20px;
+  flex-direction: column;
+  place-content: center;
+  place-items: center;
+  padding: 30px;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  translate: -50% -50%;
+  background-color: orange;
+  border: 5px solid royalblue;
+  border-radius: 20px;
+  width: 60%;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transform: rotateY(180deg) translateZ(-10px);
+  backface-visibility: hidden;
+  transition: transform 1.5s;
+
+  & > #back-btn {
+    width: 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    translate: 30% 30%;
+    cursor: pointer;
+    opacity: 0.7;
+    z-index: 100;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  & > #gender-img {
+    width: 100px;
+  }
+
+  & > .fname {
+    font-size: 2rem;
+    color: royalblue;
+    font-weight: 1000;
+  }
+
+  & > .email {
+    color: green;
+  }
+
+  & > .status {
+    background-color: rgb(209, 118, 0);
+    padding: 10px;
+    border-radius: 100px;
+  }
+
+  & > .age {
+    font-size: 0.7rem;
+
+    & > span {
+      color: royalblue;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+  }
+
+  & > .skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    border: 2px solid #777;
+    padding: 15px 10px 20px;
+    border-radius: 10px;
+
+    & > legend {
+      padding: 5px;
+      background-color: #777;
+      border-radius: 100px;
+      font-size: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    & > * {
+      width: 50px;
+    }
+  }
+}
+
+form {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  place-content: center;
+  place-items: center;
+  padding: 30px;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  translate: -50% -50%;
+  background-color: rgba(255, 166, 0, 0.9);
+  border: 5px solid royalblue;
+  border-radius: 20px;
+  width: 60%;
+  font-weight: 500;
+  font-size: 1.1rem;
+  backface-visibility: hidden;
+  transition: transform 1.5s;
+}
+
+input:is([type="text"], [type="email"]) {
+  padding: 10px;
+  border-radius: 100px;
+  width: 100%;
+  background-color: #eee;
+  color: blue;
+  font-size: 1.3rem;
+
+  &::placeholder {
+    font-size: 1rem;
+    color: #0007;
+  }
+
+  &:user-valid {
+    box-shadow: 0 0 0 2px green;
+  }
+  &:user-invalid {
+    box-shadow: 0 0 0 2px red;
+  }
+}
+
+input[type="radio"] {
+  appearance: none;
+  border-radius: 100px;
+  padding: 8px;
+  background-color: #eee;
+  position: relative;
+
+  &::before {
+    content: "";
+    background-color: royalblue;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    scale: 0;
+    transition: scale 500ms;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: inherit;
+  }
+
+  &:checked {
+    & + span {
+      color: navy;
+    }
+
+    &::before {
+      scale: 1;
+    }
+  }
+}
+
+input[type="number"] {
+  background-color: #eee;
+  color: #000;
+  padding: 10px;
+  border-radius: 100px;
+
+  &:user-valid {
+    box-shadow: 0 0 0 2px green;
+  }
+  &:user-invalid {
+    box-shadow: 0 0 0 2px red;
+  }
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 5px;
+  transition: 500ms;
+
+  &:checked {
+    background-color: royalblue;
+  }
+}
+
+.radio-wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  border: 1px solid blue;
+  padding: 10px 15px 15px;
+  border-radius: 10px;
+
+  & > legend {
+    color: black;
+    padding: 5px;
+  }
+
+  & > .radio-label {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    & > span {
+      padding-block-end: 2px;
+      transition: 500ms;
+      font-weight: 700;
+    }
+  }
+}
+
+.number-label {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.checkbox-label {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+select {
+  background-color: #eee;
+  color: #000;
+  padding: 7px;
+  display: block;
+  width: 150px;
+  text-align: center;
+  font-size: 1.1rem;
+  border-radius: 10px;
+}
+
+.select-warpper {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  padding: 10px;
+  border-radius: 100px;
+  font-size: 1.1rem;
+  background-color: royalblue;
+  margin-block-start: 10px;
+  cursor: pointer;
+}
