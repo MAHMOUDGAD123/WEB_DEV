@@ -116,11 +116,11 @@ export default function Form(porps: {
             porps.setFormInfo({ ...porps.formInfo, skills: skills });
           }}
         >
-          <option value="../public/html.png" label="HTML"></option>
-          <option value="../public/css.png" label="CSS"></option>
-          <option value="../public/js.png" label="JavaScript"></option>
-          <option value="../public/ts.png" label="TypeScript"></option>
-          <option value="../public/react.png" label="React"></option>
+          <option value="/html.png" label="HTML"></option>
+          <option value="/css.png" label="CSS"></option>
+          <option value="/js.png" label="JavaScript"></option>
+          <option value="/ts.png" label="TypeScript"></option>
+          <option value="/react.png" label="React"></option>
         </select>
       </div>
       <button>Submit</button>

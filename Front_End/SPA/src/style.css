@@ -1,0 +1,48 @@
+html {
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #222;
+}
+
+nav {
+  background-color: #333;
+  padding: 10px;
+  font-size: 1.5rem;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+[route] {
+  color: #fff;
+  background-color: #555;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: color 300ms, backgroud-color 300ms;
+  user-select: none;
+
+  &.active {
+    background-color: orange;
+    color: #000;
+  }
+
+  &:hover {
+    background-color: #777;
+    color: orangered;
+  }
+}
+
+main {
+  color: pink;
+  padding: 30px;
+}

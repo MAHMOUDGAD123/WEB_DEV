@@ -1,0 +1,43 @@
+.item-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+
+  & input {
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  & .no-result {
+    color: red;
+    font-size: 1.2rem;
+  }
+
+  & .msg {
+    color: orange;
+  }
+
+  & .list {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 20px;
+
+    & .item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background-color: #555;
+      padding: 15px;
+      border-radius: 10px;
+
+      & .name {
+        font-size: 1.5rem;
+        color: orange;
+      }
+    }
+  }
+}

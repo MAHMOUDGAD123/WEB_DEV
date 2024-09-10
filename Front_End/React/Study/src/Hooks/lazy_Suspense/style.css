@@ -1,0 +1,106 @@
+.lazy-todo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #555;
+  padding: 20px;
+  border-radius: 20px;
+  width: 100%;
+}
+
+.todo {
+  color: cornflowerblue;
+  background-color: #333;
+  text-align: start;
+  padding: 10px;
+  border-radius: inherit;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-family: monospace;
+  font-weight: bolder;
+
+  & > :only-child {
+    font-size: 1.5rem;
+  }
+
+  &::before {
+    content: attr(data-prefix);
+    font-size: 1.3rem;
+  }
+}
+
+.add-todo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  & > .add-btn {
+    background-color: #000;
+    transition: box-shadow 300ms, color 300ms;
+    outline: none;
+
+    &:hover {
+      box-shadow: 0 0 1px 2px cornflowerblue;
+    }
+
+    &:active {
+      box-shadow: 0 0 15px 5px cornflowerblue;
+      scale: 0.9;
+      color: cornflowerblue;
+    }
+  }
+}
+
+.custom-input {
+  background-color: #000;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  transition: box-shadow 500ms;
+  font-size: 1.1rem;
+  font-family: monospace;
+
+  &:focus,
+  &:focus-visible {
+    box-shadow: 3px 3px 3px cornflowerblue;
+  }
+
+  &::selection {
+    color: red;
+  }
+}
+
+.loading {
+  margin-block-start: 100px;
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: r-rotate360 infinite linear 2s;
+  background-image: conic-gradient(
+    cornflowerblue 0,
+    transparent 120deg,
+    cornflowerblue 120deg,
+    transparent 240deg,
+    cornflowerblue 240deg,
+    transparent 360deg
+  );
+}
+@keyframes r-rotate360 {
+  to {
+    transform: rotate(-360deg);
+  }
+}

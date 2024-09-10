@@ -1,0 +1,138 @@
+.page {
+  width: 100%;
+  /* height: 100%;
+  overflow: auto; */
+  display: flex;
+  gap: 30px;
+  position: relative;
+  padding: 50px;
+
+  & > .sections {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 20px;
+
+    & > .section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+      align-items: center;
+      width: 100%;
+      padding: 70px;
+      border: 2px solid orange;
+      counter-increment: count;
+      position: relative;
+
+      &::before {
+        content: counter(count);
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: orangered;
+        border-radius: 100px;
+        width: 40px;
+        aspect-ratio: 1;
+        display: grid;
+        place-content: center;
+        font-size: 1.3rem;
+        font-family: monospace;
+      }
+
+      & > .article {
+        padding: 30px;
+        counter-increment: counter;
+        text-align: left;
+        border-radius: 10px;
+
+        & > .heading {
+          color: orangered;
+          margin-bottom: 10px;
+
+          &:after {
+            content: "Article #" counter(counter);
+          }
+        }
+
+        & > p {
+          transition: font-size 1s;
+        }
+      }
+    }
+  }
+
+  & > .controls {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-start;
+    position: sticky;
+    top: 50px;
+    padding-block-start: 20px;
+
+    & > #themeSwitch {
+      --switch-d: 70px;
+      width: var(--switch-d);
+      height: calc(var(--switch-d) * 0.5);
+      background-color: #ccc;
+      border-radius: 1000px;
+      cursor: pointer;
+      transition: background-color 500ms;
+      rotate: z -90deg;
+      z-index: 100;
+
+      &.dark {
+        background-color: #555;
+
+        &::before {
+          background-image: url(../assets/moon.svg);
+          left: 75%;
+        }
+      }
+
+      &::before {
+        content: "";
+        width: 40%;
+        aspect-ratio: 1;
+        position: absolute;
+        top: 50%;
+        left: 25%;
+        translate: -50% -50%;
+        border-radius: inherit;
+        background-image: url(../assets/sun.svg);
+        background-color: orangered;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 70%;
+        transition: background-image 500ms allow-discrete, left 500ms;
+        rotate: z 90deg;
+      }
+    }
+
+    & > .fontsize-btns {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 20px;
+      z-index: 100;
+
+      & > .font-size-btn {
+        padding: 5px 15px;
+        border-radius: 100px;
+        font-size: 1.1rem;
+        font-family: monospace;
+        cursor: pointer;
+        transition: box-shadow 150ms, background-color 300ms;
+        user-select: none;
+
+        &:hover {
+          box-shadow: 0 0 1px 2px turquoise;
+        }
+      }
+    }
+  }
+}

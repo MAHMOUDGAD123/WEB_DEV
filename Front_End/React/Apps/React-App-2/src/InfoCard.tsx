@@ -13,9 +13,7 @@ export default function InfoCard(info: Info) {
       />
       <img
         id="gender-img"
-        src={
-          info.gender === "Male" ? "../public/man.png" : "../public/woman.png"
-        }
+        src={info.gender === "Male" ? "/man.png" : "/woman.png"}
         alt="img"
       />
 
