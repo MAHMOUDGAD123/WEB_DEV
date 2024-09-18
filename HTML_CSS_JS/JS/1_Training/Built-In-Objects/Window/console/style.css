@@ -1,0 +1,75 @@
+body {
+  background-color: #000;
+  color: orange;
+  text-align: center;
+  font-family: monospace;
+}
+
+.logo {
+  margin: 30px auto;
+  max-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 20px;
+  user-select: none;
+
+  &:hover > span:not(.par) {
+    translate: 0 -20px;
+    font-weight: bolder;
+    color: orange;
+  }
+}
+
+.par {
+  color: red;
+  margin-inline: 10px;
+  font-weight: bolder;
+}
+
+span {
+  flex: 1 1 50px;
+  margin: auto;
+  font-size: 1.5rem;
+  transition: 1s;
+  --delay: 100ms;
+  color: #fff;
+
+  &:nth-child(2) {
+    transition-delay: calc(var(--delay));
+  }
+  &:nth-child(3) {
+    transition-delay: calc(var(--delay) * 2);
+  }
+  &:nth-child(4) {
+    transition-delay: calc(var(--delay) * 3);
+  }
+  &:nth-child(5) {
+    transition-delay: calc(var(--delay) * 3);
+  }
+  &:nth-child(6) {
+    transition-delay: calc(var(--delay) * 4);
+  }
+  &:nth-child(7) {
+    transition-delay: calc(var(--delay) * 5);
+  }
+  &:nth-child(9) {
+    transition-delay: calc(var(--delay) * 6);
+  }
+  &:nth-child(10) {
+    transition-delay: calc(var(--delay) * 7);
+  }
+  &:nth-child(11) {
+    transition-delay: calc(var(--delay) * 8);
+  }
+  &:nth-child(12) {
+    transition-delay: calc(var(--delay) * 9);
+  }
+  &:nth-child(13) {
+    transition-delay: calc(var(--delay) * 10);
+  }
+  &:nth-child(14) {
+    transition-delay: calc(var(--delay) * 11);
+  }
+}

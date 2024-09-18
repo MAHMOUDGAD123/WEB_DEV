@@ -1,0 +1,164 @@
+#root {
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header {
+  margin-block-end: 30px;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+.logo.react-router:hover {
+  filter: drop-shadow(0 0 2em #ffa600a1);
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px;
+  width: 100%;
+
+  &.people-nav {
+    & > a.active {
+      background-color: royalblue;
+      color: #eee;
+    }
+  }
+
+  & > a {
+    padding: 10px;
+    background-color: #333;
+    color: orangered;
+    border-radius: 10px;
+
+    &.active {
+      background-color: orange;
+      color: #000;
+    }
+
+    &:hover {
+      color: orange;
+      background-color: #555;
+    }
+  }
+}
+
+.filter {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px;
+  border-radius: 100px;
+  background-color: #555;
+  font-weight: bolder;
+  transition: 300ms;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &.back {
+    margin-right: auto;
+
+    &::before {
+      content: "<";
+    }
+  }
+
+  &.forward {
+    margin-left: auto;
+
+    &::before {
+      content: ">";
+    }
+  }
+
+  &:hover {
+    background-color: #eee;
+    color: #000;
+  }
+}
+
+.items {
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  display: grid;
+  grid: none / repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+
+  & > .item {
+    height: 100px;
+    counter-increment: item;
+    display: grid;
+    border-radius: 10px;
+
+    &:before {
+      content: counter(item, decimal-leading-zero);
+      font-size: 2rem;
+      font-weight: bolder;
+      place-self: center;
+    }
+  }
+}
+
+.login-form {
+  width: 70%;
+  height: 100%;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  & > button {
+    border-radius: 100px;
+  }
+}
+
+input[type="text"] {
+  padding: 10px;
+  border-radius: 10px;
+  width: clamp(250px, 100%, 400px);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .logo.react {
+    animation: logo-spin infinite 20s linear;
+  }
+}

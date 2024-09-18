@@ -1,0 +1,152 @@
+.member-card {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 30px;
+  background-image: linear-gradient(transparent, #f4425015, #f4425020);
+  height: 100%;
+  border-radius: 20px;
+  padding: 30px;
+  flex-wrap: wrap;
+  white-space: nowrap;
+  container: card / inline-size;
+  position: relative;
+
+  & > .popup {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: inherit;
+    rotate: y 90deg;
+    transition: rotate 0.5s;
+
+    &.show {
+      rotate: none;
+      backdrop-filter: blur(2px);
+    }
+
+    & > .remove-confirmation {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      gap: 50px;
+      border-radius: 20px;
+      width: 200px;
+      font-size: 1.5rem;
+      color: light-dark(#000, #fff);
+      background-color: light-dark(#eee, #333);
+
+      & > .btns {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+
+        & > * {
+          padding: 10px;
+          border-radius: 10px;
+          transition: opacity 0.5s;
+          cursor: pointer;
+          background-color: #444;
+          width: 100px;
+
+          &:hover {
+            background-color: var(--main-color);
+          }
+        }
+      }
+    }
+  }
+
+  & > .remove {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 100px;
+    opacity: 0.5;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 1rem;
+    transition: 300ms;
+    background-color: #f00;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  & img {
+    max-width: 250px;
+    border-radius: 100%;
+  }
+
+  & span {
+    font-size: calc(0.8rem + 1vw);
+    background-color: var(--main-color);
+    border-radius: 100px;
+    padding: 9px;
+  }
+
+  & > :is(.avatar, .info) {
+    font-size: calc(0.9rem + 1vw);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & > * {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      width: 100%;
+
+      @container card (width <= 320px) {
+        justify-content: center;
+        flex-direction: column;
+      }
+    }
+  }
+
+  & > .avatar {
+    justify-content: center;
+    gap: 30px;
+
+    & > .name {
+      position: relative;
+      width: fit-content;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: transform 1s;
+        background-repeat: no-repeat;
+        background-image: linear-gradient(
+          transparent 0% 85%,
+          var(--main-color) 85%
+        );
+        padding: 20px;
+        transform: scaleX(0);
+        transform-origin: right;
+        translate: 0 5px;
+      }
+      &:hover::before {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+    }
+  }
+  & > .info {
+    align-items: flex-start;
+    gap: 50px;
+
+    @container card (width <= 320px) {
+      gap: 30px;
+    }
+  }
+}

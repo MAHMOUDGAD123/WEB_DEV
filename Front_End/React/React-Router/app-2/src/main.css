@@ -1,0 +1,35 @@
+:root {
+  color-scheme: dark;
+  color: light-dark(#242424, #eeeeee);
+  background-color: light-dark(#eeeeee, #242424);
+
+  font-family: monospace;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &.light {
+    color-scheme: light;
+  }
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  /* min-width: 320px; */
+  min-height: 100vh;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  scrollbar-width: none;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}

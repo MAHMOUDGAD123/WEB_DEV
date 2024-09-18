@@ -1,0 +1,28 @@
+.header {
+  width: 100%;
+  user-select: none;
+  padding: 10px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#logoImg {
+  width: 50px;
+  transition: 500ms;
+
+  &:hover {
+    filter: drop-shadow(0 0 25px var(--main-color));
+  }
+}
+
+#logoTitle {
+  font-size: 2rem;
+  transition: 500ms;
+  font-weight: bolder;
+
+  &:hover {
+    color: var(--main-color);
+  }
+}

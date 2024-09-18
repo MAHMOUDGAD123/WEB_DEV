@@ -1,0 +1,41 @@
+#themeSwitch {
+  --switch-d: 50px;
+  width: var(--switch-d);
+  height: calc(var(--switch-d) * 0.5);
+  background-color: #ccc;
+  border-radius: 1000px;
+  cursor: pointer;
+  transition: background-color 500ms;
+  z-index: 100;
+  top: 30px;
+  right: 0;
+  position: fixed;
+  rotate: z -90deg;
+
+  &.dark {
+    background-color: #555;
+
+    &::before {
+      background-image: url(../../assets/moon.svg);
+      left: 75%;
+    }
+  }
+
+  &::before {
+    content: "";
+    width: 40%;
+    aspect-ratio: 1;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    translate: -50% -50%;
+    border-radius: inherit;
+    background-image: url(../../assets/sun.svg);
+    background-color: var(--main-color);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    transition: background-image 500ms allow-discrete, left 500ms;
+    rotate: z 90deg;
+  }
+}

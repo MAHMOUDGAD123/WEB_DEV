@@ -1,0 +1,29 @@
+.members-page {
+  padding: 40px;
+  display: grid;
+  grid: none / repeat(auto-fill, minmax(min(100%, 100px), 1fr));
+  gap: 20px;
+  container: list / inline-size;
+
+  & > * {
+    border-radius: 100px;
+    filter: grayscale(1);
+    place-self: center;
+
+    & > img {
+      border-radius: inherit;
+    }
+
+    &:hover {
+      filter: grayscale(0);
+      scale: 1.2;
+      z-index: 1;
+    }
+
+    @container list (width <= 500px) {
+      &:hover {
+        scale: 1.1;
+      }
+    }
+  }
+}

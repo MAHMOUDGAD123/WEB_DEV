@@ -1,0 +1,25 @@
+.loading {
+  place-self: center;
+  margin-block-start: 100px;
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: r-rotate360 infinite linear 2s;
+  background-image: conic-gradient(
+    var(--main-color) 0,
+    transparent 120deg,
+    var(--main-color) 120deg,
+    transparent 240deg,
+    var(--main-color) 240deg,
+    transparent 360deg
+  );
+}
+
+@keyframes r-rotate360 {
+  to {
+    transform: rotate(-360deg);
+  }
+}

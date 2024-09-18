@@ -8,12 +8,12 @@ const O1 = {
     let i = 0;
     return {
       next() {
-        if (++i > 10) return { value: undefined, done: true, };
-        return { value: "😂", done: false, };
+        if (++i > 10) return { value: undefined, done: true };
+        return { value: "😂", done: false };
       },
       return() {
-        return { value: undefined, done: true, };
-      }
+        return { value: undefined, done: true };
+      },
     };
   },
 };
@@ -40,10 +40,10 @@ const O2 = {
 const arr = [1, 2, 3];
 
 const arr_like = {
-  "0": "Mahmoud",
-  "1": "26",
-  "2": "Male",
-  "3": "Mansoura",
+  0: "Mahmoud",
+  1: "26",
+  2: "Male",
+  3: "Mansoura",
 };
 
 Object.defineProperties(arr_like, {
@@ -58,7 +58,7 @@ Object.defineProperties(arr_like, {
     //   let i = -1;
     //   return {
     //     next() {
-    //       return ++i < arr_like.length 
+    //       return ++i < arr_like.length
     //         ? { value: arr_like[i], done: false, }
     //         : { value: undefined, done: true, };
     //     },
@@ -67,11 +67,22 @@ Object.defineProperties(arr_like, {
     value: function* () {
       let i = -1;
       while (++i < arr_like.length) yield arr_like[i];
-    }
+    },
   },
 });
 
 // log(...arr_like);
-log(arr.concat(arr_like));
+// log(arr.concat(arr_like));
+
+//---------------------------------------
+
+const iterable_iterator = {
+  *[Symbol.iterator]() {
+    yield* [1, 2, 3, 4, 5, 6];
+  },
+};
+
+// console.log(...iterable_iterator[Symbol.iterator]());
+// console.log(...iterable_iterator);
 
 //---------------------------------------
