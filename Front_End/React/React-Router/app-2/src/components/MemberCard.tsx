@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { server } from "../server/fake_server";
 import { useNavigate, useParams } from "react-router-dom";
+import "./member-card.css";
 
 const MemberCard = ({ data }) => {
   const popup = useRef() as { current: HTMLDivElement };
@@ -40,7 +41,15 @@ const MemberCard = ({ data }) => {
       ></div>
 
       <div className="avatar">
-        <img src={`../../assets/members/${data.name}.jpg`} alt={data.name} />
+        <div
+          className="img-wrapper"
+          onClick={(e) => {
+            const ele = e.currentTarget as HTMLDivElement;
+            ele.classList.toggle("show-up");
+          }}
+        >
+          <img src={`../../assets/members/${data.name}.jpg`} alt={data.name} />
+        </div>
         <h2 className="name">{data.name}</h2>
       </div>
 

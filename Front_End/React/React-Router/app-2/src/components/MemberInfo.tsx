@@ -3,7 +3,7 @@ import { MemberType } from "../server/fake_server";
 import { Suspense } from "react";
 import Loading from "./Loading";
 import MemberCard from "./MemberCard";
-import "./member-card.css";
+
 import FetchError from "./FetchError";
 
 const MemberInfo = () => {

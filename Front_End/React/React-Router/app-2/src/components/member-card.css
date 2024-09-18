@@ -113,7 +113,36 @@
 
   & > .avatar {
     justify-content: center;
+    align-items: center;
     gap: 30px;
+
+    & .img-wrapper {
+      width: fit-content;
+      border-radius: 100%;
+      place-content: center;
+      padding: 3px;
+
+      &:hover:not(.show-up) {
+        box-shadow: 0 0 0 5px var(--main-color);
+      }
+
+      &.show-up {
+        position: fixed;
+        inset: 0;
+        margin: auto;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(0 0 0 / 0.75);
+        place-content: center;
+        border-radius: 0;
+        z-index: 100;
+
+        & > img {
+          border-radius: inherit;
+          max-width: 500px;
+        }
+      }
+    }
 
     & > .name {
       position: relative;
