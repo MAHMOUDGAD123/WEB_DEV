@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Express.js</title>
+  </head>
+  <style>
+    *,
+    *::after,
+    *::before {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #222;
+      color: #fff;
+      font-family: monospace;
+      padding: 1.5em;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 10px;
+      font-size: 2rem;
+      font-weight: 900;
+      text-align: center;
+      transition: 300ms;
+
+      &:hover {
+        color: orange;
+        cursor: default;
+      }
+    }
+
+    main {
+      height: auto;
+      padding: 50px;
+      flex: 1;
+    }
+
+    #users {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .user {
+      padding: 40px;
+      border: 5px solid blueviolet;
+      width: 100%;
+      counter-increment: count;
+
+      & > legend {
+        font-size: 1.1rem;
+        font-weight: bolder;
+        padding: 5px 10px;
+        background-color: blueviolet;
+        border-radius: 10px;
+
+        &::before {
+          content: counter(count);
+        }
+      }
+    }
+
+    .records {
+      display: grid;
+      gap: 10px;
+    }
+
+    .record {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      border: 3px solid #777;
+      padding: 10px;
+
+      & > :nth-child(1) {
+        font-size: 1.1rem;
+        color: orangered;
+      }
+
+      & > :nth-child(2) {
+        font-size: 1.5rem;
+        color: darkcyan;
+      }
+    }
+  </style>
+
+  <body>
+    <header>Express</header>
+    <main>
+      <div id="users"><%- template %></div>
+    </main>
+  </body>
+</html>

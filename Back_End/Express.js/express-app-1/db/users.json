@@ -1,0 +1,9 @@
+{
+  "users": [
+    { "id": 1, "username": "MG", "pin": "4283", "admin": true },
+    { "id": 2, "username": "Mera", "pin": "1234", "admin": false },
+    { "id": 3, "username": "Reem", "pin": "5678", "admin": false },
+    { "id": 4, "username": "Mohammed", "pin": "6789", "admin": false },
+    { "id": 5, "username": "Amal", "pin": "2024", "admin": false }
+  ]
+}
