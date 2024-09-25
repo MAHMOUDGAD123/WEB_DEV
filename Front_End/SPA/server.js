@@ -1,14 +1,16 @@
-const express = require("express");
-const path = require("path");
-require("dotenv").config();
+import express, { static as _static } from "express";
+import path from "path";
+import dotenv from "dotenv";
 
-const port = process.env.PORT;
+dotenv.config();
+const port = process.env.PORT || 3000;
 const app = express();
+const __dirname = import.meta.dirname;
 
-app.use(express.static(path.resolve(__dirname)));
+app.use(_static(path.resolve(__dirname)));
 
 app.get("/*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "index.html"));
+  res.sendFile(path.resolve(__dirname, "index.html")).status(200);
 });
 
 app.listen(port, () => {

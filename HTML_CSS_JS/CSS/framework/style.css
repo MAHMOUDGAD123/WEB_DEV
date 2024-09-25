@@ -7,6 +7,8 @@
 
     font-weight: 300 700;
     font-display: swap;
+    ascent-override: 120%;
+    descent-override: 50%;
   }
 
   html {
@@ -265,7 +267,7 @@
     font-weight: bold;
     font-size: 30px;
     border: 5px solid;
-    padding: 8px 10px 0;
+    padding: 3px 10px;
     letter-spacing: 2px;
     text-align: center;
     width: fit-content;

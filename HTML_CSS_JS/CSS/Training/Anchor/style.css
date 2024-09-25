@@ -1,0 +1,66 @@
+body {
+  height: 1000px;
+}
+
+.flex-cntr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.anchor-wrapper {
+  position: relative;
+  contain: layout;
+  background-color: #555;
+  width: 100%;
+  height: 700px;
+  font-size: 3rem;
+  text-align: left;
+  padding: 0 25px;
+}
+
+.anchor {
+  anchor-name: --anchor1, --anchor2, --anchor3, --anchor4;
+  background-color: orange;
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: 200px;
+  aspect-ratio: 1;
+  text-align: left;
+  padding: 10px;
+}
+
+.anchored {
+  width: calc(anchor-size(width) * 0.5);
+  height: calc(anchor-size(height) * 0.5);
+  position: fixed;
+  background-color: orangered;
+  /* width: 100px; */
+  aspect-ratio: 1;
+  font-size: 1.5rem;
+
+  &._1 {
+    position-anchor: --anchor1;
+    bottom: anchor(top);
+    right: anchor(left);
+  }
+  &._2 {
+    position-anchor: --anchor2;
+    bottom: anchor(top);
+    left: anchor(right);
+  }
+  &._3 {
+    position-anchor: --anchor3;
+    top: anchor(bottom);
+    right: anchor(left);
+  }
+  &._4 {
+    position-anchor: --anchor4;
+    position-area: end;
+  }
+  &._5 {
+    position-anchor: --anchor4;
+    place-self: anchor-center;
+  }
+}

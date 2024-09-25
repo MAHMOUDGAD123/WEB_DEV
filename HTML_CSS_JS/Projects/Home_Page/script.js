@@ -135,6 +135,8 @@ const backup = [
   ["react", "https://react.dev/"],
   ["vite", "https://vitejs.dev/"],
   ["typescript", "https://www.typescriptlang.org/docs/"],
+  ["reactrouter", "https://reactrouter.com/en/main"],
+  ["remix", "https://remix.run/"],
   ["terminal", "https://ss64.com/"],
   ["programmingadvices", "https://programmingadvices.com/"],
   ["programiz", "https://www.programiz.com/"],

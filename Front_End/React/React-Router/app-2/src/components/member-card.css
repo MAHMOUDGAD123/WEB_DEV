@@ -121,6 +121,7 @@
       border-radius: 100%;
       place-content: center;
       padding: 3px;
+      transition: box-shadow 300ms;
 
       &:hover:not(.show-up) {
         box-shadow: 0 0 0 5px var(--main-color);

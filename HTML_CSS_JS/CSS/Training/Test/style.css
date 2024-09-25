@@ -378,12 +378,12 @@
     }
 
     & > :nth-child(1) {
-      left: 8%;
+      /* left: 8%; */
       background: #7b3f61;
     }
 
     & > :nth-child(2) {
-      right: 8%;
+      /* right: 8%; */
       background: #e78381;
 
       &::before {

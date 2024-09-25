@@ -81,6 +81,9 @@ body {
 
   & > .wrapper {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     & > .remove-icon {
       width: 12px;
