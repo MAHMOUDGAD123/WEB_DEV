@@ -157,6 +157,7 @@ const backup = [
   ["y2mate", "https://en.y2mate.is/v84/"],
   ["savefrom", "https://en1.savefrom.net/2ol/"],
   ["fontawesome", "https://fontawesome.com/"],
+  ["ionicons", "https://ionic.io/ionicons"],
   ["flaticon", "https://www.flaticon.com/"],
   ["iconscout", "https://iconscout.com/"],
   ["alphacoders", "https://alphacoders.com/"],
@@ -248,6 +249,7 @@ const createNewLinkForm = () => {
   hrefIn.name = "linkhref";
   hrefIn.id = "linkhref";
   hrefIn.placeholder = "Enter The Link Here";
+  hrefIn.autofocus = true;
   nameIn.type = "text";
   nameIn.name = "linkname";
   nameIn.id = "linkname";

@@ -52,7 +52,7 @@
           border-radius: 10px;
           transition: opacity 0.5s;
           cursor: pointer;
-          background-color: #444;
+          background-color: light-dark(#ddd, #555);
           width: 100px;
 
           &:hover {
@@ -140,7 +140,7 @@
 
         & > img {
           border-radius: inherit;
-          max-width: 500px;
+          max-width: 100%;
         }
       }
     }

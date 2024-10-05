@@ -9,7 +9,7 @@ const clock_hr = document.querySelector(".CLC > .hr");
 const clock_min = document.querySelector(".CLC > .min");
 const clock_sec = document.querySelector(".CLC > .sec");
 
-const __to = "Dec 31, 2024 00:00:00";
+const __to = "Nov 31, 2024 00:00:00";
 const __date = new Date(__to).getTime();
 
 const expire_date = document.querySelector(".CD > #title");

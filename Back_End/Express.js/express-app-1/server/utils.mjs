@@ -1,5 +1,4 @@
 import { read_data } from "../db/users.mjs";
-import bcrypt from "bcrypt";
 
 /**
  * get the user data using the id

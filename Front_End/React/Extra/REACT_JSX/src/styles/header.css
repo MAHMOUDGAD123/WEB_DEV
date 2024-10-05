@@ -1,0 +1,26 @@
+header {
+  margin-block-end: 30px;
+  text-align: center;
+  display: block;
+}
+
+#logo {
+  width: 65px;
+
+  &:hover {
+    filter: drop-shadow(0 0 15px #49b8e870);
+    transition: filter 0.5s;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  #logo {
+    animation: spin 10s infinite linear;
+  }
+}
+
+@keyframes spin {
+  to {
+    rotate: 1turn;
+  }
+}
