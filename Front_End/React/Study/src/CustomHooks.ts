@@ -19,7 +19,7 @@ const useState_LS = <T>(key: string, defaultValue: T): useState_LSType<T> => {
 
   useEffect(() => {
     localStorage.setItem(key, JSON.stringify(state));
-  }, [state]);
+  }, [state, key]);
 
   return [state, setState];
 };

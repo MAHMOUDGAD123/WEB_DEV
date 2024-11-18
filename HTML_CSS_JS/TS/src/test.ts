@@ -578,3 +578,28 @@ const obj: { [i: objKey]: any } = {
   [Symbol.for("3")]: 123n,
 };
 log(obj);
+
+// ============================================================================
+// advanced types
+
+const f1 = () => 10;
+const f2 = () => "10";
+
+type T1 = ReturnType<typeof f1>; // number
+type T2 = ReturnType<typeof f2>; // string
+
+// custom - Prettify<T>
+type User = {
+  name: string;
+  age: number;
+};
+
+type Admin = User & {
+  hasAccess: boolean;
+};
+
+type Prettify<T> = {
+  [k in keyof T]: T[k];
+};
+
+type PrettifiedAdmin = Prettify<Admin>;
