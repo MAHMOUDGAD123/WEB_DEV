@@ -32,3 +32,8 @@ app.get("/", (req, res) => {
   const msg = "Welcome to our Express app 😊";
   res.render("message", { msg });
 });
+
+app.get("*", (_req, res) => {
+  const msg = "404 | Not Found";
+  res.render("message", { msg });
+});
